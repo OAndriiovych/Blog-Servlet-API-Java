@@ -43,9 +43,6 @@ public class Users {
         return id_user;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
 
     public String getLogin() {
         return login;
@@ -65,10 +62,6 @@ public class Users {
 
     public Date getDate_of_reg() {
         return date_of_reg;
-    }
-
-    public void setDate_of_reg(Date date_of_reg) {
-        this.date_of_reg = date_of_reg;
     }
 
     public Roles getUser_role() {
