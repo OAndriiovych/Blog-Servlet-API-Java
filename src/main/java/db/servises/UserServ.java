@@ -17,12 +17,12 @@ public class UserServ extends Connection implements UsersDAO {
     public void add(Users users) throws SQLException {
 
         String s="'user'";
-//       if(users.getUser_role()==Roles.ADMIN){
-//            s ="'admin'";
-//        }
-//        else if(users.getUser_role()==Roles.MODERATOR){
-//           s ="'moderator'";
-//       }
+       if(users.getUser_role()==Roles.ADMIN){
+            s ="'admin'";
+        }
+        else if(users.getUser_role()==Roles.MODERATOR){
+           s ="'moderator'";
+       }
         String sql="INSERT INTO users (login, passw,user_role) VALUES (?,?,"+s+")";
 
 
@@ -32,8 +32,6 @@ public class UserServ extends Connection implements UsersDAO {
 
         prpStat.executeUpdate();
         prpStat.close();
-
-
     }
 
     public List<Users> getAll() throws SQLException {
@@ -57,21 +55,61 @@ public class UserServ extends Connection implements UsersDAO {
         Statement stmt = connection.createStatement();
         String sql = "select * from users where id_user = " + id;
         ResultSet rs = stmt.executeQuery(sql);
+
         rs.next();
         Users users = new Users(rs.getInt("id_user"),
                 rs.getString("login"),
                 rs.getString("passw"),
                 rs.getDate("date_of_reg"),
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
-
         rs.close();
         stmt.close();
         return users;
     }
+
+    public Users getUser(Users users) throws SQLException {
+
+        Statement stmt = connection.createStatement();
+        String sql = "select * from users where login = '"+users.getLogin()+"',passw='"+ users.getPassw()+"'";
+        ResultSet rs = stmt.executeQuery(sql);
+
+        rs.next();
+        users = new Users(rs.getInt("id_user"),
+                rs.getString("login"),
+                rs.getString("passw"),
+                rs.getDate("date_of_reg"),
+                Roles.valueOf(rs.getString("user_role").toUpperCase()));
+        rs.close();
+        stmt.close();
+        return users;
+    }
+
+    public Integer getID(String s) throws SQLException {
+        int id=-1;
+        String sql = "select id_user from users where login = '" + s+"'";
+
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        if(rs.next()) {
+            id = rs.getInt("id_user");
+        }
+        rs.close();
+        stmt.close();
+        return id;
+    }
+
     public boolean isUser(String s) throws SQLException {
-
         String sql = "select * from users where login = '" + s+"'";
+        return is(sql);
+    }
 
+    public boolean isUser(int id) throws SQLException {
+        String sql = "select * from users where id_user = " + id;
+        return is(sql);
+    }
+
+    private boolean is(String sql) throws SQLException {
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         boolean b = rs.next();
@@ -102,6 +140,4 @@ public class UserServ extends Connection implements UsersDAO {
             }
         }
     }
-
-
 }

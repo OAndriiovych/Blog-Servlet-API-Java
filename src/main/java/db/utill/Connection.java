@@ -1,16 +1,14 @@
 package db.utill;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.sql.*;
-import java.util.Arrays;
 import java.util.Properties;
 
 public class Connection {
 
-    private static String wayToProperty = "d:/SS/new/src/main/resources/config_db.properties";
+    private static String wayToProperty = "/src/main/resources/config_db.properties";
 
     protected static java.sql.Connection getConnection() {
         Properties property = new Properties();
