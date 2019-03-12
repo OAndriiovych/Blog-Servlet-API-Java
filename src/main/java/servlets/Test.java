@@ -12,9 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @WebServlet("/gotohell")
-public class Test extends HttpServlet {
+public class Test extends HttpServlet  {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         java.sql.Connection conn = null;
         try {
             Class.forName("org.postgresql.Driver");
@@ -39,4 +39,7 @@ public class Test extends HttpServlet {
     }
 
 
+    public void run(Thread thread) {
+
+    }
 }

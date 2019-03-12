@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class Connection {
 
-    private static String wayToProperty = "/src/main/resources/config_db.properties";
+    private static String wayToProperty = "d:/SS/blog/src/main/resources/config_db.properties";
 
     protected static java.sql.Connection getConnection() {
         Properties property = new Properties();

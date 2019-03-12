@@ -23,12 +23,12 @@ public class UserServ extends Connection implements UsersDAO {
         else if(users.getUser_role()==Roles.MODERATOR){
            s ="'moderator'";
        }
-        String sql="INSERT INTO users (login, passw,user_role) VALUES (?,?,"+s+")";
-
+        String sql="INSERT INTO users (login, passw,lastname,user_role) VALUES (?,?,?,"+s+")";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, users.getLogin());
         prpStat.setString(2, users.getPassw());
+        prpStat.setString(3, users.getLastname());
 
         prpStat.executeUpdate();
         prpStat.close();
@@ -42,6 +42,7 @@ public class UserServ extends Connection implements UsersDAO {
             list.add(new Users(rs.getInt("id_user"),
                     rs.getString("login"),
                     rs.getString("passw"),
+                    rs.getString("lastname"),
                     rs.getDate("date_of_reg"),
                     Roles.valueOf(rs.getString("user_role").toUpperCase())));
         }
@@ -60,6 +61,7 @@ public class UserServ extends Connection implements UsersDAO {
         Users users = new Users(rs.getInt("id_user"),
                 rs.getString("login"),
                 rs.getString("passw"),
+                rs.getString("lastname"),
                 rs.getDate("date_of_reg"),
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
@@ -70,13 +72,14 @@ public class UserServ extends Connection implements UsersDAO {
     public Users getUser(Users users) throws SQLException {
 
         Statement stmt = connection.createStatement();
-        String sql = "select * from users where login = '"+users.getLogin()+"',passw='"+ users.getPassw()+"'";
+        String sql = "select * from users where login = '"+users.getLogin()+"' and passw='"+ users.getPassw()+"';";
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
         users = new Users(rs.getInt("id_user"),
                 rs.getString("login"),
                 rs.getString("passw"),
+                rs.getString("lastname"),
                 rs.getDate("date_of_reg"),
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
@@ -118,12 +121,24 @@ public class UserServ extends Connection implements UsersDAO {
         stmt.close();
         return b;
     }
-
+    /**have to do*/
     public void update(Users users) throws SQLException {
 
     }
-
+    /**have to do*/
     public void delete(Users users) throws SQLException {
+
+        if(users.getId_user()==0){
+            users=getUser(users);
+        }
+        String sql= "DELETE FROM users WHERE id_user = ? ;";
+        PreparedStatement prpStat=connection.prepareStatement(sql);
+        prpStat.setInt(1, users.getId_user());
+
+        prpStat.executeUpdate();
+        prpStat.close();
+    }
+    private void checkID(Users users){
 
     }
 

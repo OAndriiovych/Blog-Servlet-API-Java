@@ -1,23 +1,32 @@
 package db.database;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Users {
     private int id_user;
     private String login;
     private String passw;
+    private String lastname;
     private Date date_of_reg;
     private Roles user_role;
 
     @Override
-    public String toString() {
-        return "Users{" +
-                "id_user=" + id_user +
-                ", login='" + login + '\'' +
-                ", passw='" + passw + '\'' +
-                ", date_of_reg=" + date_of_reg +
-                ", user_role=" + user_role +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Users users = (Users) o;
+        return id_user == users.id_user &&
+                Objects.equals(login, users.login) &&
+                Objects.equals(passw, users.passw) &&
+                Objects.equals(lastname, users.lastname) &&
+                Objects.equals(date_of_reg, users.date_of_reg) &&
+                user_role == users.user_role;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_user, login, passw, lastname, date_of_reg, user_role);
     }
 
     public Users(String login, String passw) {
@@ -25,16 +34,32 @@ public class Users {
         this.passw = passw;
     }
 
-    public Users(String login, String passw, Roles user_role) {
+    public Users(String login, String passw, String lastname) {
         this.login = login;
         this.passw = passw;
+        this.lastname = lastname;
+    }
+
+    public Users(String login, String passw,String lastname, Roles user_role) {
+        this.login = login;
+        this.passw = passw;
+        this.lastname = lastname;
         this.user_role = user_role;
     }
 
-    public Users(int id_user, String login, String passw, Date date_of_reg, Roles user_role) {
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Users(int id_user, String login, String passw, String lastname, Date date_of_reg, Roles user_role) {
         this.id_user = id_user;
         this.login = login;
         this.passw = passw;
+        this.lastname = lastname;
         this.date_of_reg = date_of_reg;
         this.user_role = user_role;
     }

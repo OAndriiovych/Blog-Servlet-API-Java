@@ -7,179 +7,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="211ac29a-875f-45c3-b908-62854dcc20b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/database/Posts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/database/Posts.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/servises/UserServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/servises/UserServ.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/utill/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/db/utill/Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/ServletTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/account.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/blog-single.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/form of registration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/BaseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Logout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Logout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Registration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/WEB-INF/classes/servlets/account/Registration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/about.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/have.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/have.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/success.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/new_war_exploded/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/new_war_exploded/success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/database/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/database/Posts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/database/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/database/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/db/servises/UserServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/servises/UserServ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/db/utill/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/utill/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/account/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/account/Logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/Logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/account/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/Registration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config_db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config_db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/account.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/blog-single.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/form of registration.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/css/success.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/backup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/Flaticon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/Flaticon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/Flaticon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/Flaticon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/_flaticon.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/flaticon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/font/flaticon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/flaticon/license/license.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/fontawesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/cheatsheet.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/css/ionicons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/css/ionicons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/fonts/ionicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/fonts/ionicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/fonts/ionicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/fonts/ionicons/fonts/ionicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/have.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/big_image_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/big_image_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/img_9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/person_testimonial_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/images/photography.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/jquery-3.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/jquery-migrate-3.0.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/jquery.stellar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/jquery.waypoints.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/prepros-6.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_button-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_close.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_code.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_images.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_jumbotron.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_media.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_print.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_root.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_transitions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/bootstrap-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/bootstrap-reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_background-variant.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_border-radius.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_box-shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_caret.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_grid-framework.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_lists.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_nav-divider.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_reset-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_resize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_size.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_table-row.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_text-emphasis.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_text-hide.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_text-truncate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/mixins/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_align.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_background.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_borders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_display.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_embed.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_flex.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_position.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_screenreaders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_shadows.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_sizing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_spacing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/scss/utilities/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wordify/success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/have.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/have.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/success.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -252,24 +117,35 @@
     <session id="-343932912">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1228" />
+          <entry key="JAVA" value="3502" />
+          <entry key="JSP" value="420" />
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Properties" value="7" />
+          <entry key="Properties" value="11" />
+          <entry key="SQL" value="41" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="23" />
-          <entry key="Properties" value="2" />
+          <entry key="CLASS" value="18" />
+          <entry key="JAVA" value="76" />
+          <entry key="JSP" value="10" />
+          <entry key="Properties" value="4" />
           <entry key="SCSS" value="1" />
-          <entry key="SQL" value="2" />
+          <entry key="SQL" value="9" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -277,90 +153,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="20" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Logout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Registration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config_db.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/db/utill/Connection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/servises/UserServ.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+            <state relative-caret-position="561">
+              <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
               <folding>
                 <element signature="method#add#0;class#UserServ#0" />
-                <element signature="method#getAll#0;class#UserServ#0" />
                 <element signature="method#getByID#0;class#UserServ#0" />
                 <element signature="method#getUser#0;class#UserServ#0" />
-                <element signature="method#getID#0;class#UserServ#0" />
-                <element signature="method#isUser#1;class#UserServ#0" />
                 <element signature="method#update#0;class#UserServ#0" />
-                <element signature="method#delete#0;class#UserServ#0" />
-                <element signature="e#2942#2943#0" expanded="true" />
-                <element signature="e#2986#2987#0" expanded="true" />
                 <element signature="method#closeConnection#0;class#UserServ#0" />
               </folding>
             </state>
@@ -368,10 +169,61 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/UserServTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1445">
+              <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/GetAllMethodTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sql.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="10" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/db/database/Users.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#816#817#0" expanded="true" />
+                <element signature="e#908#909#0" expanded="true" />
+                <element signature="e#1924#1925#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -399,10 +251,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/db/database/Users.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/Test.java" />
         <option value="$PROJECT_DIR$/web/account.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/account.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/ServletTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/utill/AbstractConnection.java" />
@@ -410,14 +259,33 @@
         <option value="$PROJECT_DIR$/src/main/java/servlets/BaseServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/Logout.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/db/servises/UserServ.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Logout.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Login.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config_db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/db/utill/Connection.java" />
+        <option value="$PROJECT_DIR$/web/error.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/testjsp.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/PostTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/PostTest.java" />
+        <option value="$PROJECT_DIR$/web/testjsp.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Calculator.java" />
+        <option value="$PROJECT_DIR$/web/test.jsp" />
+        <option value="$PROJECT_DIR$/web/getpost.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Logout.java" />
+        <option value="$PROJECT_DIR$/web/main.jsp" />
+        <option value="$PROJECT_DIR$/sql.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Registration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/database/Posts.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/account/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/db/servises/PostServ.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/database/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/servises/UserServ.java" />
+        <option value="$PROJECT_DIR$/src/test/java/UserServTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/GetAllMethodTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Main.java" />
       </list>
     </option>
   </component>
@@ -471,6 +339,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -512,7 +381,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="utill" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
@@ -520,41 +389,65 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="servises" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552136588630" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/apache-tomcat-8.5.38/lib/jsp-api.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552392584985" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SS\new\web\WEB-INF\lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SS\blog\web" />
       <recent name="D:\SS\new\web\WEB-INF" />
       <recent name="D:\SS\new\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SS\blog\web" />
+      <recent name="D:\SS\new\web\WEB-INF\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -569,7 +462,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.reg">
+  <component name="RunManager" selected="JUnit.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="blog" />
@@ -577,8 +470,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserServTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserServTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.38" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <deployment>
         <artifact name="new:war exploded">
           <settings>
@@ -644,6 +565,79 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="new:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="acc" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/account" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="new:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_blog_3" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="34728" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
         <option name="BuildArtifacts" enabled="true">
           <artifact name="new:war exploded" />
         </option>
@@ -723,12 +717,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Tomcat Server.acc" />
       <item itemvalue="Tomcat Server.reg" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.38" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.UserServTest" />
+      <item itemvalue="JUnit.UserServTest.getAll" />
+      <item itemvalue="JUnit.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Main" />
+        <item itemvalue="JUnit.UserServTest" />
+        <item itemvalue="JUnit.UserServTest.getAll" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -745,18 +746,55 @@
       <updated>1552042223053</updated>
       <workItem from="1552042228038" duration="6277000" />
       <workItem from="1552049970042" duration="10180000" />
-      <workItem from="1552113289449" duration="18763000" />
+      <workItem from="1552113289449" duration="19260000" />
+      <workItem from="1552209926161" duration="1195000" />
+      <workItem from="1552291598236" duration="18628000" />
+      <workItem from="1552372160561" duration="5895000" />
+      <workItem from="1552383149013" duration="9353000" />
+      <workItem from="1552392642181" duration="20000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="UserServTest_getAll - 2019.03.12 at 14h 45m 54s.xml">
+      <configuration name="UserServTest.getAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 46m 12s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 46m 46s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 52m 26s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 54m 27s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 55m 24s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 56m 42s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 14h 56m 47s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServTest - 2019.03.12 at 15h 01m 44s.xml">
+      <configuration name="UserServTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Main - 2019.03.12 at 15h 09m 28s.xml">
+      <configuration name="Main" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35220000" />
+    <option name="totallyTimeSpent" value="70808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="-7" width="1472" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25991502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20184135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -766,8 +804,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26174498" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4885906" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28993288" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43087247" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -784,13 +822,13 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3293201" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.16855524" />
       <window_info anchor="right" id="Database" order="6" weight="0.3293201" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25991502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1990085" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -800,8 +838,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2147651" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28993288" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43087247" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -818,7 +856,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3293201" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.16855524" />
       <window_info anchor="right" id="Database" order="6" weight="0.3293201" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -834,18 +872,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/servlets/Test.java</url>
-          <line>17</line>
+          <url>file://$PROJECT_DIR$/src/main/java/servlets/account/Login.java</url>
+          <line>19</line>
           <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/servlets/account/Logout.java</url>
-          <line>15</line>
-          <properties class="servlets.account.Logout" method="doGet">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="39" />
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -858,90 +888,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/index.html" />
-    <entry file="jar://C:/Program Files/Java/postgresql-42.2.5.jar!/org/postgresql/core/QueryExecutorBase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/postgresql-42.2.5.jar!/org/postgresql/jdbc/PgConnection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="294" selection-start-line="294" selection-end-line="294" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7287b047-0b12-4b56-9bdb-9c48b30b6daf/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/DAO/UsersDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/database/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/account.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="25" selection-start-line="21" selection-start-column="47" selection-end-line="23" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Blog.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/wordify/scss/_code.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/wordify/scss/_code.scss" />
     <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/StringLatin1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -953,14 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="692" selection-start-line="692" selection-end-line="692" />
-          <folding>
-            <element signature="e#24535#24536#0" expanded="true" />
-            <element signature="e#24581#24582#0" expanded="true" />
-            <element signature="e#129105#129106#0" expanded="true" />
-            <element signature="e#129159#129160#0" expanded="true" />
-            <element signature="e#129243#129244#0" expanded="true" />
-            <element signature="e#129300#129301#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -982,11 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="9900" selection-start-line="9900" selection-end-line="9900" />
-          <folding>
-            <element signature="e#391428#391429#0" expanded="true" />
-            <element signature="e#393716#393717#0" expanded="true" />
-            <element signature="e#393790#393791#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -994,9 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="e#1710#1711#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1004,9 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="1122" selection-start-line="1122" selection-end-line="1122" />
-          <folding>
-            <element signature="e#43691#43692#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,24 +959,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/utill/InterfaceConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/utill/InterfaceConnection.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="833" selection-start-line="833" selection-end-line="833" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -1059,77 +974,317 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/servises/UserServ.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/io/PrintStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding>
-            <element signature="method#add#0;class#UserServ#0" />
-            <element signature="method#getAll#0;class#UserServ#0" />
-            <element signature="method#getByID#0;class#UserServ#0" />
-            <element signature="method#getUser#0;class#UserServ#0" />
-            <element signature="method#getID#0;class#UserServ#0" />
-            <element signature="method#isUser#1;class#UserServ#0" />
-            <element signature="method#update#0;class#UserServ#0" />
-            <element signature="method#delete#0;class#UserServ#0" />
-            <element signature="e#2942#2943#0" expanded="true" />
-            <element signature="e#2986#2987#0" expanded="true" />
-            <element signature="method#closeConnection#0;class#UserServ#0" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="744" selection-start-line="744" selection-end-line="744" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Documents/apache-tomcat-8.5.38/lib/servlet-api.jar!/javax/servlet/http/HttpSession.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/util/Collections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="5262" selection-start-line="5262" selection-end-line="5262" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/PostTest.java" />
+    <entry file="jar://C:/Program Files/Java/postgresql-42.2.5.jar!/org/postgresql/jdbc/PgPreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/postgresql-42.2.5.jar!/org/postgresql/jdbc/PgResultSet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="1822" selection-start-line="1822" selection-end-line="1822" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/DAO/PostsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config_db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/getpost.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" selection-start-line="19" selection-end-line="26" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Logout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="181">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/DAO/UsersDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="146" column="46" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/database/Posts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/BaseServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="245">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/servises/PostServ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#add#0;class#PostServ#0" />
+            <element signature="method#getAll#0;class#PostServ#0" />
+            <element signature="method#getByID#0;class#PostServ#0" />
+            <element signature="method#last3#0;class#PostServ#0" />
+            <element signature="method#last#0;class#PostServ#0" />
+            <element signature="method#update#0;class#PostServ#0" />
+            <element signature="method#delete#0;class#PostServ#0" />
+            <element signature="method#closeConnection#0;class#PostServ#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="150">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config_db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/db/utill/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/postgresql-42.2.5.jar!/org/postgresql/jdbc/PgConnection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/RunAfters.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/reflect/InvocationTargetException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#6484#6648#0" expanded="true" />
+            <element signature="e#6647#6648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/servises/UserServ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+          <folding>
+            <element signature="method#add#0;class#UserServ#0" />
+            <element signature="method#getByID#0;class#UserServ#0" />
+            <element signature="method#getUser#0;class#UserServ#0" />
+            <element signature="method#update#0;class#UserServ#0" />
+            <element signature="method#closeConnection#0;class#UserServ#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/UserServTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/GetAllMethodTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/database/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
