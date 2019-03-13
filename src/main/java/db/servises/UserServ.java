@@ -1,6 +1,5 @@
 package db.servises;
 
-
 import db.DAO.UsersDAO;
 import db.database.Roles;
 import db.database.Users;
@@ -16,14 +15,13 @@ public class UserServ extends Connection implements UsersDAO {
 
     public void add(Users users) throws SQLException {
 
-        String s="'user'";
-       if(users.getUser_role()==Roles.ADMIN){
-            s ="'admin'";
+        String s = "'user'";
+        if (users.getUser_role() == Roles.ADMIN) {
+            s = "'admin'";
+        } else if (users.getUser_role() == Roles.MODERATOR) {
+            s = "'moderator'";
         }
-        else if(users.getUser_role()==Roles.MODERATOR){
-           s ="'moderator'";
-       }
-        String sql="INSERT INTO users (login, passw,lastname,user_role) VALUES (?,?,?,"+s+")";
+        String sql = "INSERT INTO users (login, passw,lastname,user_role) VALUES (?,?,?," + s + ")";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, users.getLogin());
@@ -72,7 +70,7 @@ public class UserServ extends Connection implements UsersDAO {
     public Users getUser(Users users) throws SQLException {
 
         Statement stmt = connection.createStatement();
-        String sql = "select * from users where login = '"+users.getLogin()+"' and passw='"+ users.getPassw()+"';";
+        String sql = "select * from users where login = '" + users.getLogin() + "' and passw='" + users.getPassw() + "';";
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
@@ -88,13 +86,13 @@ public class UserServ extends Connection implements UsersDAO {
     }
 
     public Integer getID(String s) throws SQLException {
-        int id=-1;
-        String sql = "select id_user from users where login = '" + s+"'";
+        int id = -1;
+        String sql = "select id_user from users where login = '" + s + "';";
 
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
 
-        if(rs.next()) {
+        if (rs.next()) {
             id = rs.getInt("id_user");
         }
         rs.close();
@@ -103,7 +101,7 @@ public class UserServ extends Connection implements UsersDAO {
     }
 
     public boolean isUser(String s) throws SQLException {
-        String sql = "select * from users where login = '" + s+"'";
+        String sql = "select * from users where login = '" + s + "'";
         return is(sql);
     }
 
@@ -121,28 +119,43 @@ public class UserServ extends Connection implements UsersDAO {
         stmt.close();
         return b;
     }
-    /**have to do*/
-    public void update(Users users) throws SQLException {
 
+    public void update(int id, Users users) throws SQLException {
+        String s = "'user'";
+        if (users.getUser_role() == Roles.ADMIN) {
+            s = "'admin'";
+        } else if (users.getUser_role() == Roles.MODERATOR) {
+            s = "'moderator'";
+        }
+        String sql = "UPDATE users set login=?,passw=?,lastname=?,user_role= " + s + " where id_user = " + id + ";";
+        PreparedStatement prpStat = connection.prepareStatement(sql);
+        prpStat.setString(1, users.getLogin());
+        prpStat.setString(2, users.getPassw());
+        prpStat.setString(3, users.getLastname());
+
+
+         prpStat.executeUpdate();
+        prpStat.close();
     }
-    /**have to do*/
+
     public void delete(Users users) throws SQLException {
 
-        if(users.getId_user()==0){
-            users=getUser(users);
+        if (users.getId_user() == 0) {
+            users = getUser(users);
         }
-        String sql= "DELETE FROM users WHERE id_user = ? ;";
-        PreparedStatement prpStat=connection.prepareStatement(sql);
+        String sql = "DELETE FROM users WHERE id_user = ? ;";
+        PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setInt(1, users.getId_user());
 
         prpStat.executeUpdate();
         prpStat.close();
     }
-    private void checkID(Users users){
+
+    private void checkID(Users users) {
 
     }
 
-    public void connect(){
+    public void connect() {
         connection = getConnection();
     }
 

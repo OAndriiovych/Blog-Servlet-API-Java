@@ -5,6 +5,7 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -62,6 +63,12 @@ public class UserServTest {
     }
 
     @Test
+    public void getIDTest() throws SQLException {
+        int id =userServ.getID(user.getLogin());
+        assertEquals(id,userServ.getUser(user).getId_user());
+    }
+
+    @Test
     public void getByIdTest() throws SQLException {
         Users cloneUser = userServ.getUser(user);
         Users cloneUser2 = userServ.getByID(cloneUser.getId_user());
@@ -85,6 +92,22 @@ public class UserServTest {
     @Test
     public void isNotUserId() throws SQLException {
         assertTrue(!userServ.isUser(-1));
+    }
+
+    @Test
+    public void updateTest() throws SQLException {
+        Users userClone = new Users(user.getId_user(),
+                "lool",
+                "pass",
+                "last",
+                new java.sql.Date(System.currentTimeMillis()),
+                Roles.USER);
+        int id=userServ.getID(user.getLogin());
+        userServ.update(id,userClone);
+        Users newU = userServ.getByID(id);
+        equalsUsers(userServ.getByID(id),userClone);
+        //assertEquals(userClone,userServ.getByID(id));
+        userServ.update(id,user);
     }
 
      void addTest() throws SQLException {
