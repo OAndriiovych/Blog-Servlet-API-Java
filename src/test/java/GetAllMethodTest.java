@@ -1,7 +1,6 @@
-import db.database.Users;
+import db.database.User;
 import db.servises.UserServ;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.sql.SQLException;
@@ -18,15 +17,15 @@ public class GetAllMethodTest {
     public void getAll() throws SQLException {
         UserServ userServ = new UserServ();
         userServ.connect();
-        List<Users> usersList=UserServTest.numbers();
-        for(Users u:usersList) {
+        List<User> usersList=UserServTest.numbers();
+        for(User u:usersList) {
             userServ.add(u);
         }
-        List<Users> usersListClone = userServ.getAll();
+        List<User> usersListClone = userServ.getAll();
         for(int i = 0;i<usersListClone.size();i++) {
             UserServTest.equalsUsers(usersList.get(i), usersListClone.get(i));
         }
-        for(Users u:usersList) {
+        for(User u:usersList) {
             userServ.delete(u);
         }
         userServ.closeConnection();

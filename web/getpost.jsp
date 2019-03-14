@@ -1,6 +1,7 @@
-<%@ page import="db.database.Posts" %>
+<%@ page import="db.database.Post" %>
 <%@ page import="java.util.List" %>
-<%@ page import="db.servises.PostServ" %><%--
+<%@ page import="db.servises.PostServ" %>
+<%--
   Created by IntelliJ IDEA.
   User: L
   Date: 11.03.2019
@@ -14,7 +15,7 @@
 </head>
 <body>
 <%! PostServ postServ = new PostServ(); %>
-<%! Posts p; %>
+<%! Post p; %>
 
 
 <%

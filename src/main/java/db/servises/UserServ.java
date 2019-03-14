@@ -1,43 +1,43 @@
 package db.servises;
 
-import db.DAO.UsersDAO;
+import db.DAO.UserDAO;
 import db.database.Roles;
-import db.database.Users;
+import db.database.User;
 import db.utill.Connection;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserServ extends Connection implements UsersDAO {
+public class UserServ extends Connection implements UserDAO {
 
     private java.sql.Connection connection;
 
-    public void add(Users users) throws SQLException {
+    public void add(User user) throws SQLException {
 
         String s = "'user'";
-        if (users.getUser_role() == Roles.ADMIN) {
+        if (user.getUser_role() == Roles.ADMIN) {
             s = "'admin'";
-        } else if (users.getUser_role() == Roles.MODERATOR) {
+        } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
         String sql = "INSERT INTO users (login, passw,lastname,user_role) VALUES (?,?,?," + s + ")";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
-        prpStat.setString(1, users.getLogin());
-        prpStat.setString(2, users.getPassw());
-        prpStat.setString(3, users.getLastname());
+        prpStat.setString(1, user.getLogin());
+        prpStat.setString(2, user.getPassw());
+        prpStat.setString(3, user.getLastname());
 
         prpStat.executeUpdate();
         prpStat.close();
     }
 
-    public List<Users> getAll() throws SQLException {
+    public List<User> getAll() throws SQLException {
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("select * from users");
-        List<Users> list = new LinkedList<Users>();
+        List<User> list = new LinkedList<User>();
         while (rs.next()) {
-            list.add(new Users(rs.getInt("id_user"),
+            list.add(new User(rs.getInt("id_user"),
                     rs.getString("login"),
                     rs.getString("passw"),
                     rs.getString("lastname"),
@@ -50,13 +50,13 @@ public class UserServ extends Connection implements UsersDAO {
 
     }
 
-    public Users getByID(int id) throws SQLException {
+    public User getByID(int id) throws SQLException {
         Statement stmt = connection.createStatement();
         String sql = "select * from users where id_user = " + id;
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
-        Users users = new Users(rs.getInt("id_user"),
+        User user = new User(rs.getInt("id_user"),
                 rs.getString("login"),
                 rs.getString("passw"),
                 rs.getString("lastname"),
@@ -64,17 +64,17 @@ public class UserServ extends Connection implements UsersDAO {
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
         stmt.close();
-        return users;
+        return user;
     }
 
-    public Users getUser(Users users) throws SQLException {
+    public User getUser(User user) throws SQLException {
 
         Statement stmt = connection.createStatement();
-        String sql = "select * from users where login = '" + users.getLogin() + "' and passw='" + users.getPassw() + "';";
+        String sql = "select * from users where login = '" + user.getLogin() + "' and passw='" + user.getPassw() + "';";
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
-        users = new Users(rs.getInt("id_user"),
+        user = new User(rs.getInt("id_user"),
                 rs.getString("login"),
                 rs.getString("passw"),
                 rs.getString("lastname"),
@@ -82,7 +82,7 @@ public class UserServ extends Connection implements UsersDAO {
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
         stmt.close();
-        return users;
+        return user;
     }
 
     public Integer getID(String s) throws SQLException {
@@ -120,38 +120,38 @@ public class UserServ extends Connection implements UsersDAO {
         return b;
     }
 
-    public void update(int id, Users users) throws SQLException {
+    public void update(int id, User user) throws SQLException {
         String s = "'user'";
-        if (users.getUser_role() == Roles.ADMIN) {
+        if (user.getUser_role() == Roles.ADMIN) {
             s = "'admin'";
-        } else if (users.getUser_role() == Roles.MODERATOR) {
+        } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
         String sql = "UPDATE users set login=?,passw=?,lastname=?,user_role= " + s + " where id_user = " + id + ";";
         PreparedStatement prpStat = connection.prepareStatement(sql);
-        prpStat.setString(1, users.getLogin());
-        prpStat.setString(2, users.getPassw());
-        prpStat.setString(3, users.getLastname());
+        prpStat.setString(1, user.getLogin());
+        prpStat.setString(2, user.getPassw());
+        prpStat.setString(3, user.getLastname());
 
 
          prpStat.executeUpdate();
         prpStat.close();
     }
 
-    public void delete(Users users) throws SQLException {
+    public void delete(User user) throws SQLException {
 
-        if (users.getId_user() == 0) {
-            users = getUser(users);
+        if (user.getId_user() == 0) {
+            user = getUser(user);
         }
         String sql = "DELETE FROM users WHERE id_user = ? ;";
         PreparedStatement prpStat = connection.prepareStatement(sql);
-        prpStat.setInt(1, users.getId_user());
+        prpStat.setInt(1, user.getId_user());
 
         prpStat.executeUpdate();
         prpStat.close();
     }
 
-    private void checkID(Users users) {
+    private void checkID(User user) {
 
     }
 

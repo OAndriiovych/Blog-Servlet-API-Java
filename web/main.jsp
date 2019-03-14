@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
-<%@ page import="db.database.Posts" %>
-<%@ page import="db.servises.PostServ" %><%--
+<%@ page import="db.database.Post" %>
+<%@ page import="db.servises.PostServ" %>
+<%@ page import="java.util.LinkedList" %>
+<%--
   Created by IntelliJ IDEA.
   User: L
   Date: 11.03.2019
@@ -125,32 +127,52 @@
 
                     <div class="owl-carousel owl-theme home-slider">
                         <%! PostServ postServ = new PostServ(); %>
-                        <%! Posts p; %>
+                        <%! Post p; %>
+                        <%! List<Post> listP= new LinkedList<>(); %>
+                        <%
+                            postServ.connect();
+                            listP=postServ.last3();
+                            public void met(){
+                            p = postServ.last();
+                            String post = p.getPost();
+                            post = post.substring(0,100);
+                            post+="...";
+                        }
+
+                        %>
                         <div>
                             <a href="blog-single.html" class="a-block d-flex align-items-center height-lg"
                                style="background-image: url('images/img_1.jpg'); ">
                                 <div class="text half-to-full">
-                                    <span class="category mb-5">Travel</span>
-                                    <div class="post-meta">
-                                        <%
-                                            postServ.connect();
-                                            p = postServ.last();
+                                    <span class="category mb-5">
+                                        <%=
+                                            p.getCategory()
                                         %>
+                                    </span>
+                                    <div class="post-meta">
                                         <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib">
                                             <%=
-                                            postServ.author(p.getUser_id())
+                                                postServ.author(p.getUser_id())
                                             %>
                                         </span>&bullet;
                                         <span class="mr-2">
                                             <%=
-                                            p.getdate_of_post()
+                                                p.getdate_of_post()
                                             %>
                                         </span> &bullet;
+                                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
                                     </div>
-                                    <%=
-                                    p.getPost()
-                                    %>
-
+                                    <h3>
+                                        <%=
+                                            p.getTopic()
+                                        %>
+                                    </h3>
+                                    <p>
+                                        <%=
+                                            post
+                                        %>
+                                    </p>
                                 </div>
                             </a>
                         </div>

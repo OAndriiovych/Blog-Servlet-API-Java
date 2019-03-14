@@ -1,7 +1,7 @@
 package servlets.account;
 
 import db.database.Roles;
-import db.database.Users;
+import db.database.User;
 import db.servises.UserServ;
 
 import javax.servlet.ServletException;
@@ -67,7 +67,7 @@ public abstract class BaseServlet extends HttpServlet {
         }
         return false;
     }
-    void login(Users users, HttpSession session){
+    void login(User users, HttpSession session){
         if (users.getLogin() != null) {
             session.setAttribute("id", users.getId_user());
             session.setAttribute("lastname", users.getLastname());

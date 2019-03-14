@@ -1,7 +1,6 @@
 package servlets.account;
 
-import db.database.Roles;
-import db.database.Users;
+import db.database.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 @WebServlet("/registration")
 public class Registration extends BaseServlet {
@@ -26,16 +24,16 @@ public class Registration extends BaseServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Users users= new Users(name, req.getParameter("psw"),req.getParameter("lastname"));
+        User user= new User(name, req.getParameter("psw"),req.getParameter("lastname"));
         HttpSession session = req.getSession();
         try {
-            userServ.add(users);
+            userServ.add(user);
             //resp.addCookie(new Cookie("id", Integer.toString(users.getId_user())));
-            users=userServ.getUser(users);
+            user=userServ.getUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        login(users,session);
+        login(user,session);
         resp.sendRedirect("success.html");
     }
 

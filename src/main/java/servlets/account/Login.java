@@ -1,7 +1,6 @@
 package servlets.account;
 
-import db.database.Roles;
-import db.database.Users;
+import db.database.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 @WebServlet("/account")
 public class Login extends BaseServlet {
@@ -28,15 +26,15 @@ public class Login extends BaseServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("email");
         String password = req.getParameter("psw");
-        Users users = new Users(name, password);
+        User user = new User(name, password);
         HttpSession session = req.getSession();
         try {
-            users = userServ.getUser(users);
+            user = userServ.getUser(user);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        login(users,session);
+        login(user,session);
         resp.sendRedirect("success.html");
     }
 

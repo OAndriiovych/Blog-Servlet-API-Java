@@ -1,57 +1,57 @@
 package db.servises;
 
-import db.DAO.PostsDAO;
-import db.database.Posts;
-import db.database.Roles;
+import db.DAO.PostDAO;
+import db.database.Post;
 import db.utill.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PostServ extends Connection implements PostsDAO {
+public class PostServ extends Connection implements PostDAO {
 
     private java.sql.Connection connection;
 
-    public void add(Posts posts) throws SQLException {
+    public void add(Post post) throws SQLException {
 
-        String sql = "INSERT INTO posts (category, topic, post, user_id) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO posts (category, topic, post, way_to_photo, user_id) VALUES (?,?,?,?,?)";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
-        prpStat.setString(1, posts.getCategory());
-        prpStat.setString(2, posts.getTopic());
-        prpStat.setString(3, posts.getPost());
-        prpStat.setInt(4, posts.getUser_id());
+        prpStat.setString(1, post.getCategory());
+        prpStat.setString(2, post.getTopic());
+        prpStat.setString(3, post.getPost());
+        prpStat.setString(4, post.getWay_to_photo());
+        prpStat.setInt(5, post.getUser_id());
 
         prpStat.executeUpdate();
         prpStat.close();
     }
 
     /**have to do*/
-    public List<Posts> getAll() throws SQLException {
+    public List<Post> getAll() throws SQLException {
         return null;
     }
 
-    public Posts getByID(int id) throws SQLException {
+    public Post getByID(int id) throws SQLException {
         return null;
     }
 
-    public List<Posts> last3() throws SQLException {
-        List<Posts> list = new LinkedList<Posts>();
+    public List<Post> last3() throws SQLException {
+        List<Post> list = new LinkedList<Post>();
         Statement stmt = connection.createStatement();
         String sql = "select * from posts limit 3;";
         ResultSet rs = stmt.executeQuery(sql);
 
         while (rs.next()) {
-            list.add(new Posts(rs.getInt("id_post"),
+            list.add(new Post(rs.getInt("id_post"),
                     rs.getString("category"),
                     rs.getString("topic"),
                     rs.getString("post"),
-                    rs.getInt("user_id "),
+                    rs.getString("way_to_photo"),
+                    rs.getInt("user_id"),
                     rs.getDate("date_of_post")));
         }
         rs.close();
@@ -59,21 +59,22 @@ public class PostServ extends Connection implements PostsDAO {
         return list;
     }
 
-    public Posts last() throws SQLException {
+    public Post last() throws SQLException {
         Statement stmt = connection.createStatement();
         String sql = "select * from posts order by id_post DESC limit 1;";
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
-        Posts posts = new Posts(rs.getInt("id_post"),
+        Post post = new Post(rs.getInt("id_post"),
                 rs.getString("category"),
                 rs.getString("topic"),
                 rs.getString("post"),
-                rs.getInt("user_id "),
+                rs.getString("way_to_photo"),
+                rs.getInt("user_id"),
                 rs.getDate("date_of_post"));
         rs.close();
         stmt.close();
-        return posts;
+        return post;
     }
 
     public String author(int id) throws SQLException {
@@ -89,11 +90,11 @@ public class PostServ extends Connection implements PostsDAO {
         return login;
     }
     /**have to do*/
-    public void update(Posts posts) throws SQLException {
+    public void update(Post post) throws SQLException {
 
     }
     /**have to do*/
-    public void delete(Posts posts) throws SQLException {
+    public void delete(Post post) throws SQLException {
 
     }
 

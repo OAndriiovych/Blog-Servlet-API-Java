@@ -19,12 +19,13 @@ CREATE TABLE user_comments
      date_of_coment DATE DEFAULT CURRENT_TIMESTAMP
   );
 
-CREATE TABLE posts
+CREATE TABLE post
   (
      id_post        SERIAL PRIMARY KEY,
      category       VARCHAR(15) NOT NULL,
      topic          VARCHAR(40) NOT NULL,
      post           TEXT NOT NULL,
+     way_to_photo   TEXT NOT NULL,
      user_id        INTEGER NOT NULL,
      date_of_post   DATE DEFAULT CURRENT_TIMESTAMP
   );
@@ -33,7 +34,7 @@ ALTER TABLE user_comments
   ADD CONSTRAINT cs_cmmnt_u FOREIGN KEY (user_id) REFERENCES users(id_user);
 
 ALTER TABLE user_comments
-  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (user_id) REFERENCES posts(id_post);
+  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (user_id) REFERENCES post(id_post);
 
-ALTER TABLE posts
+ALTER TABLE post
   ADD CONSTRAINT cs_posts FOREIGN KEY (user_id) REFERENCES users(id_user);  

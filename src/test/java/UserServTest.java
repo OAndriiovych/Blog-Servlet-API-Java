@@ -1,11 +1,10 @@
 import db.database.Roles;
-import db.database.Users;
+import db.database.User;
 import db.servises.UserServ;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -18,20 +17,20 @@ import static org.junit.Assert.fail;
 public class UserServTest {
 
     @Parameterized.Parameters
-    public static List<Users> numbers() {
+    public static List<User> numbers() {
         return usersList;
     }
-    private static List<Users> usersList= Arrays.asList(new Users("login1", "password", "lastname", Roles.ADMIN),
-            new Users("login2", "password", "lastname", Roles.MODERATOR),
-            new Users("login3", "password", "lastname", Roles.USER),
-            new Users("login4", "password", "lastname")
+    private static List<User> usersList= Arrays.asList(new User("login1", "password", "lastname", Roles.ADMIN),
+            new User("login2", "password", "lastname", Roles.MODERATOR),
+            new User("login3", "password", "lastname", Roles.USER),
+            new User("login4", "password", "lastname")
     );
 
-    public UserServTest(Users user) {
+    public UserServTest(User user) {
         this.user = user;
     }
 
-    private Users user;
+    private User user;
 
     private static UserServ userServ;
 
@@ -58,7 +57,7 @@ public class UserServTest {
 
     @Test
     public void getUserTest() throws SQLException {
-        Users cloneUser = userServ.getUser(user);
+        User cloneUser = userServ.getUser(user);
         equalsUsers(user,cloneUser);
     }
 
@@ -70,8 +69,8 @@ public class UserServTest {
 
     @Test
     public void getByIdTest() throws SQLException {
-        Users cloneUser = userServ.getUser(user);
-        Users cloneUser2 = userServ.getByID(cloneUser.getId_user());
+        User cloneUser = userServ.getUser(user);
+        User cloneUser2 = userServ.getByID(cloneUser.getId_user());
         assertEquals(cloneUser2, cloneUser);
     }
 
@@ -96,7 +95,7 @@ public class UserServTest {
 
     @Test
     public void updateTest() throws SQLException {
-        Users userClone = new Users(user.getId_user(),
+        User userClone = new User(user.getId_user(),
                 "lool",
                 "pass",
                 "last",
@@ -104,7 +103,7 @@ public class UserServTest {
                 Roles.USER);
         int id=userServ.getID(user.getLogin());
         userServ.update(id,userClone);
-        Users newU = userServ.getByID(id);
+        User newU = userServ.getByID(id);
         equalsUsers(userServ.getByID(id),userClone);
         //assertEquals(userClone,userServ.getByID(id));
         userServ.update(id,user);
@@ -119,7 +118,7 @@ public class UserServTest {
         userServ.delete(user);
     }
 
-    static void equalsUsers(Users user ,Users cloneUser) throws SQLException {
+    static void equalsUsers(User user , User cloneUser) throws SQLException {
         assertEquals(user.getLogin(), cloneUser.getLogin());
         assertEquals(user.getPassw(), cloneUser.getPassw());
         assertEquals(user.getLastname(), cloneUser.getLastname());

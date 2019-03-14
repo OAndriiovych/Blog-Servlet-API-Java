@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
-<%@ page import="db.database.Posts" %>
-<%@ page import="db.servises.PostServ" %><%--
+<%@ page import="db.database.Post" %>
+<%@ page import="db.servises.PostServ" %>
+<%@ page import="java.util.LinkedList" %>
+<%--
   Created by IntelliJ IDEA.
   User: L
   Date: 11.03.2019
@@ -57,7 +59,8 @@
         <div class="container logo-wrap">
             <div class="row pt-5">
                 <div class="col-12 text-center">
-                    <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+                    <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button"
+                       aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
                     <h1 class="site-logo"><a href="index.html">Wordify</a></h1>
                 </div>
             </div>
@@ -76,7 +79,8 @@
                             <a class="nav-link" href="#">Business</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
+                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
                                 <a class="dropdown-item" href="category.html">Asia</a>
                                 <a class="dropdown-item" href="category.html">Europe</a>
@@ -88,7 +92,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown05">
                                 <a class="dropdown-item" href="category.html">Lifestyle</a>
                                 <a class="dropdown-item" href="category.html">Food</a>
@@ -122,23 +127,58 @@
 
                     <div class="owl-carousel owl-theme home-slider">
                         <%! PostServ postServ = new PostServ(); %>
-                        <%! Posts p; %>
-                        <div>
-                            <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('images/img_1.jpg'); ">
-                                <div class="text half-to-full">
-                                    <%
-                                        postServ.connect();
-                                        p = postServ.last();
+                        <%! Post p; %>
+                        <%! List<Post> listP= new LinkedList<>(); %>
+                        <%
+                            postServ.connect();
+                            listP=postServ.last3();
+                            public void met(){
+                            p = postServ.last();
+                            String post = p.getPost();
+                            post = post.substring(0,100);
+                            post+="...";
+                        }
 
-                                    %>
-                                    <%=
-                                    p.getPost()
-                                    %>
+                        %>
+                        <div>
+                            <a href="blog-single.html" class="a-block d-flex align-items-center height-lg"
+                               style="background-image: url('images/img_1.jpg'); ">
+                                <div class="text half-to-full">
+                                    <span class="category mb-5">
+                                        <%=
+                                            p.getCategory()
+                                        %>
+                                    </span>
+                                    <div class="post-meta">
+                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib">
+                                            <%=
+                                                postServ.author(p.getUser_id())
+                                            %>
+                                        </span>&bullet;
+                                        <span class="mr-2">
+                                            <%=
+                                                p.getdate_of_post()
+                                            %>
+                                        </span> &bullet;
+                                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                    </div>
+                                    <h3>
+                                        <%=
+                                            p.getTopic()
+                                        %>
+                                    </h3>
+                                    <p>
+                                        <%=
+                                            post
+                                        %>
+                                    </p>
                                 </div>
                             </a>
                         </div>
                         <div>
-                            <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('images/img_2.jpg'); ">
+                            <a href="blog-single.html" class="a-block d-flex align-items-center height-lg"
+                               style="background-image: url('images/img_2.jpg'); ">
                                 <div class="text half-to-full">
                                     <span class="category mb-5">Travel</span>
                                     <div class="post-meta">
@@ -149,7 +189,8 @@
 
                                     </div>
                                     <h3>How to Find the Video Games of Your Youth</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nobis, ut dicta eaque ipsa laudantium!</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nobis, ut dicta
+                                        eaque ipsa laudantium!</p>
                                 </div>
                             </a>
                         </div>
@@ -301,10 +342,6 @@
                     </div>
 
 
-
-
-
-
                 </div>
 
                 <!-- END main-content -->
@@ -314,7 +351,8 @@
                         <form action="#" class="search-form">
                             <div class="form-group">
                                 <span class="icon fa fa-search"></span>
-                                <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                                <input type="text" class="form-control" id="s"
+                                       placeholder="Type a keyword and hit enter">
                             </div>
                         </form>
                     </div>
@@ -324,7 +362,9 @@
                             <img src="images/person_1.jpg" alt="Image Placeholder" class="img-fluid">
                             <div class="bio-body">
                                 <h2>David Craig</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
+                                    repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit
+                                    molestias minus.</p>
                                 <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
                                 <p class="social">
                                     <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
@@ -423,7 +463,8 @@
                         <img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid">
                     </p>
 
-                    <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis. <a href="#">Read More</a></p>
+                    <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore
+                        reiciendis. <a href="#">Read More</a></p>
                 </div>
                 <div class="col-md-6 ml-auto">
                     <div class="row">
@@ -504,7 +545,13 @@
                 <div class="col-md-12 text-center">
                     <p class="small">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="fa fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                        Copyright &copy;
+                        <script data-cfasync="false"
+                                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        <script>document.write(new Date().getFullYear());</script>
+                        All Rights Reserved | This template is made with <i class="fa fa-heart text-danger"
+                                                                            aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -516,7 +563,13 @@
 </div>
 
 <!-- loader -->
-<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+<div id="loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#f4b214"/>
+    </svg>
+</div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.0.js"></script>

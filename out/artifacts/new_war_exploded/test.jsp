@@ -13,7 +13,7 @@
 <body>
 <jsp:useBean id="postServ" class="db.servises.PostServ"/>
 
-
+sadfsadfsadfafdsdasdfasdfasdfasdfadsfadsfasdfasdfsda
 
 </body>
 </html>
