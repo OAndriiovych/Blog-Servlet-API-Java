@@ -1,10 +1,8 @@
 package servlets;
 
 
-import DTO.PostMainDTO;
+
 import db.database.Post;
-import db.database.Post;
-import db.database.User;
 import db.servises.PostServ;
 import db.servises.UserServ;
 
@@ -22,29 +20,30 @@ import java.util.List;
 public class Test extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        PostServ postServ = new PostServ();
-//        UserServ userServ = new UserServ();
-//        List<Post> listP = new LinkedList<>();
-//        List<User> listA = new LinkedList<>();
-//        postServ.connect();
-//        userServ.connect();
+        PostServ postServ = new PostServ();
+        UserServ userServ = new UserServ();
+        List<Post> listP = new LinkedList<>();
+        List<String> listA = new LinkedList<>();
+        postServ.connect();
+        userServ.connect();
 //        try {
 //            listP.add(postServ.last());
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
-//        try {
-//            listA.add(postServ.last());
-//        }
-//        catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        postServ.closeConnection();
-//        userServ.closeConnection();
-//        for (Post p : listP) {
-//            p.setPost(p.getPost().substring(0, 100) + "...");
-//        }
-        List<PostMainDTO> listP = new LinkedList<>();
+
+        postServ.closeConnection();
+        userServ.closeConnection();
+        for (Post p : listP) {
+            try {
+                listA.add(postServ.getAuthor(p.getUser_id()));
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+            p.setPost(p.getPost().substring(0, 100) + "...");
+        }
+        //List listP = new LinkedList<>();
 
         req.setAttribute("myList", listP);
         req.getRequestDispatcher("main2.jsp").forward(req, resp);

@@ -2,20 +2,28 @@ package DTO.post;
 
 import java.util.Date;
 
-public class PostAllDTO {
-    private String category;
-    private String topic;
-    private String post;
-    private String way_to_photo;
-    private String author;
-    private Date date_of_post;
+public class PostAllDTO extends PostLessDTO{
+    protected String category;
+    protected String post;
+    protected int countComment;
 
-    public PostAllDTO(String category, String topic,  String way_to_photo, String author, Date date_of_post) {
+    @Override
+    public String toString() {
+        return "PostAllDTO{" +
+                "category='" + category + '\'' +
+                ", post='" + post + '\'' +
+                ", countComment=" + countComment +
+                ", author='" + author + '\'' +
+                ", way_to_author_photo='" + way_to_author_photo + '\'' +
+                ", topic='" + topic + '\'' +
+                ", date_of_post=" + date_of_post +
+                ", way_to_photo='" + way_to_photo + '\'' +
+                '}';
+    }
+
+    public PostAllDTO(String topic, Date date_of_post, String way_to_photo, String category) {
+        super(topic, date_of_post, way_to_photo);
         this.category = category;
-        this.topic = topic;
-        this.way_to_photo = way_to_photo;
-        this.author = author;
-        this.date_of_post = date_of_post;
     }
 
     public String getPost() {
@@ -24,5 +32,21 @@ public class PostAllDTO {
 
     public void setPost(String post) {
         this.post = post;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getCountComment() {
+        return countComment;
+    }
+
+    public void setCountComment(int countComment) {
+        this.countComment = countComment;
     }
 }

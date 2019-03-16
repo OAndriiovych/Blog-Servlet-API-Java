@@ -1,6 +1,7 @@
 package db.database;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class User_comment {
     private  int id_comment;
@@ -8,6 +9,37 @@ public class User_comment {
     private  int post_id;
     private String user_comment;
     private Date date_of_coment ;
+
+    public User_comment(int id_comment, int user_id, int post_id, String user_comment, Date date_of_coment) {
+        this.id_comment = id_comment;
+        this.user_id = user_id;
+        this.post_id = post_id;
+        this.user_comment = user_comment;
+        this.date_of_coment = date_of_coment;
+    }
+
+    public User_comment(int user_id, int post_id, String user_comment) {
+        this.user_id = user_id;
+        this.post_id = post_id;
+        this.user_comment = user_comment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User_comment comment = (User_comment) o;
+        return id_comment == comment.id_comment &&
+                user_id == comment.user_id &&
+                post_id == comment.post_id &&
+                Objects.equals(user_comment, comment.user_comment) &&
+                Objects.equals(date_of_coment, comment.date_of_coment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_comment, user_id, post_id, user_comment, date_of_coment);
+    }
 
     public int getId_comment() {
         return id_comment;

@@ -21,12 +21,14 @@ public class UserServ extends Connection implements UserDAO {
         } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
-        String sql = "INSERT INTO users (login, passw,lastname,user_role) VALUES (?,?,?," + s + ")";
+
+        String sql = "INSERT INTO users (login, passw,lastname,way_to_photo,user_role) VALUES (?,?,?,?," + s + ")";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, user.getLogin());
         prpStat.setString(2, user.getPassw());
         prpStat.setString(3, user.getLastname());
+        prpStat.setString(4, user.getWay_to_photo());
 
         prpStat.executeUpdate();
         prpStat.close();
@@ -42,6 +44,7 @@ public class UserServ extends Connection implements UserDAO {
                     rs.getString("passw"),
                     rs.getString("lastname"),
                     rs.getDate("date_of_reg"),
+                    rs.getString("way_to_photo"),
                     Roles.valueOf(rs.getString("user_role").toUpperCase())));
         }
         stmt.close();
@@ -61,6 +64,7 @@ public class UserServ extends Connection implements UserDAO {
                 rs.getString("passw"),
                 rs.getString("lastname"),
                 rs.getDate("date_of_reg"),
+                rs.getString("way_to_photo"),
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
         stmt.close();
@@ -79,6 +83,7 @@ public class UserServ extends Connection implements UserDAO {
                 rs.getString("passw"),
                 rs.getString("lastname"),
                 rs.getDate("date_of_reg"),
+                rs.getString("way_to_photo"),
                 Roles.valueOf(rs.getString("user_role").toUpperCase()));
         rs.close();
         stmt.close();
@@ -127,14 +132,15 @@ public class UserServ extends Connection implements UserDAO {
         } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
-        String sql = "UPDATE users set login=?,passw=?,lastname=?,user_role= " + s + " where id_user = " + id + ";";
+        String sql = "UPDATE users set login= ? ,passw= ? ,lastname= ? ,way_to_photo= ? ,user_role= " + s + " where id_user = " + id + ";";
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, user.getLogin());
         prpStat.setString(2, user.getPassw());
         prpStat.setString(3, user.getLastname());
+        prpStat.setString(4, user.getWay_to_photo());
 
 
-         prpStat.executeUpdate();
+        prpStat.executeUpdate();
         prpStat.close();
     }
 

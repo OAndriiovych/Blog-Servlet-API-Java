@@ -9,7 +9,18 @@ public class User {
     private String passw;
     private String lastname;
     private Date date_of_reg;
+    private String way_to_photo;
     private Roles user_role;
+
+    public String getWay_to_photo() {
+        return way_to_photo;
+    }
+
+    public void setWay_to_photo(String way_to_photo) {
+        this.way_to_photo = way_to_photo;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -29,22 +40,47 @@ public class User {
         return Objects.hash(id_user, login, passw, lastname, date_of_reg, user_role);
     }
 
-    public User(String login, String passw) {
+
+
+    public User(int id_user, String login, String passw, String lastname, Date date_of_reg, String way_to_photo, Roles user_role) {
+        this.id_user = id_user;
         this.login = login;
         this.passw = passw;
+        this.lastname = lastname;
+        this.date_of_reg = date_of_reg;
+        this.way_to_photo = way_to_photo;
+        this.user_role = user_role;
     }
 
+    public User(String login, String passw, String lastname, String way_to_photo, Roles user_role) {
+        this.login = login;
+        this.passw = passw;
+        this.lastname = lastname;
+        this.way_to_photo = way_to_photo;
+        this.user_role = user_role;
+    }
+    public User(String login, String passw, String lastname, String way_to_photo) {
+        this.login = login;
+        this.passw = passw;
+        this.lastname = lastname;
+        this.way_to_photo = way_to_photo;
+        this.user_role = user_role;
+    }
+    public User(String login, String passw, String lastname, Roles user_role) {
+        this.login = login;
+        this.passw = passw;
+        this.lastname = lastname;
+        this.user_role = user_role;
+    }
     public User(String login, String passw, String lastname) {
         this.login = login;
         this.passw = passw;
         this.lastname = lastname;
     }
 
-    public User(String login, String passw, String lastname, Roles user_role) {
+    public User(String login, String passw) {
         this.login = login;
         this.passw = passw;
-        this.lastname = lastname;
-        this.user_role = user_role;
     }
 
     public String getLastname() {
@@ -55,14 +91,7 @@ public class User {
         this.lastname = lastname;
     }
 
-    public User(int id_user, String login, String passw, String lastname, Date date_of_reg, Roles user_role) {
-        this.id_user = id_user;
-        this.login = login;
-        this.passw = passw;
-        this.lastname = lastname;
-        this.date_of_reg = date_of_reg;
-        this.user_role = user_role;
-    }
+
 
     public int getId_user() {
         return id_user;

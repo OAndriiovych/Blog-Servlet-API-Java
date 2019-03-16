@@ -7,6 +7,7 @@ CREATE TABLE users
      passw       VARCHAR(26) NOT NULL,
      lastname    VARCHAR(30) NOT NULL,
      date_of_reg DATE DEFAULT CURRENT_TIMESTAMP,
+     way_to_photo TEXT NOT NULL,
      user_role   ROLES DEFAULT 'user'
   );
 
@@ -19,7 +20,7 @@ CREATE TABLE user_comments
      date_of_coment DATE DEFAULT CURRENT_TIMESTAMP
   );
 
-CREATE TABLE post
+CREATE TABLE posts
   (
      id_post        SERIAL PRIMARY KEY,
      category       VARCHAR(15) NOT NULL,
@@ -34,7 +35,7 @@ ALTER TABLE user_comments
   ADD CONSTRAINT cs_cmmnt_u FOREIGN KEY (user_id) REFERENCES users(id_user);
 
 ALTER TABLE user_comments
-  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (user_id) REFERENCES post(id_post);
+  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (user_id) REFERENCES posts(id_post);
 
-ALTER TABLE post
-  ADD CONSTRAINT cs_posts FOREIGN KEY (user_id) REFERENCES users(id_user);  
+ALTER TABLE posts
+  ADD CONSTRAINT cs_posts FOREIGN KEY (user_id) REFERENCES users(id_user);

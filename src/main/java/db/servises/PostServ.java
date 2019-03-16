@@ -2,6 +2,7 @@ package db.servises;
 
 import db.DAO.PostDAO;
 import db.database.Post;
+import db.database.User;
 import db.utill.Connection;
 
 import java.sql.PreparedStatement;
@@ -32,17 +33,21 @@ public class PostServ extends Connection implements PostDAO {
 
     /**have to do*/
     public List<Post> getAll() throws SQLException {
-        return null;
+        return last(-1);
     }
 
     public Post getByID(int id) throws SQLException {
         return null;
     }
 
-    public List<Post> last3() throws SQLException {
-        List<Post> list = new LinkedList<Post>();
+
+    public List<Post> last(int count) throws SQLException {
+        List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
-        String sql = "select * from posts limit 3;";
+        String sql = "select * from posts order by id_post  ";
+        if(count>0){
+            sql+="DESC limit "+count;
+        }
         ResultSet rs = stmt.executeQuery(sql);
 
         while (rs.next()) {
@@ -59,25 +64,8 @@ public class PostServ extends Connection implements PostDAO {
         return list;
     }
 
-    public Post last() throws SQLException {
-        Statement stmt = connection.createStatement();
-        String sql = "select * from posts order by id_post DESC limit 1;";
-        ResultSet rs = stmt.executeQuery(sql);
 
-        rs.next();
-        Post post = new Post(rs.getInt("id_post"),
-                rs.getString("category"),
-                rs.getString("topic"),
-                rs.getString("post"),
-                rs.getString("way_to_photo"),
-                rs.getInt("user_id"),
-                rs.getDate("date_of_post"));
-        rs.close();
-        stmt.close();
-        return post;
-    }
-
-    public String author(int id) throws SQLException {
+    public String getAuthor(int id) throws SQLException {
         Statement stmt = connection.createStatement();
         String sql = "select lastname from users left join  posts on users.id_user = posts.user_id where user_id = "+id;
         ResultSet rs = stmt.executeQuery(sql);
@@ -89,6 +77,7 @@ public class PostServ extends Connection implements PostDAO {
         stmt.close();
         return login;
     }
+
     /**have to do*/
     public void update(Post post) throws SQLException {
 

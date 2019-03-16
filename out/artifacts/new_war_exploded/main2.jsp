@@ -8,7 +8,7 @@
   Time: 12:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@ page errorPage="error.jsp" %>--%>
 <html lang="en">
@@ -45,13 +45,7 @@
                         <a href="#"><span class="fa fa-instagram"></span></a>
                         <a href="#"><span class="fa fa-youtube-play"></span></a>
                     </div>
-                    <div class="col-3 search-top">
-                        <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                        <form action="#" class="search-top-form">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" id="s" placeholder="Type keyword to search...">
-                        </form>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -75,34 +69,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="index.html">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Business</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown04">
-                                <a class="dropdown-item" href="category.html">Asia</a>
-                                <a class="dropdown-item" href="category.html">Europe</a>
-                                <a class="dropdown-item" href="category.html">Dubai</a>
-                                <a class="dropdown-item" href="category.html">Africa</a>
-                                <a class="dropdown-item" href="category.html">South America</a>
-                            </div>
 
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                <a class="dropdown-item" href="category.html">Lifestyle</a>
-                                <a class="dropdown-item" href="category.html">Food</a>
-                                <a class="dropdown-item" href="category.html">Adventure</a>
-                                <a class="dropdown-item" href="category.html">Travel</a>
-                                <a class="dropdown-item" href="category.html">Business</a>
-                            </div>
-
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
@@ -124,29 +91,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="owl-carousel owl-theme home-slider">
-                        <c:forEach var="asd" items="${requestScope.myList}">
+                        <c:forEach var="asd" items="${requestScope.bigPosts}">
                             <div>
                                 <a href="blog-single.html" class="a-block d-flex align-items-center height-lg"
-                                   style="background-image: url('images/img_1.jpg'); ">
+                                   style="background-image: url('<c:out value="${asd.way_to_photo}"/>')">
                                     <div class="text half-to-full">
                                         <span class="category mb-5">
                                             <c:out value="${asd.category}"/>
                                         </span>
                                         <div class="post-meta">
-                                            <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib">
-                                                123
+                                            <span class="author mr-2"><img
+                                                    src="<c:out value="${asd.way_to_author_photo}"/>" alt="Colorlib">
+                                                <c:out value="${asd.author}"/>
                                             </span>&bullet;
                                             <span class="mr-2">
                                                  <c:out value="${asd.date_of_post}"/>
                                             </span> &bullet;
-                                            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-                                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                            <c:if test="${asd.countComment>0}">
+                                                <span class="ml-2"><span class="fa fa-comments"></span>
+                                                    <c:out value="${asd.countComment}"/>
+                                                </span>
+                                            </c:if>
                                         </div>
                                         <h3>
                                             <c:out value="${asd.topic}"/>
-
                                         </h3>
                                         <p>
                                             <c:out value="${asd.post}"/>
@@ -155,17 +124,10 @@
                                 </a>
                             </div>
                         </c:forEach>
-
-
-
                     </div>
-
                 </div>
             </div>
-
         </div>
-
-
     </section>
     <!-- END section -->
 
@@ -177,242 +139,27 @@
                 </div>
             </div>
             <div class="row blog-entries">
-                <div class="col-md-12 col-lg-8 main-content">
+                <div class="col-md-12 col-lg-12 main-content">
                     <div class="row">
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_5.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                        <c:forEach var="asd" items="${requestScope.littlePosts}">
+                            <div class="col-md-4">
+                                <a href="blog-single.html" class="blog-entry element-animate"
+                                   data-animate-effect="fadeIn">
+                                    <img src="<c:out value="${asd.way_to_photo}"/>" alt="Image placeholder">
+                                    <div class="blog-content-body">
+                                        <div class="post-meta">
+                                            <span class="author mr-2"><img
+                                                    src=" <c:out value="${asd.way_to_author_photo}"/>"
+                                                    alt="Colorlib"> <c:out value="${asd.author}"/></span>&bullet;
+                                            <span class="mr-2"><c:out value="${asd.date_of_post}"/> </span> &bullet;
+                                        </div>
+                                        <h2><c:out value="${asd.topic}"/></h2>
                                     </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_6.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_7.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_8.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_9.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_10.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_11.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                                <img src="images/img_12.jpg" alt="Image placeholder">
-                                <div class="blog-content-body">
-                                    <div class="post-meta">
-                                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
-                                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                    </div>
-                                    <h2>How to Find the Video Games of Your Youth</h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="row mt-5">
-                        <div class="col-md-12 text-center">
-                            <nav aria-label="Page navigation" class="text-center">
-                                <ul class="pagination">
-                                    <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <!-- END main-content -->
-
-                <div class="col-md-12 col-lg-4 sidebar">
-                    <div class="sidebar-box search-form-wrap">
-                        <form action="#" class="search-form">
-                            <div class="form-group">
-                                <span class="icon fa fa-search"></span>
-                                <input type="text" class="form-control" id="s"
-                                       placeholder="Type a keyword and hit enter">
+                                </a>
                             </div>
-                        </form>
-                    </div>
-                    <!-- END sidebar-box -->
-                    <div class="sidebar-box">
-                        <div class="bio text-center">
-                            <img src="images/person_1.jpg" alt="Image Placeholder" class="img-fluid">
-                            <div class="bio-body">
-                                <h2>David Craig</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
-                                    repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit
-                                    molestias minus.</p>
-                                <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
-                                <p class="social">
-                                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-                                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-                                    <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
-                                    <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END sidebar-box -->
-                    <div class="sidebar-box">
-                        <h3 class="heading">Popular Posts</h3>
-                        <div class="post-entry-sidebar">
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>How to Find the Video Games of Your Youth</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>How to Find the Video Games of Your Youth</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>How to Find the Video Games of Your Youth</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- END sidebar-box -->
-
-                    <div class="sidebar-box">
-                        <h3 class="heading">Categories</h3>
-                        <ul class="categories">
-                            <li><a href="#">Food <span>(12)</span></a></li>
-                            <li><a href="#">Travel <span>(22)</span></a></li>
-                            <li><a href="#">Lifestyle <span>(37)</span></a></li>
-                            <li><a href="#">Business <span>(42)</span></a></li>
-                            <li><a href="#">Adventure <span>(14)</span></a></li>
-                        </ul>
-                    </div>
-                    <!-- END sidebar-box -->
-
-                    <div class="sidebar-box">
-                        <h3 class="heading">Tags</h3>
-                        <ul class="tags">
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Freelancing</a></li>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Freelancing</a></li>
-                        </ul>
+                        </c:forEach>
                     </div>
                 </div>
-                <!-- END sidebar -->
-
             </div>
         </div>
     </section>
@@ -432,47 +179,7 @@
                 <div class="col-md-6 ml-auto">
                     <div class="row">
                         <div class="col-md-7">
-                            <h3>Latest Post</h3>
-                            <div class="post-entry-sidebar">
-                                <ul>
-                                    <li>
-                                        <a href="">
-                                            <img src="images/img_6.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>How to Find the Video Games of Your Youth</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="images/img_3.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>How to Find the Video Games of Your Youth</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
-                                            <div class="text">
-                                                <h4>How to Find the Video Games of Your Youth</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                                                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="col-md-1"></div>
 

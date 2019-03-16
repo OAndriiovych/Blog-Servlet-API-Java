@@ -20,10 +20,10 @@ public class UserServTest {
     public static List<User> numbers() {
         return usersList;
     }
-    private static List<User> usersList= Arrays.asList(new User("login1", "password", "lastname", Roles.ADMIN),
-            new User("login2", "password", "lastname", Roles.MODERATOR),
-            new User("login3", "password", "lastname", Roles.USER),
-            new User("login4", "password", "lastname")
+    private static List<User> usersList= Arrays.asList(new User("login1", "password", "lastname","D:\\SS\\blog\\web\\images\\deff.jpg", Roles.ADMIN),
+            new User("login2", "password", "lastname","D:\\SS\\blog\\web\\images\\deff.jpg", Roles.MODERATOR),
+            new User("login3", "password", "lastname","D:\\SS\\blog\\web\\images\\deff.jpg", Roles.USER),
+            new User("login4", "password", "lastname","D:\\SS\\blog\\web\\images\\deff.jpg",Roles.USER)
     );
 
     public UserServTest(User user) {
@@ -100,6 +100,7 @@ public class UserServTest {
                 "pass",
                 "last",
                 new java.sql.Date(System.currentTimeMillis()),
+                "//",
                 Roles.USER);
         int id=userServ.getID(user.getLogin());
         userServ.update(id,userClone);

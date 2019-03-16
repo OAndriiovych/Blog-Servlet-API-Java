@@ -11,6 +11,8 @@ public class Post {
     private int user_id;
     private Date date_of_post;
 
+
+
     public Post(int id_post, String category, String topic, String post, String way_to_photo, int user_id, Date date_of_post) {
         this.id_post = id_post;
         this.category = category;
