@@ -31,12 +31,36 @@ public class PostServ extends Connection implements PostDAO {
         prpStat.close();
     }
 
-    /**have to do*/
+    /**
+     * have to do
+     */
     public List<Post> getAll() throws SQLException {
         return last(-1);
     }
 
     public Post getByID(int id) throws SQLException {
+        Post post = null;
+        Statement stmt = connection.createStatement();
+        String sql = "select * from posts where id_post = " + id;
+
+        ResultSet rs = stmt.executeQuery(sql);
+
+        rs.next();
+        post = new Post(rs.getInt("id_post"),
+                rs.getString("category"),
+                rs.getString("topic"),
+                rs.getString("post"),
+                rs.getString("way_to_photo"),
+                rs.getInt("user_id"),
+                rs.getDate("date_of_post"));
+
+        rs.close();
+        stmt.close();
+        return post;
+    }
+
+    public Post findLike() throws SQLException {
+
         return null;
     }
 
@@ -45,8 +69,8 @@ public class PostServ extends Connection implements PostDAO {
         List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
         String sql = "select * from posts order by id_post  ";
-        if(count>0){
-            sql+="DESC limit "+count;
+        if (count > 0) {
+            sql += "DESC limit " + count;
         }
         ResultSet rs = stmt.executeQuery(sql);
 
@@ -67,7 +91,7 @@ public class PostServ extends Connection implements PostDAO {
 
     public String getAuthor(int id) throws SQLException {
         Statement stmt = connection.createStatement();
-        String sql = "select lastname from users left join  posts on users.id_user = posts.user_id where user_id = "+id;
+        String sql = "select lastname from users left join  posts on users.id_user = posts.user_id where user_id = " + id;
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
@@ -78,11 +102,16 @@ public class PostServ extends Connection implements PostDAO {
         return login;
     }
 
-    /**have to do*/
+    /**
+     * have to do
+     */
     public void update(Post post) throws SQLException {
 
     }
-    /**have to do*/
+
+    /**
+     * have to do
+     */
     public void delete(Post post) throws SQLException {
 
     }

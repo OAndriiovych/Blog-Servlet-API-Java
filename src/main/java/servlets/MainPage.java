@@ -27,7 +27,6 @@ public class MainPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserServ userServ = new UserServ();
 
         CommentServ commentServ = new CommentServ();
         commentServ.connect();
@@ -40,7 +39,7 @@ public class MainPage extends HttpServlet {
         List<Post> posts = new LinkedList();
 
         postServ.connect();
-        userServ.connect();
+
         try {
             posts = postServ.last(12);
         } catch (SQLException e) {
@@ -52,32 +51,26 @@ public class MainPage extends HttpServlet {
 
         for (int i = 0; i < size; i++) {
             Post p = posts.get(i);
-            User user = null;
-            try {
-                user = userServ.getByID(p.getUser_id());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            if (i <3) {
-                PostAllDTO postAllDTO = pca.getPostAllLite(p);
-                postAllDTO.setAuthor(user.getLastname());
-                postAllDTO.setWay_to_author_photo(user.getWay_to_photo());
+
+            if (i < 3) {
+                PostAllDTO postAllDTO = null;
                 try {
+                    postAllDTO = pca.getPostAllLite(p);
                     postAllDTO.setCountComment(commentServ.getCountComment(p.getId_post()));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 listP.add(postAllDTO);
             } else {
-                PostLessDTO postLessDTO = pcless.getPostLess(p);
-                postLessDTO.setAuthor(user.getLastname());
-                postLessDTO.setWay_to_author_photo(user.getWay_to_photo());
+                PostLessDTO postLessDTO = null;
+                try {
+                    postLessDTO = pcless.getPostLess(p);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 listP2.add(postLessDTO);
             }
         }
-
-        userServ.closeConnection();
-
         req.setAttribute("bigPosts", listP);
         req.setAttribute("littlePosts", listP2);
         req.getRequestDispatcher("main.jsp").forward(req, resp);

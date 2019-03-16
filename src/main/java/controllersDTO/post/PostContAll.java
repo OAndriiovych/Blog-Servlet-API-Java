@@ -2,30 +2,49 @@ package controllersDTO.post;
 
 import DTO.post.PostAllDTO;
 import db.database.Post;
+import db.database.User;
+import db.servises.CommentServ;
+import db.servises.UserServ;
 
-public class PostContAll extends PostContLess {
+import java.sql.SQLException;
 
-    private PostAllDTO postOutput;
-    private PostContLess pcL = new PostContLess();
+public class PostContAll {
 
-    public PostAllDTO getPostAllLong(Post postInput) {
-        postOutput = new PostAllDTO(postInput.getTopic(),
-                postInput.getDate_of_post(),
-                postInput.getWay_to_photo(),
-                postInput.getCategory()
-        );
+    public static final PostAllDTO getPostAllLong(Post postInput) throws SQLException {
+        PostAllDTO postOutput= makePostAllDTO(postInput);
         postOutput.setPost(postInput.getPost());
         return postOutput;
     }
 
-    public PostAllDTO getPostAllLite(Post postInput) {
-        postOutput = new PostAllDTO(postInput.getTopic(),
+    public static final PostAllDTO getPostAllLite(Post postInput) throws SQLException {
+        PostAllDTO postOutput= makePostAllDTO(postInput);
+        postOutput.setPost(postInput.getPost().substring(0, 100) + "...");
+        return postOutput;
+    }
+
+    private static final PostAllDTO makePostAllDTO(Post postInput) throws SQLException {
+        PostAllDTO postOutput = new PostAllDTO(postInput.getTopic(),
                 postInput.getDate_of_post(),
                 postInput.getWay_to_photo(),
                 postInput.getCategory()
         );
-        postOutput.setPost(postInput.getPost().substring(0, 100) + "...");
+        User user = null;
+        UserServ userServ = new UserServ();
+        userServ.connect();
+
+            user = userServ.getByID(postInput.getUser_id());
+
+        userServ.closeConnection();
+        postOutput.setAuthor(user.getLastname());
+        postOutput.setWay_to_author_photo(user.getWay_to_photo());
+        CommentServ commentServ = new CommentServ();
+        commentServ.connect();
+
+            postOutput.setCountComment(commentServ.getCountComment(postInput.getId_post()));
+
+        commentServ.closeConnection();
         return postOutput;
+
     }
 
 }

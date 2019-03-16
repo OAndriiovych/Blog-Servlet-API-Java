@@ -12,10 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<%@include file="heder.html"%>
-<%=
-response.getStatus()
-%>
+
 
 </body>
 </html>
