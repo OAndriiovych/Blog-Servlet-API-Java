@@ -1,4 +1,4 @@
-package DTO.post;
+package view.DTO.post;
 
 import db.database.Post;
 
@@ -9,8 +9,8 @@ public class PostLessDTO extends PostLittleDTO {
     protected String author;
     protected String way_to_author_photo;
 
-    public PostLessDTO(String topic, Date date_of_post, String way_to_photo) {
-        super(topic, date_of_post, way_to_photo);
+    public PostLessDTO(int id_post, String topic, Date date_of_post, String way_to_photo) {
+        super(id_post, topic, date_of_post, way_to_photo);
     }
 
     public String getAuthor() {

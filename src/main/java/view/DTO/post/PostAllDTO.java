@@ -1,4 +1,4 @@
-package DTO.post;
+package view.DTO.post;
 
 import java.util.Date;
 
@@ -21,8 +21,8 @@ public class PostAllDTO extends PostLessDTO{
                 '}';
     }
 
-    public PostAllDTO(String topic, Date date_of_post, String way_to_photo, String category) {
-        super(topic, date_of_post, way_to_photo);
+    public PostAllDTO(int id_post, String topic, Date date_of_post, String way_to_photo, String category) {
+        super(id_post, topic, date_of_post, way_to_photo);
         this.category = category;
     }
 

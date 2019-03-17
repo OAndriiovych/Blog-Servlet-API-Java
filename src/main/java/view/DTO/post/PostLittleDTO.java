@@ -1,16 +1,26 @@
-package DTO.post;
+package view.DTO.post;
 
 import java.util.Date;
 
 public class PostLittleDTO {
+    protected int id_post;
     protected String topic;
     protected Date date_of_post;
     protected String way_to_photo;
 
-    public PostLittleDTO(String topic, Date date_of_post, String way_to_photo) {
+    public PostLittleDTO(int id_post, String topic, Date date_of_post, String way_to_photo) {
+        this.id_post = id_post;
         this.topic = topic;
         this.date_of_post = date_of_post;
         this.way_to_photo = way_to_photo;
+    }
+
+    public int getId_post() {
+        return id_post;
+    }
+
+    public void setId_post(int id_post) {
+        this.id_post = id_post;
     }
 
     public String getTopic() {

@@ -18,7 +18,7 @@ public class Logout extends BaseServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getSession().invalidate();
-        resp.sendRedirect("/");
+        resp.sendRedirect(req.getContextPath() + "/");
 
 //        Cookie[] cookie = req.getCookies();
 //        if(cookie!= null) {

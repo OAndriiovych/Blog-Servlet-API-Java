@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseServlet extends HttpServlet {
 
-    UserServ userServ;
+    static UserServ userServ;
 
     @Override
     public void init() throws ServletException {
@@ -29,7 +29,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    protected boolean checkSession(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public static boolean checkSession(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         Enumeration<String> attributeNames = session.getAttributeNames();
         while (attributeNames.hasMoreElements()) {
@@ -37,7 +37,6 @@ public abstract class BaseServlet extends HttpServlet {
             if (name.equals("id")) {
                 try {
                     if (userServ.isUser((Integer) session.getAttribute(name))) {
-                        resp.sendRedirect("have.html");
                         return true;
                     }
                 } catch (SQLException e) {
@@ -55,7 +54,7 @@ public abstract class BaseServlet extends HttpServlet {
                     if (Integer.valueOf(c.getValue()) != -1) {
                         try {
                             if (userServ.isUser(Integer.parseInt(c.getValue()))) {
-                                resp.sendRedirect("have.html");
+                                resp.sendRedirect(req.getContextPath() + "/");
                                 return true;
                             }
                         } catch (SQLException e) {

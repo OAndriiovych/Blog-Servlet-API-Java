@@ -9,7 +9,7 @@ public class User {
     private String passw;
     private String lastname;
     private Date date_of_reg;
-    private String way_to_photo;
+    private String way_to_photo = "\\images\\deff.jpg";
     private Roles user_role;
 
     public String getWay_to_photo() {

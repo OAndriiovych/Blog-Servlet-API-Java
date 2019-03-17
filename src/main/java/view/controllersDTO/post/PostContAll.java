@@ -1,10 +1,11 @@
-package controllersDTO.post;
+package view.controllersDTO.post;
 
-import DTO.post.PostAllDTO;
+
 import db.database.Post;
 import db.database.User;
 import db.servises.CommentServ;
 import db.servises.UserServ;
+import view.DTO.post.PostAllDTO;
 
 import java.sql.SQLException;
 
@@ -23,7 +24,9 @@ public class PostContAll {
     }
 
     private static final PostAllDTO makePostAllDTO(Post postInput) throws SQLException {
-        PostAllDTO postOutput = new PostAllDTO(postInput.getTopic(),
+        PostAllDTO postOutput = new PostAllDTO(
+                postInput.getId_post(),
+                postInput.getTopic(),
                 postInput.getDate_of_post(),
                 postInput.getWay_to_photo(),
                 postInput.getCategory()

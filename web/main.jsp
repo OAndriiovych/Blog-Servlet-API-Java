@@ -10,10 +10,11 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page errorPage="error.jsp" %>
 <%--<%@ page errorPage="error.jsp" %>--%>
 <html lang="en">
 <head>
-    <title>Colorlib Wordify &mdash; Minimal Blog Template</title>
+    <title>Welcome to my blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -94,7 +95,8 @@
                     <div class="owl-carousel owl-theme home-slider">
                         <c:forEach var="asd" items="${requestScope.bigPosts}">
                             <div>
-                                <a href="blog-single.html" class="a-block d-flex align-items-center height-lg"
+                                <a href="/poster?post=<c:out value="${asd.id_post}"/>"
+                                   class="a-block d-flex align-items-center height-lg"
                                    style="background-image: url('<c:out value="${asd.way_to_photo}"/>')">
                                     <div class="text half-to-full">
                                         <span class="category mb-5">
@@ -115,6 +117,7 @@
                                             </c:if>
                                         </div>
                                         <h3>
+
                                             <c:out value="${asd.topic}"/>
                                         </h3>
                                         <p>
@@ -143,7 +146,8 @@
                     <div class="row">
                         <c:forEach var="asd" items="${requestScope.littlePosts}">
                             <div class="col-md-4">
-                                <a href="blog-single.html" class="blog-entry element-animate"
+                                <a href="/poster?post=<c:out value="${asd.id_post}"/>"
+                                   class="blog-entry element-animate"
                                    data-animate-effect="fadeIn">
                                     <img src="<c:out value="${asd.way_to_photo}"/>" alt="Image placeholder">
                                     <div class="blog-content-body">
@@ -174,7 +178,8 @@
                     </p>
                     <p>I'm Andriiovych Oleksii. I'm from the group Lv-393.Java</p>
                     <p>This is my own blog. It was my the second task in SoftServe IT Academy.
-                        This project have written with Java. If You want see source,  <a href="https://github.com/narnanam/blog">follow this link</a></p>
+                        This project have written with Java. If You want see source, <a
+                                href="https://github.com/narnanam/blog">follow this link</a></p>
                 </div>
                 <div class="col-md-6 ml-auto">
                     <div class="row">

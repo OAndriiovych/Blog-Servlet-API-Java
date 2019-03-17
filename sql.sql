@@ -7,7 +7,7 @@ CREATE TABLE users
      passw       VARCHAR(26) NOT NULL,
      lastname    VARCHAR(30) NOT NULL,
      date_of_reg DATE DEFAULT CURRENT_TIMESTAMP,
-     way_to_photo TEXT NOT NULL,
+     way_to_photo TEXT DEFAULT '\images\deff.jpg',
      user_role   ROLES DEFAULT 'user'
   );
 
@@ -26,7 +26,7 @@ CREATE TABLE posts
      category       VARCHAR(15) NOT NULL,
      topic          VARCHAR(40) NOT NULL,
      post           TEXT NOT NULL,
-     way_to_photo   TEXT NOT NULL,
+     way_to_photo   TEXT,
      user_id        INTEGER NOT NULL,
      date_of_post   DATE DEFAULT CURRENT_TIMESTAMP
   );

@@ -1,6 +1,7 @@
 package db.servises;
 
 import db.DAO.User_commentDAO;
+import db.database.Post;
 import db.database.User_comment;
 import db.utill.Connection;
 
@@ -41,9 +42,18 @@ public class CommentServ extends Connection implements User_commentDAO {
 
     /**have to do*/
     public List<User_comment> getAll() throws SQLException {
+        return last(-1);
+    }
+    public List<User_comment> last(int post_id) throws SQLException {
         List<User_comment> list = new LinkedList();
         Statement stmt = connection.createStatement();
-        String sql = "select * from user_comments;";
+        String sql = null;
+        if (post_id > 0) {
+            sql = "select * from user_comments where post_id = "+post_id+" order by id_comment DESC limit 150";
+        }
+        else {
+            sql = "select * from user_comments order by id_comment DESC limit 150";
+        }
         ResultSet rs = stmt.executeQuery(sql);
 
         while (rs.next()) {
@@ -51,7 +61,8 @@ public class CommentServ extends Connection implements User_commentDAO {
                     rs.getInt("user_id"),
                     rs.getInt("post_id"),
                     rs.getString("user_comment"),
-                    rs.getDate("date_of_coment")));
+                    rs.getDate("date_of_coment")
+                    ));
         }
         rs.close();
         stmt.close();

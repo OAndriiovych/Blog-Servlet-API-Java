@@ -22,6 +22,13 @@
 
     <properties>
         <javax.servlet.api.version>3.1.0</javax.servlet.api.version>
+        <javax.servlet.jsp.version>2.3.3</javax.servlet.jsp.version>
+        <javax.servlet.version>2.5</javax.servlet.version>
+        <junit.version>4.12</junit.version>
+        <javax.servlet.jsp.jstl.version>1.2</javax.servlet.jsp.jstl.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-io.version>2.6</commons-io.version>
+        <org.apache.commons.version>3.2</org.apache.commons.version>
         <postgres.connector.version>42.2.5</postgres.connector.version>
     </properties>
 
@@ -35,56 +42,45 @@
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.3</version>
-
+            <version>${javax.servlet.jsp.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <version>${javax.servlet.version}</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
-            <version>1.2</version>
+            <version> ${javax.servlet.jsp.jstl.version}</version>
         </dependency>
-
-
-
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- upload -->
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.4</version>
+            <version>${commons-fileupload.version}</version>
         </dependency>
-
-
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>${commons-io.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-digester3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-digester3</artifactId>
-            <version>3.2</version>
+            <version> ${org.apache.commons.version}</version>
         </dependency>
-
-
-
     </dependencies>
     
 </project>

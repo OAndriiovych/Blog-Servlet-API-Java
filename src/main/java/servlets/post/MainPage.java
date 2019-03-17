@@ -1,11 +1,11 @@
-package servlets;
+package servlets.post;
 
 
-import DTO.post.PostAllDTO;
-import DTO.post.PostLessDTO;
-import DTO.post.PostLittleDTO;
-import controllersDTO.post.PostContAll;
-import controllersDTO.post.PostContLess;
+import view.DTO.post.PostAllDTO;
+import view.DTO.post.PostLessDTO;
+import view.DTO.post.PostLittleDTO;
+import view.controllersDTO.post.PostContAll;
+import view.controllersDTO.post.PostContLess;
 import db.database.Post;
 import db.database.User;
 import db.servises.CommentServ;

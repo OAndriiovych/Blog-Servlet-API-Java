@@ -1,16 +1,21 @@
-package controllersDTO.post;
+package view.controllersDTO.post;
 
-import DTO.post.PostLessDTO;
+
 import db.database.Post;
 import db.database.User;
 import db.servises.UserServ;
+import view.DTO.post.PostLessDTO;
 
 import java.sql.SQLException;
 
 public class PostContLess  {
 
     public static final PostLessDTO getPostLess(Post postInput) throws SQLException {
-        PostLessDTO postLessDTO=new PostLessDTO(postInput.getTopic(),postInput.getDate_of_post(),postInput.getWay_to_photo());
+        PostLessDTO postLessDTO=new PostLessDTO(
+                postInput.getId_post(),
+                postInput.getTopic(),
+                postInput.getDate_of_post(),
+                postInput.getWay_to_photo());
         User user = null;
         UserServ userServ = new UserServ();
         userServ.connect();

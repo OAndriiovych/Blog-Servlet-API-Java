@@ -11,11 +11,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/account")
+@WebServlet("/login")
 public class Login extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (checkSession(req, resp)) {
+        if (BaseServlet.checkSession(req, resp)) {
+            resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
         RequestDispatcher view = req.getRequestDispatcher("login.html");
@@ -35,7 +36,7 @@ public class Login extends BaseServlet {
             e.printStackTrace();
         }
         login(user,session);
-        resp.sendRedirect("success.html");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
 

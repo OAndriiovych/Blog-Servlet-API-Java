@@ -15,14 +15,7 @@ public class UserServ extends Connection implements UserDAO {
 
     public void add(User user) throws SQLException {
 
-        String s = "'user'";
-        if (user.getUser_role() == Roles.ADMIN) {
-            s = "'admin'";
-        } else if (user.getUser_role() == Roles.MODERATOR) {
-            s = "'moderator'";
-        }
-
-        String sql = "INSERT INTO users (login, passw,lastname,way_to_photo,user_role) VALUES (?,?,?,?," + s + ")";
+        String sql = "INSERT INTO users (login, passw,lastname,way_to_photo) VALUES (?,?,?,?)";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, user.getLogin());

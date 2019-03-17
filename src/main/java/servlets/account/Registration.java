@@ -18,28 +18,30 @@ public class Registration extends BaseServlet {
         String name = req.getParameter("email");
         try {
             if (userServ.isUser(name)) {
-                resp.sendRedirect("have.html");
+                resp.sendRedirect(req.getContextPath() + "/");
                 return;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         User user= new User(name, req.getParameter("psw"),req.getParameter("lastname"));
+        User userLogin=null;
         HttpSession session = req.getSession();
         try {
             userServ.add(user);
             //resp.addCookie(new Cookie("id", Integer.toString(users.getId_user())));
-            user=userServ.getUser(user);
+            userLogin=userServ.getUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        login(user,session);
-        resp.sendRedirect("success.html");
+        login(userLogin,session);
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(checkSession(req,resp)){
+        if(BaseServlet.checkSession(req,resp)){
+            resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
         RequestDispatcher view = req.getRequestDispatcher("reg.html");

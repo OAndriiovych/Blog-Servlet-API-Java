@@ -1,7 +1,5 @@
 
 
-import DTO.post.PostAllDTO;
-import controllersDTO.post.PostContAll;
 import db.database.Post;
 import db.database.User;
 import db.servises.CommentServ;
