@@ -1,3 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: L
+  Date: 18.03.2019
+  Time: 11:47
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page errorPage="error.jsp" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -84,6 +94,12 @@
                             <h1>Login</h1>
                             <p>Please fill in this form to login an account.</p>
                             <hr>
+                            <c:set var="login" value="${requestScope.login}"/>
+                            <c:if test="${login}">
+                                <h4 style="color: red;">
+                                    Password or email is wrong
+                                </h4>
+                            </c:if>
 
                             <label for="email"><b>Email</b></label>
                             <input type="text" placeholder="Enter Email" name="email" required minlength="8"

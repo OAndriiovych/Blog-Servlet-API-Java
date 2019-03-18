@@ -125,14 +125,14 @@ public class UserServ extends Connection implements UserDAO {
         } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
-        String sql = "UPDATE users set login= ? ,passw= ? ,lastname= ? ,way_to_photo= ? ,user_role= " + s + " where id_user = " + id + ";";
+        String sql = "UPDATE users set login=?, passw=?,lastname=?,way_to_photo=?,user_role=" + s + " where id_user = " + id;
         PreparedStatement prpStat = connection.prepareStatement(sql);
+
         prpStat.setString(1, user.getLogin());
         prpStat.setString(2, user.getPassw());
         prpStat.setString(3, user.getLastname());
         prpStat.setString(4, user.getWay_to_photo());
-
-
+        System.out.println(prpStat);
         prpStat.executeUpdate();
         prpStat.close();
     }

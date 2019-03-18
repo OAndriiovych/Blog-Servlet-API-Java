@@ -89,13 +89,8 @@
     </header>
     <!-- END header -->
 
-
-    <!-- END section -->
-
     <section class="site-section py-sm">
         <div class="container">
-
-
             <div class="row blog-entries">
                 <div class="col-md-12 col-lg-8 main-content">
                     <img src="<c:out value="${mainPost.way_to_photo}"/>" alt="Image" class="img-fluid mb-5">
@@ -110,12 +105,9 @@
                     </div>
                     <h1 class="mb-4"><c:out value="${mainPost.topic}"/></h1>
                     <a class="category mb-5" href="#"><c:out value="${mainPost.category}"/></a>
-
                     <div class="post-content-body">
                         <c:out value="${mainPost.post}"/>
                     </div>
-
-
                     <div class="pt-5">
                         <c:if test="${mainPost.countComment>1}">
                             <h3 class="mb-5"><c:out value="${mainPost.countComment}"/> Comments</h3>
@@ -209,15 +201,10 @@
                 <div class="col-md-6 ml-auto">
                     <div class="row">
                         <div class="col-md-7">
-
-                            <div class="post-entry-sidebar">
-
-                            </div>
+                            <div class="post-entry-sidebar"></div>
                         </div>
                         <div class="col-md-1"></div>
-
                         <div class="col-md-4">
-
                             <div class="mb-5">
                                 <h3>Social</h3>
                                 <ul class="list-unstyled footer-social">

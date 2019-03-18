@@ -7,7 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page errorPage="error.jsp" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,7 +32,6 @@
 
 
 <div class="wrap">
-
     <header role="banner">
         <div class="top-bar">
             <div class="container">
@@ -42,13 +41,6 @@
                         <a href="#"><span class="fa fa-facebook"></span></a>
                         <a href="#"><span class="fa fa-instagram"></span></a>
                         <a href="#"><span class="fa fa-youtube-play"></span></a>
-                    </div>
-                    <div class="col-3 search-top">
-                        <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                        <form action="#" class="search-top-form">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" id="s" placeholder="Type keyword to search...">
-                        </form>
                     </div>
                 </div>
             </div>
@@ -120,41 +112,76 @@
 
             <div class="row blog-entries element-animate">
                 <c:set var="person" value="${requestScope.person}"/>
-                <div class="col-md-12 col-lg-8 main-content">
-                    <h1 class="mb-4">Your account</h1>
-                    <div class="col-md-8 col-lg-6 main-content">
-                        <img src="<c:out value="${person.way_to_photo}"/>" alt="Image" class="img-fluid mb-5">
-                    </div>
-                    <table style="width: 100%;">
-                        <tr>
-                            <td><h2>
-                                Lastname
-                            </h2></td>
-                            <td><h4>
-                                <c:out value="${person.lastname}"/>
-                            </h4></td>
-                            <td><a class="category" href="#">change Lastname</a></td>
-                        </tr>
-                        <tr>
-                            <td><h2>
-                                Email
-                            </h2></td>
-                            <td><h4>
-                                <c:out value="${person.login}"/>
-                            </h4></td>
-                            <td><a class="category" href="#">change Email</a></td>
-                        </tr>
-                        <tr>
-                            <td><h2>
-                                Date of registration
-                            </h2></td>
-                            <td><h4>
-                                <c:out value="${person.date_of_reg}"/>
-                            </h4></td>
-                        </tr>
-                    </table>
+                <div class="col-md-12 col-lg-8 main-content" style="padding-left: 0px;">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h1 class="mb-4">Your account</h1>
+                        <div class="col-md-8 col-lg-6 main-content">
+                            <img src="<c:out value="${person.way_to_photo}"/>" alt="Image" class="img-fluid mb-5">
 
-                    <a class="category mb-5" href="#" style="padding: 1%;margin-top: 5%;">Change password</a><br>
+                            <input class="ion-android-radio-button-off" name="image_uploads" type="file"
+                                   accept=".jpg, .jpeg, .png" style="margin: 5%;margin-left: 0;"><br>
+                            <p >*File have to be less than 3 MB</p>
+                            <c:set var="size" value="${requestScope.size}"/>
+                            <c:if test="${size}">
+                                <h3 style="color: red;">File to long!</h3>
+                            </c:if>
+                        </div>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td><h2>
+                                    Lastname
+                                </h2></td>
+                                <td><h4>
+                                    <c:out value="${person.lastname}"/>
+                                </h4></td>
+                            </tr>
+                            <tr>
+                                <td><h2>
+                                    Email
+                                </h2></td>
+                                <td><h4>
+                                    <c:out value="${person.login}"/>
+                                </h4></td>
+                            </tr>
+                            <tr>
+                                <td><h2>
+                                    Date of registration
+                                </h2></td>
+                                <td><h4>
+                                    <c:out value="${person.date_of_reg}"/>
+                                </h4></td>
+                            </tr>
+                        </table>
+
+                        <table style="width: 100%;margin-top: 5%;">
+                            <tr>
+                                <td><h4>
+                                    New Lastname
+                                </h4></td>
+                                <td>
+                                    <input type="text" placeholder="Enter Password" name="lastname"
+                                           maxlength="26"></td>
+                            </tr>
+                            <tr>
+                                <td><h4>
+                                    New Email
+                                </h4></td>
+                                <td>
+                                    <input type="text" placeholder="Enter Email" name="email"
+                                           maxlength="26"></td>
+                            </tr>
+                            <tr>
+                                <td><h4>
+                                    New password
+                                </h4></td>
+                                <td>
+                                    <input type="password" placeholder="Repeat Password" name="psw"></td>
+                            </tr>
+                        </table>
+                        <input class="category" style="padding: 1%;margin-top: 5%;font-size: 90%;margin-bottom: 30px;"
+                               type="submit"
+                               value="Save Changes"><br>
+                    </form>
                     <c:if test="${person.role=='MODERATOR'||person.role=='ADMIN'}">
                         <h2>You are <c:out value="${person.role}"/></h2>
                         <a class="category mb-5" href="#" style="padding: 1%; margin-top: 5%;">Create new post</a><br>
@@ -162,76 +189,22 @@
                             <a class="category mb-5" href="#" style="padding: 1%; margin-top: 5%;">Create new post</a>
                         </c:if>
                     </c:if>
-
-
                 </div>
 
                 <!-- END main-content -->
 
                 <div class="col-md-12 col-lg-4 sidebar">
-
                     <div class="sidebar-box search-form-wrap">
-
-
                         <a class="category mb-5" href="/logout" style="padding: 5%; font-size: 16px;">LOGUOT</a>
-
-
                     </div>
                     <!-- END sidebar-box -->
-                    <div class="sidebar-box">
-
-                        <h3 class="heading">Popular Posts</h3>
-                        <div class="post-entry-sidebar">
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
-                                        <div class="text">
-                                            <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">March 15, 2018 </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- END sidebar-box -->
-
-
                 </div>
                 <!-- END sidebar -->
-
             </div>
         </div>
     </section>
 
-
     <!-- END section -->
-
     <footer class="site-footer">
         <div class="container">
             <div class="row mb-5">

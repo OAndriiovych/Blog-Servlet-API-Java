@@ -19,7 +19,7 @@ public class Login extends BaseServlet {
             resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
-        RequestDispatcher view = req.getRequestDispatcher("login.html");
+        RequestDispatcher view = req.getRequestDispatcher("login.jsp");
         view.forward(req, resp);
     }
 
@@ -31,9 +31,13 @@ public class Login extends BaseServlet {
         HttpSession session = req.getSession();
         try {
             user = userServ.getUser(user);
-
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        if(user.getId_user()==0){
+            req.setAttribute("login", true);
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            return;
         }
         login(user,session);
         resp.sendRedirect(req.getContextPath() + "/");

@@ -64,7 +64,6 @@ public class User {
         this.passw = passw;
         this.lastname = lastname;
         this.way_to_photo = way_to_photo;
-        this.user_role = user_role;
     }
     public User(String login, String passw, String lastname, Roles user_role) {
         this.login = login;
