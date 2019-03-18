@@ -109,99 +109,56 @@
 
     <section class="site-section py-lg">
         <div class="container">
+            <h2 style="color: red"><c:out value="${requestScope.message}"/></h2>
 
-            <div class="row blog-entries element-animate">
+            <form action="" method="post" style="border: red;border-bottom-width: 2px;
+            border-bottom-style: solid;border-top-width: 2px;border-top-style: solid;border-right-width: 2px;
+            border-right-style: solid;border-left-width: 2px;border-left-style: solid;margin-bottom: 20px;padding: 2%;">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <select style="height: 40px;" name="role">
+                    <option>user</option>
+                    <option>moderator</option>
+                    <option>admin</option>
+                </select>
+                <button type="submit" class="registerbtn">Cahge</button>
+            </form>
+
                 <c:set var="person" value="${requestScope.person}"/>
-                <div class="col-md-12 col-lg-8 main-content" style="padding-left: 0px;">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <h1 class="mb-4">Your account</h1>
-                        <div class="col-md-8 col-lg-6 main-content">
-                            <img src="<c:out value="${person.way_to_photo}"/>" alt="Image" class="img-fluid mb-5">
-
-                            <input class="ion-android-radio-button-off" name="image_uploads" type="file"
-                                   accept=".jpg, .jpeg, .png" style="margin: 5%;margin-left: 0;"><br>
-                            <p >*File have to be less than 3 MB</p>
-                            <c:set var="size" value="${requestScope.size}"/>
-                            <c:if test="${size}">
-                                <h3 style="color: red;">File to long!</h3>
-                            </c:if>
-                        </div>
-                        <table style="width: 100%;">
+                        <table border="1" style="width: 100%;">
                             <tr>
-                                <td><h2>
-                                    Lastname
-                                </h2></td>
-                                <td><h4>
-                                    <c:out value="${person.lastname}"/>
-                                </h4></td>
+                            <th>login</th>
+                            <th>lastname</th>
+                            <th>date_of_reg</th>
+                            <th>way_to_photo</th>
+                            <th>role</th>
                             </tr>
+                            <c:forEach var="user" items="${requestScope.userDTOList}">
                             <tr>
-                                <td><h2>
-                                    Email
-                                </h2></td>
-                                <td><h4>
-                                    <c:out value="${person.login}"/>
-                                </h4></td>
+                                <td>
+                                    <c:out value="${user.login}"/>
+                                </td>
+                                <td>
+                                    <c:out value="${user.lastname}"/>
+                                </td>
+                                <td>
+                                    <c:out value="${user.date_of_reg}"/>
+                                </td>
+                                <td>
+                                    <c:out value="${user.way_to_photo}"/>
+                                </td>
+                                <td>
+                                    <c:out value="${user.role}"/>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><h2>
-                                    Date of registration
-                                </h2></td>
-                                <td><h4>
-                                    <c:out value="${person.date_of_reg}"/>
-                                </h4></td>
-                            </tr>
+                            </c:forEach>
                         </table>
-
-                        <table style="width: 100%;margin-top: 5%;">
-                            <tr>
-                                <td><h4>
-                                    New Lastname
-                                </h4></td>
-                                <td>
-                                    <input type="text" placeholder="Enter Password" name="lastname"
-                                           maxlength="26"></td>
-                            </tr>
-                            <tr>
-                                <td><h4>
-                                    New Email
-                                </h4></td>
-                                <td>
-                                    <input type="text" placeholder="Enter Email" name="email"
-                                           maxlength="26"></td>
-                            </tr>
-                            <tr>
-                                <td><h4>
-                                    New password
-                                </h4></td>
-                                <td>
-                                    <input type="password" placeholder="Repeat Password" name="psw"></td>
-                            </tr>
-                        </table>
-                        <input class="category" style="padding: 1%;margin-top: 5%;font-size: 90%;margin-bottom: 30px;"
-                               type="submit"
-                               value="Save Changes"><br>
                     </form>
-                    <c:if test="${person.role=='MODERATOR'||person.role=='ADMIN'}">
-                        <h2>You are <c:out value="${person.role}"/></h2>
-                        <a class="category mb-5" href="#" style="padding: 1%; margin-top: 5%;">Create new post</a><br>
-                        <c:if test="${person.role=='ADMIN'}">
-                            <a class="category mb-5" href="/listofusers" style="padding: 1%; margin-top: 5%;">Change roles</a>
-                        </c:if>
-                    </c:if>
-                </div>
-
-                <!-- END main-content -->
-
-                <div class="col-md-12 col-lg-4 sidebar">
-                    <div class="sidebar-box search-form-wrap">
-                        <a class="category mb-5" href="/logout" style="padding: 5%; font-size: 16px;">LOGUOT</a>
-                    </div>
-                    <!-- END sidebar-box -->
                 </div>
                 <!-- END sidebar -->
-            </div>
-        </div>
+
+
     </section>
 
     <!-- END section -->

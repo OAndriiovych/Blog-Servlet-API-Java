@@ -33,18 +33,12 @@ public class Account extends BaseServlet {
         }
         User user = null;
         HttpSession session = req.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String name = attributeNames.nextElement();
-            if (name.equals("id")) {
-                try {
-                    user = userServ.getByID((Integer) session.getAttribute(name));
-                    break;
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        try {
+            user = userServ.getByID((Integer) session.getAttribute("id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         req.setAttribute("person", UserContDTO.convertToUserDTO(user));
 
         req.getRequestDispatcher("account.jsp").forward(req, resp);
@@ -87,7 +81,6 @@ public class Account extends BaseServlet {
 
             while (iter.hasNext()) {
                 FileItem item = (FileItem) iter.next();
-
                 if (item.isFormField()) {
                     //если принимаемая часть данных является полем формы
                     if (item.getFieldName().equals("lastname")) {
@@ -98,7 +91,7 @@ public class Account extends BaseServlet {
                         password = item.getString();
                     }
                 } else {
-                    if(item.getSize()>393216){
+                    if (item.getSize() > 393216) {
                         request.setAttribute("size", true);
                         request.getRequestDispatcher("account.jsp").forward(request, response);
                         return;
@@ -121,7 +114,7 @@ public class Account extends BaseServlet {
             String name = attributeNames.nextElement();
             if (name.equals("id")) {
                 try {
-                    updateUser=userServ.getByID((int) session.getAttribute(name));
+                    updateUser = userServ.getByID((int) session.getAttribute(name));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -129,16 +122,16 @@ public class Account extends BaseServlet {
             }
         }
         try {
-            if (!login.equals("")){
+            if (!login.equals("")) {
                 updateUser.setLogin(login);
             }
-            if (!password.equals("")){
+            if (!password.equals("")) {
                 updateUser.setPassw(password);
             }
-            if (!lastname.equals("")){
+            if (!lastname.equals("")) {
                 updateUser.setLastname(lastname);
             }
-            if (!path.equals("")){
+            if (!path.equals("")) {
                 updateUser.setWay_to_photo(path);
             }
             userServ.update(updateUser.getId_user(), updateUser);
