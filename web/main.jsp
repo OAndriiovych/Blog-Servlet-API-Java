@@ -56,7 +56,7 @@
                 <div class="col-12 text-center">
                     <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button"
                        aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                    <h1 class="site-logo"><a href="index.html">Wordify</a></h1>
+                    <h1 class="site-logo"><a href="/">Wordify</a></h1>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="collapse navbar-collapse" id="navbarMenu">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link active" href="/">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -164,7 +164,35 @@
                         </c:forEach>
                     </div>
                 </div>
+
+                <div class="row mt-5" style="width: 100%;">
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination">
+                                <c:set var="flag" value="${true}"/>
+                                <c:set var="page" value="${presentpage}"/>
+                                <c:forEach var="asd" items="${requestScope.pages}">
+                                    <c:if test="${asd>0}">
+                                        <c:if test="${asd==page}">
+                                            <li class="page-item"><a class="page-link" href="" style="color: #fff;
+                                            background-color: #6610f2;"><c:out value="${asd}"/></a></li>
+                                        </c:if>
+                                        <c:if test="${asd!=page}">
+                                            <li class="page-item"><a class="page-link" href="/?page=<c:out value="${asd}"/>"><c:out
+                                                    value="${asd}"/></a></li>
+                                        </c:if>
+                                    </c:if>
+                                    <c:if test="${asd==0&&flag}">
+                                        <c:set var="flag" value="${false}"/>
+                                        <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                                    </c:if>
+                                </c:forEach>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 

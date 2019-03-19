@@ -43,7 +43,7 @@ public class Poster extends HttpServlet {
         try {
             p = postServ.getByID(id);
             postAllLong= PostContAll.getPostAllLong(p);
-            list= postServ.last(3);
+            list= postServ.last(0,3);
             listOfComments=commentServ.last(p.getId_post());
             for (User_comment c:listOfComments){
                 listOfCommentsDTO.add(CommentControl.toCommentDTO(c));

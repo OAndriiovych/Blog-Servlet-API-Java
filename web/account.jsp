@@ -51,7 +51,7 @@
                 <div class="col-12 text-center">
                     <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button"
                        aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                    <h1 class="site-logo"><a href="index.html">Wordify</a></h1>
+                    <h1 class="site-logo"><a href="/">Wordify</a></h1>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarMenu">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Business</a>

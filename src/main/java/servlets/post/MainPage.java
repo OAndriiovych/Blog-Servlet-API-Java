@@ -26,8 +26,6 @@ import java.util.List;
 public class MainPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         CommentServ commentServ = new CommentServ();
         commentServ.connect();
 
@@ -38,18 +36,59 @@ public class MainPage extends HttpServlet {
         List<PostLittleDTO> listP2 = new LinkedList<>();
         List<Post> posts = new LinkedList();
 
+        int count=0;
+        int from=0;
+        int to=12;
+        int postAtPage=12;
+        int lastpage = 0;
+        int presentpage =1;
+        int[] pages = new int[7];
         postServ.connect();
+        try {
+            count = postServ.count();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(count%postAtPage==0){
+            lastpage=count/postAtPage;
+        }
+        else {
+            lastpage=count/postAtPage+1;
+        }
+        if (req.getParameter("page")!=null) {
+            presentpage = Integer.parseInt(req.getParameter("page"));
+            if(presentpage>(lastpage)){
+                presentpage=1;
+            }
+        }
+        int id=0;
+        for(int i = presentpage-1;i<=presentpage+3;i++) {
+            if (i > 0) {
+                pages[id]=i;
+                id++;
+            }
+            if(i==lastpage){
+                break;
+            }
+        }
+        pages[6]=lastpage;
+
+
+
+        req.setAttribute("pages", pages);
+        req.setAttribute("presentpage", presentpage);
+        presentpage--;
+        from+=12*presentpage;
+        to+=12*presentpage;
 
         try {
-            posts = postServ.last(12);
+            posts = postServ.last(from,to);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         postServ.closeConnection();
 
-        int size = posts.size() - (posts.size() % 3);
-
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < posts.size(); i++) {
             Post p = posts.get(i);
 
             if (i < 3) {

@@ -10,14 +10,21 @@ import java.sql.SQLException;
 
 public class FillDatabase {
     public static void main(String[] args) throws SQLException {
+
+        addPost();
+
+    }
+    public static void addUser() throws SQLException {
         UserServ userServ = new UserServ();
         userServ.connect();
         for(int i =1;i<7;i++){
             userServ.add(
                     new User("login"+i, "password", "lastname","\\images\\person_"+i+".jpg", Roles.ADMIN));
         }
-        userServ.connect();
+        userServ.closeConnection();
         System.out.println("added users");
+    }
+    public static void addPost() throws SQLException {
         PostServ postServ = new PostServ();
         postServ.connect();
         for(int i =1;i<13;i++){
@@ -29,6 +36,9 @@ public class FillDatabase {
         }
         postServ.closeConnection();
         System.out.println("added posts");
+    }
+    public static void addComent() throws SQLException {
+
         CommentServ commentServ = new CommentServ();
         commentServ.connect();
         for(int i =1;i<12;i++){
@@ -39,7 +49,6 @@ public class FillDatabase {
         }
         commentServ.closeConnection();
         System.out.println("added comments");
-
     }
 
 }

@@ -35,7 +35,7 @@ public class PostServ extends Connection implements PostDAO {
      * have to do
      */
     public List<Post> getAll() throws SQLException {
-        return last(-1);
+        return last(-1,0);
     }
 
     public Post getByID(int id) throws SQLException {
@@ -60,17 +60,26 @@ public class PostServ extends Connection implements PostDAO {
     }
 
     public Post findLike() throws SQLException {
-
         return null;
+    }
+    public int count() throws SQLException {
+        int count = 0;
+        String sql="select count(*) from posts";
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        rs.next();
+        count=rs.getInt("count");
+
+        return count;
     }
 
 
-    public List<Post> last(int count) throws SQLException {
+    public List<Post> last(int from,int to) throws SQLException {
         List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
         String sql = "select * from posts order by id_post  ";
-        if (count > 0) {
-            sql += "DESC limit " + count;
+        if (from > 0) {
+            sql += "DESC offset "+from+" limit " +to;
         }
         ResultSet rs = stmt.executeQuery(sql);
 
