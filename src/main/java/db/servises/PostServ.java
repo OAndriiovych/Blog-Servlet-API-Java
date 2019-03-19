@@ -78,7 +78,7 @@ public class PostServ extends Connection implements PostDAO {
         List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
         String sql = "select * from posts order by id_post  ";
-        if (from > 0) {
+        if (from >= 0) {
             sql += "DESC offset "+from+" limit " +to;
         }
         ResultSet rs = stmt.executeQuery(sql);

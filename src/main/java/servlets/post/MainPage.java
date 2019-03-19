@@ -23,13 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet("/main")
-public class MainPage extends HttpServlet {
+public class MainPage extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CommentServ commentServ = new CommentServ();
-        commentServ.connect();
 
-        PostServ postServ = new PostServ();
         PostContAll pca = new PostContAll();
         PostContLess pcless = new PostContLess();
         List<PostAllDTO> listP = new LinkedList<>();
@@ -43,7 +40,7 @@ public class MainPage extends HttpServlet {
         int lastpage = 0;
         int presentpage =1;
         int[] pages = new int[7];
-        postServ.connect();
+
         try {
             count = postServ.count();
         } catch (SQLException e) {
@@ -73,8 +70,6 @@ public class MainPage extends HttpServlet {
         }
         pages[6]=lastpage;
 
-
-
         req.setAttribute("pages", pages);
         req.setAttribute("presentpage", presentpage);
         presentpage--;
@@ -86,7 +81,6 @@ public class MainPage extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        postServ.closeConnection();
 
         for (int i = 0; i < posts.size(); i++) {
             Post p = posts.get(i);
