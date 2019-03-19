@@ -2,7 +2,6 @@ package db.servises;
 
 import db.DAO.PostDAO;
 import db.database.Post;
-import db.database.User;
 import db.utill.Connection;
 
 import java.sql.PreparedStatement;
@@ -17,7 +16,6 @@ public class PostServ extends Connection implements PostDAO {
     private java.sql.Connection connection;
 
     public void add(Post post) throws SQLException {
-
         String sql = "INSERT INTO posts (category, topic, post, way_to_photo, user_id) VALUES (?,?,?,?,?)";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
@@ -31,11 +29,8 @@ public class PostServ extends Connection implements PostDAO {
         prpStat.close();
     }
 
-    /**
-     * have to do
-     */
     public List<Post> getAll() throws SQLException {
-        return last(-1,0);
+        return last(-1, 0);
     }
 
     public Post getByID(int id) throws SQLException {
@@ -62,24 +57,25 @@ public class PostServ extends Connection implements PostDAO {
     public Post findLike() throws SQLException {
         return null;
     }
+
     public int count() throws SQLException {
         int count = 0;
-        String sql="select count(*) from posts";
+        String sql = "select count(*) from posts";
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         rs.next();
-        count=rs.getInt("count");
-
+        count = rs.getInt("count");
+        rs.close();
         return count;
     }
 
 
-    public List<Post> last(int from,int to) throws SQLException {
+    public List<Post> last(int from, int to) throws SQLException {
         List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
         String sql = "select * from posts order by id_post  ";
         if (from >= 0) {
-            sql += "DESC offset "+from+" limit " +to;
+            sql += "DESC offset " + from + " limit " + to;
         }
         ResultSet rs = stmt.executeQuery(sql);
 
@@ -111,16 +107,10 @@ public class PostServ extends Connection implements PostDAO {
         return login;
     }
 
-    /**
-     * have to do
-     */
     public void update(Post post) throws SQLException {
 
     }
 
-    /**
-     * have to do
-     */
     public void delete(Post post) throws SQLException {
 
     }

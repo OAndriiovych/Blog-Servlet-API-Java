@@ -3,14 +3,13 @@ package db.database;
 import java.sql.Date;
 
 public class Post {
-    private  int id_post;
+    private int id_post;
     private String category;
     private String topic;
     private String post;
     private String way_to_photo;
     private int user_id;
     private Date date_of_post;
-
 
 
     public Post(int id_post, String category, String topic, String post, String way_to_photo, int user_id, Date date_of_post) {
@@ -23,22 +22,12 @@ public class Post {
         this.date_of_post = date_of_post;
     }
 
-    /**
-     * will be delete
-     * */
     public Post(String category, String topic, String post, String way_to_photo, int user_id) {
         this.category = category;
         this.topic = topic;
         this.post = post;
         this.way_to_photo = way_to_photo;
         this.user_id = user_id;
-    }
-
-    public Post(String category, String topic, String post, String way_to_photo) {
-        this.category = category;
-        this.topic = topic;
-        this.post = post;
-        this.way_to_photo = way_to_photo;
     }
 
     public String getWay_to_photo() {

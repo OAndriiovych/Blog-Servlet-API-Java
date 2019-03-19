@@ -113,8 +113,6 @@ public class Poster extends servlets.post.BaseServlet {
                 post_id = (Integer) session.getAttribute(idString);
                 flagPost = true;
             }
-
-
         }
         if (flagUser && flagPost) {
             try {

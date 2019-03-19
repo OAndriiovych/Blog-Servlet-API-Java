@@ -14,7 +14,6 @@ public class UserServ extends Connection implements UserDAO {
     private java.sql.Connection connection;
 
     public void add(User user) throws SQLException {
-
         String sql = "INSERT INTO users (login, passw,lastname,way_to_photo) VALUES (?,?,?,?)";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
@@ -65,7 +64,6 @@ public class UserServ extends Connection implements UserDAO {
     }
 
     public User getUser(User user) throws SQLException {
-
         Statement stmt = connection.createStatement();
         String sql = "select * from users where login = '" + user.getLogin() + "' and passw='" + user.getPassw() + "';";
         ResultSet rs = stmt.executeQuery(sql);
@@ -138,7 +136,6 @@ public class UserServ extends Connection implements UserDAO {
     }
 
     public void delete(User user) throws SQLException {
-
         if (user.getId_user() == 0) {
             user = getUser(user);
         }
@@ -148,10 +145,6 @@ public class UserServ extends Connection implements UserDAO {
 
         prpStat.executeUpdate();
         prpStat.close();
-    }
-
-    private void checkID(User user) {
-
     }
 
     public void connect() {

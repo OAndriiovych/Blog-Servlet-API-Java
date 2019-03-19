@@ -1,13 +1,11 @@
 package servlets.account;
 
-import db.database.Roles;
 import db.database.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import view.controllersDTO.user.UserContDTO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -154,7 +152,7 @@ public class Account extends BaseServlet {
         String way = null;
         //выбираем файлу имя пока не найдём свободное
         do {
-            way = "/upload/" + random.nextInt() + item.getName();
+            way = "/images/users" + random.nextInt() + item.getName();
             String path = getServletContext().getRealPath(way);
             System.out.println(path);
             //String path=getServletContext().getRealPath("d:/test/"+random.nextInt() + item.getName());

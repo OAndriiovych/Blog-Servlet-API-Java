@@ -4,21 +4,16 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class User {
+
     private int id_user;
     private String login;
     private String passw;
     private String lastname;
     private Date date_of_reg;
-    private String way_to_photo = "\\images\\deff.jpg";
+    private String way_to_photo = "/images/users/deff.jpg";
     private Roles user_role;
 
-    public String getWay_to_photo() {
-        return way_to_photo;
-    }
 
-    public void setWay_to_photo(String way_to_photo) {
-        this.way_to_photo = way_to_photo;
-    }
 
 
 
@@ -52,6 +47,7 @@ public class User {
         this.user_role = user_role;
     }
 
+
     public User(String login, String passw, String lastname, String way_to_photo, Roles user_role) {
         this.login = login;
         this.passw = passw;
@@ -82,6 +78,14 @@ public class User {
         this.passw = passw;
     }
 
+    public String getWay_to_photo() {
+        return way_to_photo;
+    }
+
+    public void setWay_to_photo(String way_to_photo) {
+        this.way_to_photo = way_to_photo;
+    }
+
     public String getLastname() {
         return lastname;
     }
@@ -90,12 +94,9 @@ public class User {
         this.lastname = lastname;
     }
 
-
-
     public int getId_user() {
         return id_user;
     }
-
 
     public String getLogin() {
         return login;

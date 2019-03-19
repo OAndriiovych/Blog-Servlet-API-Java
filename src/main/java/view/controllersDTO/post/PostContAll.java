@@ -19,7 +19,12 @@ public class PostContAll {
 
     public static final PostAllDTO getPostAllLite(Post postInput) throws SQLException {
         PostAllDTO postOutput= makePostAllDTO(postInput);
-        postOutput.setPost(postInput.getPost().substring(0, 100) + "...");
+        if(postInput.getPost().length()>101) {
+            postOutput.setPost(postInput.getPost().substring(0, 100) + "...");
+        }
+        else {
+            postOutput.setPost(postInput.getPost());
+        }
         return postOutput;
     }
 

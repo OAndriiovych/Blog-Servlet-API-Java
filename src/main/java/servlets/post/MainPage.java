@@ -73,8 +73,8 @@ public class MainPage extends BaseServlet {
         req.setAttribute("pages", pages);
         req.setAttribute("presentpage", presentpage);
         presentpage--;
-        from+=12*presentpage;
-        to+=12*presentpage;
+        from+=postAtPage*presentpage;
+        to+=postAtPage*presentpage;
 
         try {
             posts = postServ.last(from,to);

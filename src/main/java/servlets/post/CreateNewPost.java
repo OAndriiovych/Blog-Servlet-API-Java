@@ -129,17 +129,11 @@ public class CreateNewPost extends BaseServlet {
         String way = null;
         //выбираем файлу имя пока не найдём свободное
         do {
-            way = "/lool/" + new Random().nextInt() + item.getName();
+            way = "/images/users/" + new Random().nextInt() + item.getName();
             String path = getServletContext().getRealPath(way);
             System.out.println(path);
-            //String path=getServletContext().getRealPath("d:/test/"+random.nextInt() + item.getName());
-            //String path ="d:/test/"+random.nextInt() + item.getName();
             uploadetFile = new File(path);
         } while (uploadetFile.exists());
-
-        //создаём файл
-        //uploadetFile.createNewFile();
-        //записываем в него данные
         item.write(uploadetFile);
         return way;
     }
