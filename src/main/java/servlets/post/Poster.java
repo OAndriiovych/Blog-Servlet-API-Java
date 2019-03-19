@@ -27,7 +27,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet("/poster")
-public class Poster extends HttpServlet {
+public class Poster extends servlets.post.BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.valueOf(req.getParameter("post"));
@@ -38,25 +38,23 @@ public class Poster extends HttpServlet {
         List<CommentDTO> listOfCommentsDTO = new LinkedList<>();
         PostAllDTO postAllLong = null;
         Post p = null;
-        CommentServ commentServ = new CommentServ();
-        commentServ.connect();
         try {
             p = postServ.getByID(id);
-            postAllLong= PostContAll.getPostAllLong(p);
-            list= postServ.last(0,3);
-            listOfComments=commentServ.last(p.getId_post());
-            for (User_comment c:listOfComments){
+            postAllLong = PostContAll.getPostAllLong(p);
+            list = postServ.last(0, 3);
+            listOfComments = commentServ.last(p.getId_post());
+            for (User_comment c : listOfComments) {
                 listOfCommentsDTO.add(CommentControl.toCommentDTO(c));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         List<PostLittleDTO> postLittleDTOList = new LinkedList<>();
-        for(Post post:list) {
+        for (Post post : list) {
             postLittleDTOList.add(PostContLittle.getPostLittle(post));
         }
-        boolean flag = BaseServlet.checkSession(req,resp);
-        if (flag){
+        boolean flag = BaseServlet.checkSession(req, resp);
+        if (flag) {
             HttpSession session = req.getSession();
             session.setAttribute("post_id", p.getId_post());
             req.setAttribute("login", flag);
@@ -78,6 +76,7 @@ public class Poster extends HttpServlet {
         charMap.put(60, "&lt;");      // less than
         charMap.put(62, "&gt;");      // greater than
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String comment = req.getParameter("comment");
@@ -108,16 +107,16 @@ public class Poster extends HttpServlet {
             String idString = attributeNames.nextElement();
             if (idString.equals("id")) {
                 user_id = (Integer) session.getAttribute(idString);
-                flagUser=true;
+                flagUser = true;
 
             } else if (idString.equals("post_id")) {
                 post_id = (Integer) session.getAttribute(idString);
-                flagPost=true;
+                flagPost = true;
             }
 
 
         }
-        if (flagUser&&flagPost) {
+        if (flagUser && flagPost) {
             try {
                 commentServ.add(new User_comment(user_id, post_id, builder.toString()));
             } catch (SQLException e) {

@@ -35,7 +35,7 @@
 
                             <input class="ion-android-radio-button-off" name="image_uploads" type="file"
                                    accept=".jpg, .jpeg, .png" style="margin: 5%;margin-left: 0;"><br>
-                            <p >*File have to be less than 3 MB</p>
+                            <p>*File have to be less than 3 MB</p>
                             <c:set var="size" value="${requestScope.size}"/>
                             <c:if test="${size}">
                                 <h3 style="color: red;">File to long!</h3>
@@ -99,9 +99,11 @@
                     </form>
                     <c:if test="${person.role=='MODERATOR'||person.role=='ADMIN'}">
                         <h2>You are <c:out value="${person.role}"/></h2>
-                        <a class="category mb-5" href="#" style="padding: 1%; margin-top: 5%;">Create new post</a><br>
+                        <a class="category mb-5" href="/createpost" style="padding: 1%; margin-top: 5%;">Create new
+                            post</a><br>
                         <c:if test="${person.role=='ADMIN'}">
-                            <a class="category mb-5" href="/listofusers" style="padding: 1%; margin-top: 5%;">Change roles</a>
+                            <a class="category mb-5" href="/listofusers" style="padding: 1%; margin-top: 5%;">Change
+                                roles</a>
                         </c:if>
                     </c:if>
                 </div>
