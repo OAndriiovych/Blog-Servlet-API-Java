@@ -36,7 +36,7 @@ public class PostServ extends Connection implements PostDAO {
     public Post getByID(int id) throws SQLException {
         Post post = null;
         Statement stmt = connection.createStatement();
-        String sql = "select * from posts where id_post = " + id;
+        String sql = "SELECT * FROM posts WHERE id_post = " + id;
 
         ResultSet rs = stmt.executeQuery(sql);
 
@@ -60,7 +60,7 @@ public class PostServ extends Connection implements PostDAO {
 
     public int count() throws SQLException {
         int count = 0;
-        String sql = "select count(*) from posts";
+        String sql = "SELECT count(*) FROM posts";
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         rs.next();
@@ -73,7 +73,7 @@ public class PostServ extends Connection implements PostDAO {
     public List<Post> last(int from, int to) throws SQLException {
         List<Post> list = new LinkedList();
         Statement stmt = connection.createStatement();
-        String sql = "select * from posts order by id_post  ";
+        String sql = "SELECT * FROM posts ORDER BY id_post  ";
         if (from >= 0) {
             sql += "DESC offset " + from + " limit " + to;
         }
@@ -96,7 +96,7 @@ public class PostServ extends Connection implements PostDAO {
 
     public String getAuthor(int id) throws SQLException {
         Statement stmt = connection.createStatement();
-        String sql = "select lastname from users left join  posts on users.id_user = posts.user_id where user_id = " + id;
+        String sql = "SELECT lastname FROM users LEFT JOIN  posts ON users.id_user = posts.user_id WHERE user_id = " + id;
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
@@ -105,6 +105,26 @@ public class PostServ extends Connection implements PostDAO {
         rs.close();
         stmt.close();
         return login;
+    }
+    public List<Post> findLike(String like) throws SQLException {
+        List<Post> listOfPosts = new LinkedList<>();
+        Statement stmt = connection.createStatement();
+        String sql = "SELECT * FROM posts WHERE LOWER(topic) LIKE LOWER('%"+like+"%'); ";
+
+        ResultSet rs = stmt.executeQuery(sql);
+
+        while (rs.next()) {
+            listOfPosts.add(new Post(rs.getInt("id_post"),
+                    rs.getString("category"),
+                    rs.getString("topic"),
+                    rs.getString("post"),
+                    rs.getString("way_to_photo"),
+                    rs.getInt("user_id"),
+                    rs.getDate("date_of_post")));
+        }
+        rs.close();
+        stmt.close();
+        return listOfPosts;
     }
 
     public void update(Post post) throws SQLException {

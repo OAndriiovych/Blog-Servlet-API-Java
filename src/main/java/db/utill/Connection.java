@@ -15,7 +15,8 @@ public class Connection {
     private static java.sql.Connection conn = null;
 
     protected static java.sql.Connection getConnection() {
-        if (conn == null) {
+         java.sql.Connection conn = null;
+
             Properties property = new Properties();
             try {
                 try {
@@ -33,7 +34,7 @@ public class Connection {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
+
         return conn;
     }
 

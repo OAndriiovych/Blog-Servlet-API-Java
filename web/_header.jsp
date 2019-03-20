@@ -20,8 +20,10 @@
     <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/form of registration.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Theme Style -->
 </head>
 <body>
@@ -36,7 +38,13 @@
                     <a href="#"><span class="fa fa-instagram"></span></a>
                     <a href="#"><span class="fa fa-youtube-play"></span></a>
                 </div>
-
+                <div class="col-3 search-top">
+                    <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+                    <form action="/search" class="search-top-form" method="get">
+                        <span class="icon fa fa-search"></span>
+                        <input required type="text" id="s" name="search" placeholder="Type keyword to search...">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -76,6 +84,7 @@
         </div>
     </nav>
 </header>
+
 
 </body>
 </html>
