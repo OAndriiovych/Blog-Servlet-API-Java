@@ -14,7 +14,7 @@ import java.sql.SQLException;
 @WebServlet("/registration")
 public class Registration extends BaseServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("email");
         try {
             if (userServ.isUser(name)) {
@@ -24,23 +24,23 @@ public class Registration extends BaseServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        User user= new User(name, req.getParameter("psw"),req.getParameter("lastname"));
-        User userLogin=null;
+        User user = new User(name, req.getParameter("psw"), req.getParameter("lastname"));
+        User userLogin = null;
         HttpSession session = req.getSession();
         try {
             userServ.add(user);
             //resp.addCookie(new Cookie("id", Integer.toString(users.getId_user())));
-            userLogin=userServ.getUser(user);
+            userLogin = userServ.getUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        login(userLogin,session);
+        login(userLogin, session);
         resp.sendRedirect(req.getContextPath() + "/");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(BaseServlet.checkSession(req,resp)){
+        if (BaseServlet.checkSession(req, resp)) {
             resp.sendRedirect(req.getContextPath() + "/");
             return;
         }

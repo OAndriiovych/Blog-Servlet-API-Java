@@ -4,7 +4,7 @@ CREATE TABLE users
   (
      id_user     SERIAL PRIMARY KEY,
      login       VARCHAR(26) NOT NULL UNIQUE,
-     passw       VARCHAR(26) NOT NULL,
+     passw       VARCHAR(64) NOT NULL,
      lastname    VARCHAR(30) NOT NULL,
      date_of_reg DATE DEFAULT CURRENT_TIMESTAMP,
      way_to_photo TEXT DEFAULT '\images\deff.jpg',

@@ -43,8 +43,10 @@
                             </c:if>
 
                             <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required minlength="8"
-                                   maxlength="26" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                          <!--  <input type="text" placeholder="Enter Email" name="email" required minlength="8"
+                                   maxlength="26" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">-->
+                            <input type="text" placeholder="Enter Email" name="email" required
+                                   maxlength="26">
 
                             <label for="psw"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="psw" required minlength="8"

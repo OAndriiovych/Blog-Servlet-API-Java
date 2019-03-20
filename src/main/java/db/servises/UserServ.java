@@ -4,6 +4,7 @@ import db.DAO.UserDAO;
 import db.database.Roles;
 import db.database.User;
 import db.utill.Connection;
+import servlets.account.HashPassword;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -18,7 +19,7 @@ public class UserServ extends Connection implements UserDAO {
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, user.getLogin());
-        prpStat.setString(2, user.getPassw());
+        prpStat.setString(2, HashPassword.hash(user.getPassw()));
         prpStat.setString(3, user.getLastname());
         prpStat.setString(4, user.getWay_to_photo());
 
@@ -127,7 +128,7 @@ public class UserServ extends Connection implements UserDAO {
         PreparedStatement prpStat = connection.prepareStatement(sql);
 
         prpStat.setString(1, user.getLogin());
-        prpStat.setString(2, user.getPassw());
+        prpStat.setString(2, HashPassword.hash(user.getPassw()));
         prpStat.setString(3, user.getLastname());
         prpStat.setString(4, user.getWay_to_photo());
         System.out.println(prpStat);

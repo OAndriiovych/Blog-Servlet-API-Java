@@ -27,6 +27,7 @@ public class Login extends BaseServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("email");
         String password = req.getParameter("psw");
+        password=HashPassword.hash(password);
         User user = new User(name, password);
         HttpSession session = req.getSession();
         try {
