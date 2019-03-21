@@ -53,11 +53,11 @@ public class Poster extends servlets.post.BaseServlet {
         for (Post post : list) {
             postLittleDTOList.add(PostContLittle.getPostLittle(post));
         }
-        boolean flag = BaseServlet.checkSession(req, resp);
-        if (flag) {
+
+        if (BaseServlet.checkSession(req)) {
             HttpSession session = req.getSession();
             session.setAttribute("post_id", p.getId_post());
-            req.setAttribute("login", flag);
+            req.setAttribute("login", true);
         }
         req.setAttribute("postAllLong", postAllLong);
         req.setAttribute("listOfComments", listOfCommentsDTO);

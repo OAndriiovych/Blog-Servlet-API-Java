@@ -1,6 +1,7 @@
 package servlets.post;
 
 import db.database.Post;
+import db.database.Roles;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -22,10 +23,10 @@ import java.util.Random;
 public class CreateNewPost extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (servlets.account.BaseServlet.checkSession(req, resp)) {
+        if (servlets.account.BaseServlet.getRole(req)!= Roles.USER) {
             req.getRequestDispatcher("createpost.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath() + "/login");
+            resp.sendRedirect(req.getContextPath() + "/account");
             return;
         }
 

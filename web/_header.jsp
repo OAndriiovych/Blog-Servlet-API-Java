@@ -28,6 +28,8 @@
 </head>
 <body>
 
+
+
 <header role="banner">
     <div class="top-bar">
         <div class="container">
@@ -41,7 +43,7 @@
                 <div class="col-3 search-top">
                     <!-- <a href="#"><span class="fa fa-search"></span></a> -->
                     <form action="/search" class="search-top-form" method="get">
-                        <span class="icon fa fa-search"></span>
+                        <span class="icon fa fa-search" style="margin-top: -8px;"></span>
                         <input required type="text" id="s" name="search" placeholder="Type keyword to search...">
                     </form>
                 </div>

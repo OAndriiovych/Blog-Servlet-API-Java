@@ -29,19 +29,18 @@ public class Registration extends BaseServlet {
         HttpSession session = req.getSession();
         try {
             userServ.add(user);
-            //resp.addCookie(new Cookie("id", Integer.toString(users.getId_user())));
             userLogin = userServ.getUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        login(userLogin, session);
-        resp.sendRedirect(req.getContextPath() + "/");
+        login(userLogin.getId_user(), session);
+        resp.sendRedirect(req.getContextPath() + "/account");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (BaseServlet.checkSession(req, resp)) {
-            resp.sendRedirect(req.getContextPath() + "/");
+        if (BaseServlet.checkSession(req)||BaseServlet.checkCookies(req)) {
+            resp.sendRedirect(req.getContextPath() + "/account");
             return;
         }
         RequestDispatcher view = req.getRequestDispatcher("registration.jsp");

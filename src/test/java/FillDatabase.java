@@ -10,9 +10,7 @@ import java.sql.SQLException;
 
 public class FillDatabase {
     public static void main(String[] args) throws SQLException {
-
         addPost();
-
     }
     public static void addUser() throws SQLException {
         UserServ userServ = new UserServ();

@@ -50,15 +50,16 @@ public class UserServ extends Connection implements UserDAO {
         Statement stmt = connection.createStatement();
         String sql = "select * from users where id_user = " + id;
         ResultSet rs = stmt.executeQuery(sql);
-
-        rs.next();
-        User user = new User(rs.getInt("id_user"),
-                rs.getString("login"),
-                rs.getString("passw"),
-                rs.getString("lastname"),
-                rs.getDate("date_of_reg"),
-                rs.getString("way_to_photo"),
-                Roles.valueOf(rs.getString("user_role").toUpperCase()));
+        User user =null;
+        while (rs.next()) {
+             user = new User(rs.getInt("id_user"),
+                    rs.getString("login"),
+                    rs.getString("passw"),
+                    rs.getString("lastname"),
+                    rs.getDate("date_of_reg"),
+                    rs.getString("way_to_photo"),
+                    Roles.valueOf(rs.getString("user_role").toUpperCase()));
+        }
         rs.close();
         stmt.close();
         return user;
@@ -66,17 +67,18 @@ public class UserServ extends Connection implements UserDAO {
 
     public User getUser(User user) throws SQLException {
         Statement stmt = connection.createStatement();
-        String sql = "select * from users where login = '" + user.getLogin() + "' and passw='" + user.getPassw() + "';";
+        String sql = "select * from users where login = '" + user.getLogin() + "' and passw='" + HashPassword.hash(user.getPassw()) + "';";
         ResultSet rs = stmt.executeQuery(sql);
-
-        rs.next();
-        user = new User(rs.getInt("id_user"),
-                rs.getString("login"),
-                rs.getString("passw"),
-                rs.getString("lastname"),
-                rs.getDate("date_of_reg"),
-                rs.getString("way_to_photo"),
-                Roles.valueOf(rs.getString("user_role").toUpperCase()));
+        user=null;
+        while (rs.next()) {
+            user = new User(rs.getInt("id_user"),
+                    rs.getString("login"),
+                    rs.getString("passw"),
+                    rs.getString("lastname"),
+                    rs.getDate("date_of_reg"),
+                    rs.getString("way_to_photo"),
+                    Roles.valueOf(rs.getString("user_role").toUpperCase()));
+        }
         rs.close();
         stmt.close();
         return user;
@@ -102,6 +104,10 @@ public class UserServ extends Connection implements UserDAO {
         return is(sql);
     }
 
+    public boolean isUser(int id,String passwor) throws SQLException {
+        String sql = "select * from users where id_user = " + id+" and passw = '"+passwor+"'";
+        return is(sql);
+    }
     public boolean isUser(int id) throws SQLException {
         String sql = "select * from users where id_user = " + id;
         return is(sql);

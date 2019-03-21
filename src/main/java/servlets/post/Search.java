@@ -1,17 +1,12 @@
 package servlets.post;
 
-import view.DTO.post.PostAllDTO;
 import view.DTO.post.PostLessDTO;
-import view.DTO.post.PostLittleDTO;
-import view.controllersDTO.post.PostContAll;
+
 import view.controllersDTO.post.PostContLess;
-import view.controllersDTO.post.PostContLittle;
 import db.database.Post;
-import db.servises.PostServ;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -24,9 +19,8 @@ public class Search extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String like = req.getParameter("search");
-        String message=null;
+        String message="Sorry we didn't find anything((";
         if(like.replaceAll("\\s+","").equals("")){
-            message="Sorry we didn't find anything((";
             req.setAttribute("like", like);
             req.setAttribute("message", message);
             req.getRequestDispatcher("search.jsp").forward(req, resp);
@@ -36,14 +30,14 @@ public class Search extends BaseServlet {
         List<PostLessDTO> postLessDTOList = new LinkedList<>();
         try {
             postList = postServ.findLike(like);
-            if(postList.isEmpty()){
-
-            }
-            else {
+            if(!postList.isEmpty()){
                 for (Post post : postList) {
-                    postLessDTOList.add(PostContLess.getPostLess(post));
-
+                    PostLessDTO postLessDTO =PostContLess.getPostLess(post);
+                    postLessDTO.setWay_to_photo(postLessDTO.getWay_to_photo().replace("\\", "/"));
+                    System.out.println(postLessDTO.getWay_to_photo());
+                    postLessDTOList.add(postLessDTO);
                 }
+                message=null;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,6 +47,4 @@ public class Search extends BaseServlet {
         req.setAttribute("message", message);
         req.getRequestDispatcher("search.jsp").forward(req, resp);
     }
-
-
 }

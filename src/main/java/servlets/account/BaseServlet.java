@@ -29,7 +29,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    public static boolean checkSession(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public static boolean checkSession(HttpServletRequest req) throws IOException {
         HttpSession session = req.getSession();
         Enumeration<String> attributeNames = session.getAttributeNames();
         while (attributeNames.hasMoreElements()) {
@@ -46,38 +46,55 @@ public abstract class BaseServlet extends HttpServlet {
         }
         return false;
     }
-    protected boolean checkCookies(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Cookie[] cookie = req.getCookies();
-        if (cookie != null) {
-            for (Cookie c : cookie) {
-                if (c.getName().equals("id")) {
-                    if (Integer.valueOf(c.getValue()) != -1) {
-                        try {
-                            if (userServ.isUser(Integer.parseInt(c.getValue()))) {
-                                resp.sendRedirect(req.getContextPath() + "/");
-                                return true;
-                            }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }
+    public static Roles getRole(HttpServletRequest req) throws IOException {
+        HttpSession session = req.getSession();
+        Enumeration<String> attributeNames = session.getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String name = attributeNames.nextElement();
+            if (name.equals("id")) {
+                try {
+                    return userServ.getByID((Integer) session.getAttribute(name)).getUser_role();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         }
-        return false;
+        return Roles.USER;
     }
-    void login(User users, HttpSession session){
-        if (users.getLogin() != null) {
-            session.setAttribute("id", users.getId_user());
-            session.setAttribute("lastname", users.getLastname());
-            session.setMaxInactiveInterval((int) TimeUnit.DAYS.toSeconds(1));
-            // resp.addCookie(new Cookie("id", Integer.toString(users.getId_user())));
-            if (users.getUser_role() == Roles.ADMIN) {
-                session.setMaxInactiveInterval((int) TimeUnit.HOURS.toSeconds(8));
-                session.setAttribute("role", Roles.ADMIN.toString());
-                //resp.addCookie(new Cookie("role", Roles.ADMIN.toString()));
+
+    public static boolean checkCookies(HttpServletRequest req) throws IOException {
+        Cookie[] cookie = req.getCookies();
+        int id = 0;
+        String pass = null;
+        if (cookie == null) {
+            return false;
+        }
+        for (Cookie c : cookie) {
+            if (c.getName().equals("id")) {
+                id = Integer.parseInt(c.getValue());
+            }
+            else if(c.getName().equals("password")){
+                pass=c.getValue();
             }
         }
+        if (id == 0 || pass==null){
+            return false;
+        }
+        try {
+            if(userServ.isUser(id,pass)) {
+                login(id, req.getSession());
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    static void login(int id, HttpSession session) {
+        session.setAttribute("id", id);
+        session.setMaxInactiveInterval((int) TimeUnit.DAYS.toSeconds(1));
     }
 
 }

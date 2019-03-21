@@ -51,6 +51,9 @@
                             <label for="psw"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="psw" required minlength="8"
                                    maxlength="26">
+                            <label for="cookies"><b>Remember me</b></label>
+                            <input type="checkbox" placeholder="Enter Password" name="cookies" style="transform: scale(1.3);-ms-transform: scale(1.3);/ -webkit-transform: scale(1.3);">
+
 
                             <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
                               <input type="password" placeholder="Repeat Password" name="psw-repeat" required>-->

@@ -18,17 +18,21 @@ public class Logout extends BaseServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getSession().invalidate();
+        Cookie[] cookie = req.getCookies();
+        if (cookie == null) {
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
+        }
+        for (Cookie c : cookie) {
+            if (c.getName().equals("id")) {
+                c.setMaxAge(0);
+                resp.addCookie(c);
+            }
+            else if (c.getName().equals("password")) {
+                c.setMaxAge(0);
+                resp.addCookie(c);
+            }
+        }
         resp.sendRedirect(req.getContextPath() + "/");
-
-//        Cookie[] cookie = req.getCookies();
-//        if(cookie!= null) {
-//            for (Cookie c:cookie) {
-//                if (c.getName().equals("id")) {
-//                    c.setValue("-1");
-//                    resp.addCookie(c);
-//                    resp.sendRedirect("/");
-//                }
-//            }
-//        }
     }
 }

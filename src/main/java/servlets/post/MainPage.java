@@ -52,8 +52,14 @@ public class MainPage extends BaseServlet {
         else {
             lastpage=count/postAtPage+1;
         }
+
         if (req.getParameter("page")!=null) {
-            presentpage = Integer.parseInt(req.getParameter("page"));
+            try {
+                presentpage = Integer.parseInt(req.getParameter("page"));
+            }catch (NumberFormatException e){
+                resp.sendRedirect(req.getContextPath() + "/");
+                return;
+            }
             if(presentpage>(lastpage)){
                 presentpage=1;
             }

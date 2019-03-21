@@ -25,14 +25,15 @@ public class Account extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (!BaseServlet.checkSession(req, resp)) {
+        if (!BaseServlet.checkSession(req)&&!BaseServlet.checkCookies(req)) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
         User user = null;
         HttpSession session = req.getSession();
+        int id =(int)session.getAttribute("id");
         try {
-            user = userServ.getByID((Integer) session.getAttribute("id"));
+            user = userServ.getByID(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

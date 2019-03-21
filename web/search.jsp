@@ -40,8 +40,8 @@
                                 <c:forEach var="post" items="${requestScope.postLessDTOList}">
                                     <div class="post-entry-horzontal">
                                         <a href="/poster?post=<c:out value="${post.id_post}"/>" style="width: 100%;">
-                                            <div class="image" style="background-image: url('<c:out
-                                                    value="${post.way_to_photo}"/>');"></div>
+                                            <div class="image" style="background-image: url(<c:out
+                                                    value="${post.way_to_photo}"/>);"></div>
                                             <span class="text">
                                           <div class="post-meta">
                                             <span class="author mr-2"><img
