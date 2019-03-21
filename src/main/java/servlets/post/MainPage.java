@@ -90,7 +90,6 @@ public class MainPage extends BaseServlet {
 
         for (int i = 0; i < posts.size(); i++) {
             Post p = posts.get(i);
-
             if (i < 3) {
                 PostAllDTO postAllDTO = null;
                 try {
@@ -114,6 +113,4 @@ public class MainPage extends BaseServlet {
         req.setAttribute("littlePosts", listP2);
         req.getRequestDispatcher("main.jsp").forward(req, resp);
     }
-
-
 }

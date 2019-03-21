@@ -1,14 +1,12 @@
 package servlets.account;
 
 import db.database.Roles;
-import db.database.User;
 import db.servises.UserServ;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Enumeration;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseServlet extends HttpServlet {
@@ -31,33 +29,26 @@ public abstract class BaseServlet extends HttpServlet {
 
     public static boolean checkSession(HttpServletRequest req) throws IOException {
         HttpSession session = req.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String name = attributeNames.nextElement();
-            if (name.equals("id")) {
-                try {
-                    if (userServ.isUser((Integer) session.getAttribute(name))) {
-                        return true;
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        try {
+            if (userServ.isUser((Integer) session.getAttribute("id"))) {
+                return true;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            return false;
         }
         return false;
     }
+
     public static Roles getRole(HttpServletRequest req) throws IOException {
         HttpSession session = req.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String name = attributeNames.nextElement();
-            if (name.equals("id")) {
-                try {
-                    return userServ.getByID((Integer) session.getAttribute(name)).getUser_role();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        try {
+            return userServ.getByID((Integer) session.getAttribute("id")).getUser_role();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            return Roles.USER;
         }
         return Roles.USER;
     }
@@ -72,16 +63,15 @@ public abstract class BaseServlet extends HttpServlet {
         for (Cookie c : cookie) {
             if (c.getName().equals("id")) {
                 id = Integer.parseInt(c.getValue());
-            }
-            else if(c.getName().equals("password")){
-                pass=c.getValue();
+            } else if (c.getName().equals("password")) {
+                pass = c.getValue();
             }
         }
-        if (id == 0 || pass==null){
+        if (id == 0 || pass == null) {
             return false;
         }
         try {
-            if(userServ.isUser(id,pass)) {
+            if (userServ.isUser(id, pass)) {
                 login(id, req.getSession());
                 return true;
             }

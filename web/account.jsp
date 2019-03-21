@@ -35,7 +35,7 @@
 
                             <input class="ion-android-radio-button-off" name="image_uploads" type="file"
                                    accept=".jpg, .jpeg, .png" style="margin: 5%;margin-left: 0;"><br>
-                            <p>*File have to be less than 3 MB</p>
+                            <p>*File have to be less than 5 MB</p>
                             <c:set var="size" value="${requestScope.size}"/>
                             <c:if test="${size}">
                                 <h3 style="color: red;">File to long!</h3>

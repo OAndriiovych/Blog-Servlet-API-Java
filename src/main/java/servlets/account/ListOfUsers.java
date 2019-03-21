@@ -23,20 +23,18 @@ public class ListOfUsers extends BaseServlet {
 
         HttpSession session = req.getSession();
         User user = null;
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String name = attributeNames.nextElement();
-            if (name.equals("id")) {
-                try {
-                    user = userServ.getByID((int) session.getAttribute("id"));
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
 
-
-            }
+        try {
+            user = userServ.getByID((int) session.getAttribute("id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
         }
-        if (user==null||!(user.getUser_role() == Roles.ADMIN)) {
+
+
+        if (user == null || !(user.getUser_role() == Roles.ADMIN)) {
             resp.sendRedirect(req.getContextPath() + "/");
             return;
         }

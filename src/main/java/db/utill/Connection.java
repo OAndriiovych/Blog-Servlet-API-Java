@@ -3,7 +3,6 @@ package db.utill;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -11,8 +10,6 @@ import java.util.Properties;
 public class Connection {
 
     private static String wayToProperty = "d:/SS/blog/src/main/resources/config_db.properties";
-
-    private static java.sql.Connection conn = null;
 
     protected static java.sql.Connection getConnection() {
          java.sql.Connection conn = null;

@@ -19,7 +19,6 @@ public class PostContLess {
         User user = null;
         UserServ userServ = new UserServ();
         userServ.connect();
-
         user = userServ.getByID(postInput.getUser_id());
         userServ.closeConnection();
         postLessDTO.setAuthor(user.getLastname());

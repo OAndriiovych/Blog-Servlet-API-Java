@@ -1,5 +1,6 @@
 package servlets.post;
 
+import db.database.Roles;
 import db.database.User;
 import db.database.User_comment;
 import db.servises.CommentServ;
@@ -28,6 +29,18 @@ import java.util.List;
 
 @WebServlet("/poster")
 public class Poster extends servlets.post.BaseServlet {
+    public static final HashMap<Integer, String> charMap =
+            new HashMap<Integer, String>();
+
+    static {
+        charMap.put(34, "&quot;");    // double quote
+        charMap.put(35, "&#35;");     // hash mark (no HTML named entity)
+        charMap.put(38, "&amp;");     // ampersand
+        charMap.put(39, "&apos;");    // apostrophe, aka single quote
+        charMap.put(60, "&lt;");      // less than
+        charMap.put(62, "&gt;");      // greater than
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.valueOf(req.getParameter("post"));
@@ -36,6 +49,7 @@ public class Poster extends servlets.post.BaseServlet {
         List<Post> list = new LinkedList<>();
         List<User_comment> listOfComments = null;
         List<CommentDTO> listOfCommentsDTO = new LinkedList<>();
+        List<PostLittleDTO> postLittleDTOList = new LinkedList<>();
         PostAllDTO postAllLong = null;
         Post p = null;
         try {
@@ -49,7 +63,7 @@ public class Poster extends servlets.post.BaseServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        List<PostLittleDTO> postLittleDTOList = new LinkedList<>();
+
         for (Post post : list) {
             postLittleDTOList.add(PostContLittle.getPostLittle(post));
         }
@@ -63,18 +77,6 @@ public class Poster extends servlets.post.BaseServlet {
         req.setAttribute("listOfComments", listOfCommentsDTO);
         req.setAttribute("postList", postLittleDTOList);
         req.getRequestDispatcher("post.jsp").forward(req, resp);
-    }
-
-    public static final HashMap<Integer, String> charMap =
-            new HashMap<Integer, String>();
-
-    static {
-        charMap.put(34, "&quot;");    // double quote
-        charMap.put(35, "&#35;");     // hash mark (no HTML named entity)
-        charMap.put(38, "&amp;");     // ampersand
-        charMap.put(39, "&apos;");    // apostrophe, aka single quote
-        charMap.put(60, "&lt;");      // less than
-        charMap.put(62, "&gt;");      // greater than
     }
 
     @Override
@@ -98,22 +100,26 @@ public class Poster extends servlets.post.BaseServlet {
         CommentServ commentServ = new CommentServ();
         commentServ.connect();
         HttpSession session = req.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
+
         int user_id = 0;
         int post_id = 0;
         boolean flagUser = false;
         boolean flagPost = false;
-        while (attributeNames.hasMoreElements()) {
-            String idString = attributeNames.nextElement();
-            if (idString.equals("id")) {
-                user_id = (Integer) session.getAttribute(idString);
-                flagUser = true;
-
-            } else if (idString.equals("post_id")) {
-                post_id = (Integer) session.getAttribute(idString);
-                flagPost = true;
-            }
+        try {
+            user_id = (Integer) session.getAttribute("id");
+            post_id = (Integer) session.getAttribute("post_id");
+        } catch (NullPointerException e) {
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
         }
+        if (user_id != 0) {
+            flagUser = true;
+
+        }
+        if (post_id != 0) {
+            flagPost = true;
+        }
+
         if (flagUser && flagPost) {
             try {
                 commentServ.add(new User_comment(user_id, post_id, builder.toString()));

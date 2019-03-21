@@ -23,7 +23,7 @@ import java.util.Random;
 public class CreateNewPost extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (servlets.account.BaseServlet.getRole(req)!= Roles.USER) {
+        if (servlets.account.BaseServlet.getRole(req) != Roles.USER) {
             req.getRequestDispatcher("createpost.jsp").forward(req, resp);
         } else {
             resp.sendRedirect(req.getContextPath() + "/account");
@@ -45,33 +45,19 @@ public class CreateNewPost extends BaseServlet {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-        // Создаём класс фабрику
+
         DiskFileItemFactory factory = new DiskFileItemFactory();
-
-        // Максимальный буфера данных в байтах,
-        // при его привышении данные начнут записываться на диск во временную директорию
-        // устанавливаем один мегабайт
         factory.setSizeThreshold(1024 * 1024);
-
-        // устанавливаем временную директорию
         File tempDir = (File) getServletContext().getAttribute("javax.servlet.context.tempdir");
         factory.setRepository(tempDir);
-
-        //Создаём сам загрузчик
         ServletFileUpload upload = new ServletFileUpload(factory);
-
-        //максимальный размер данных который разрешено загружать в байтах
-        //по умолчанию -1, без ограничений. Устанавливаем 10 мегабайт.
         upload.setSizeMax(1024 * 1024 * 10);
-
         try {
             List items = upload.parseRequest(req);
             Iterator iter = items.iterator();
-
             while (iter.hasNext()) {
                 FileItem item = (FileItem) iter.next();
                 if (item.isFormField()) {
-                    //если принимаемая часть данных является полем формы
                     if (item.getFieldName().equals("topic")) {
                         topic = item.getString();
                     } else if (item.getFieldName().equals("category")) {
@@ -81,13 +67,12 @@ public class CreateNewPost extends BaseServlet {
                     }
                 } else {
                     System.out.println(item.getSize());
-                    if (item.getSize() > 26_214_400) {
+                    if (item.getSize() >  41_943_040) {
                         message = "photo too big";
                         req.setAttribute("message", message);
                         req.getRequestDispatcher("createpost.jsp").forward(req, resp);
                         return;
                     }
-                    //в противном случае рассматриваем как файл
                     path = processUploadedFile(item);
                 }
             }
@@ -98,22 +83,19 @@ public class CreateNewPost extends BaseServlet {
         }
         int user_id = 0;
         HttpSession session = req.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String id = attributeNames.nextElement();
-            if (id.equals("id")) {
-                user_id = (int) session.getAttribute(id);
-                break;
-            }
+        try {
+            user_id = (int) session.getAttribute("id");
+        } catch (NullPointerException e) {
+            resp.sendRedirect(req.getContextPath() + "/account");
+            return;
         }
 
         if (!category.equals("") &&
                 !topic.equals("") &&
                 !body.equals("") &&
                 !path.equals("")) {
-            Post post = new Post(category, topic, body, path, user_id);
             try {
-                postServ.add(post);
+                postServ.add(new Post(category, topic, body, path, user_id));
                 message = "All is okey!";
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -128,9 +110,8 @@ public class CreateNewPost extends BaseServlet {
     private String processUploadedFile(FileItem item) throws Exception {
         File uploadetFile = null;
         String way = null;
-        //выбираем файлу имя пока не найдём свободное
         do {
-            way = "/images/users/" + new Random().nextInt() + item.getName();
+            way = "/images/posts/" + new Random().nextInt() + item.getName();
             String path = getServletContext().getRealPath(way);
             System.out.println(path);
             uploadetFile = new File(path);

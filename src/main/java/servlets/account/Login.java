@@ -16,23 +16,15 @@ import java.sql.SQLException;
 public class Login extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (BaseServlet.checkSession(req)) {
-            resp.sendRedirect(req.getContextPath() + "/account");
+        if (!BaseServlet.checkSession(req)&&!BaseServlet.checkCookies(req)) {
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
             return;
         }
-        if (BaseServlet.checkCookies(req)) {
-            resp.sendRedirect(req.getContextPath() + "/account");
-            return;
-        }
-        RequestDispatcher view = req.getRequestDispatcher("login.jsp");
-        view.forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/account");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (BaseServlet.checkCookies(req)) {
-            resp.sendRedirect(req.getContextPath() + "/account");
-        }
         String name = req.getParameter("email");
         String password = req.getParameter("psw");
         if (name == null || password == null) {
@@ -47,7 +39,6 @@ public class Login extends BaseServlet {
             req.getRequestDispatcher("login.jsp").forward(req, resp);
             return;
         }
-        password = HashPassword.hash(password);
         User user = new User(name, password);
         try {
             user = userServ.getUser(user);

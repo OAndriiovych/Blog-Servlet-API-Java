@@ -39,7 +39,6 @@ public class PostServ extends Connection implements PostDAO {
         String sql = "SELECT * FROM posts WHERE id_post = " + id;
 
         ResultSet rs = stmt.executeQuery(sql);
-
         rs.next();
         post = new Post(rs.getInt("id_post"),
                 rs.getString("category"),
@@ -54,10 +53,6 @@ public class PostServ extends Connection implements PostDAO {
         return post;
     }
 
-    public Post findLike() throws SQLException {
-        return null;
-    }
-
     public int count() throws SQLException {
         int count = 0;
         String sql = "SELECT count(*) FROM posts";
@@ -68,7 +63,6 @@ public class PostServ extends Connection implements PostDAO {
         rs.close();
         return count;
     }
-
 
     public List<Post> last(int from, int to) throws SQLException {
         List<Post> list = new LinkedList();
@@ -93,7 +87,6 @@ public class PostServ extends Connection implements PostDAO {
         return list;
     }
 
-
     public String getAuthor(int id) throws SQLException {
         Statement stmt = connection.createStatement();
         String sql = "SELECT lastname FROM users LEFT JOIN  posts ON users.id_user = posts.user_id WHERE user_id = " + id;
@@ -106,6 +99,7 @@ public class PostServ extends Connection implements PostDAO {
         stmt.close();
         return login;
     }
+
     public List<Post> findLike(String like) throws SQLException {
         List<Post> listOfPosts = new LinkedList<>();
         Statement stmt = connection.createStatement();

@@ -34,17 +34,17 @@ public class Search extends BaseServlet {
                 for (Post post : postList) {
                     PostLessDTO postLessDTO =PostContLess.getPostLess(post);
                     postLessDTO.setWay_to_photo(postLessDTO.getWay_to_photo().replace("\\", "/"));
-                    System.out.println(postLessDTO.getWay_to_photo());
                     postLessDTOList.add(postLessDTO);
                 }
-                message=null;
+            }
+            else {
+                req.setAttribute("message", message);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         req.setAttribute("postLessDTOList", postLessDTOList);
         req.setAttribute("like", like);
-        req.setAttribute("message", message);
         req.getRequestDispatcher("search.jsp").forward(req, resp);
     }
 }

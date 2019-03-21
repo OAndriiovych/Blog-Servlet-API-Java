@@ -90,7 +90,7 @@ public class Account extends BaseServlet {
                         password = item.getString();
                     }
                 } else {
-                    if (item.getSize() > 393216) {
+                    if (item.getSize() > 393216000) {
                         request.setAttribute("size", true);
                         request.getRequestDispatcher("account.jsp").forward(request, response);
                         return;
@@ -138,32 +138,17 @@ public class Account extends BaseServlet {
             e.printStackTrace();
         }
         request.getRequestDispatcher("account.jsp").forward(request, response);
-
     }
 
-    /**
-     * Сохраняет файл на сервере, в папке upload.
-     * Сама папка должна быть уже создана.
-     *
-     * @param item
-     * @throws Exception
-     */
     private String processUploadedFile(FileItem item) throws Exception {
         File uploadetFile = null;
         String way = null;
-        //выбираем файлу имя пока не найдём свободное
         do {
             way = "/images/users" + random.nextInt() + item.getName();
             String path = getServletContext().getRealPath(way);
             System.out.println(path);
-            //String path=getServletContext().getRealPath("d:/test/"+random.nextInt() + item.getName());
-            //String path ="d:/test/"+random.nextInt() + item.getName();
             uploadetFile = new File(path);
         } while (uploadetFile.exists());
-
-        //создаём файл
-        //uploadetFile.createNewFile();
-        //записываем в него данные
         item.write(uploadetFile);
         return way;
     }
