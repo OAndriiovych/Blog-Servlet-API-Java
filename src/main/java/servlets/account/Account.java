@@ -44,7 +44,6 @@ public class Account extends BaseServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //проверяем является ли полученный запрос multipart/form-data
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         String login = null;
         String lastname = null;
@@ -54,24 +53,11 @@ public class Account extends BaseServlet {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-
-        // Создаём класс фабрику
         DiskFileItemFactory factory = new DiskFileItemFactory();
-
-        // Максимальный буфера данных в байтах,
-        // при его привышении данные начнут записываться на диск во временную директорию
-        // устанавливаем один мегабайт
         factory.setSizeThreshold(1024 * 1024);
-
-        // устанавливаем временную директорию
         File tempDir = (File) getServletContext().getAttribute("javax.servlet.context.tempdir");
         factory.setRepository(tempDir);
-
-        //Создаём сам загрузчик
         ServletFileUpload upload = new ServletFileUpload(factory);
-
-        //максимальный размер данных который разрешено загружать в байтах
-        //по умолчанию -1, без ограничений. Устанавливаем 10 мегабайт.
         upload.setSizeMax(1024 * 1024 * 10);
 
         try {
@@ -89,7 +75,7 @@ public class Account extends BaseServlet {
                     } else if (item.getFieldName().equals("psw")) {
                         password = item.getString();
                     }
-                } else {
+                } else if(item.getSize()>1){
                     if (item.getSize() > 393216000) {
                         request.setAttribute("size", true);
                         request.getRequestDispatcher("account.jsp").forward(request, response);
@@ -130,7 +116,7 @@ public class Account extends BaseServlet {
             if (!lastname.equals("")) {
                 updateUser.setLastname(lastname);
             }
-            if (!path.equals("")) {
+            if (path!=null) {
                 updateUser.setWay_to_photo(path);
             }
             userServ.update(updateUser.getId_user(), updateUser);
@@ -144,7 +130,7 @@ public class Account extends BaseServlet {
         File uploadetFile = null;
         String way = null;
         do {
-            way = "/images/users" + random.nextInt() + item.getName();
+            way = "/images/users/" + random.nextInt() + item.getName();
             String path = getServletContext().getRealPath(way);
             System.out.println(path);
             uploadetFile = new File(path);
