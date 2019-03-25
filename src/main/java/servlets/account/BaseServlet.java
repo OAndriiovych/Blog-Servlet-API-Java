@@ -27,7 +27,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    public static boolean checkSession(HttpServletRequest req)  {
+    public static boolean checkSession(HttpServletRequest req) {
         try {
             if (userServ.isUser(getIdFromSession(req))) {
                 return true;
@@ -39,10 +39,11 @@ public abstract class BaseServlet extends HttpServlet {
         }
         return false;
     }
+
     public static int getIdFromSession(HttpServletRequest req) {
         try {
             return (int) req.getSession().getAttribute("id");
-        }  catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             return -1;
         }
     }

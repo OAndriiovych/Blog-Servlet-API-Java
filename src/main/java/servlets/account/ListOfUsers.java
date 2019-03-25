@@ -21,7 +21,6 @@ public class ListOfUsers extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         User user = null;
         try {
             user = userServ.getByID(getIdFromSession(req));

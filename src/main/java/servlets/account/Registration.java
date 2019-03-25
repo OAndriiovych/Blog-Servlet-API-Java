@@ -39,7 +39,7 @@ public class Registration extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (BaseServlet.checkSession(req)||BaseServlet.checkCookies(req)) {
+        if (BaseServlet.checkSession(req) || BaseServlet.checkCookies(req)) {
             resp.sendRedirect(req.getContextPath() + "/account");
             return;
         }

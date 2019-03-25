@@ -16,7 +16,8 @@ public class PostServ extends Connection implements PostDAO {
     private java.sql.Connection connection;
 
     public void add(Post post) throws SQLException {
-        String sql = "INSERT INTO posts (category, topic, post, way_to_photo, user_id) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO posts (category, topic, post, " +
+                "way_to_photo, user_id) VALUES (?,?,?,?,?)";
 
         PreparedStatement prpStat = connection.prepareStatement(sql);
         prpStat.setString(1, post.getCategory());
@@ -89,7 +90,8 @@ public class PostServ extends Connection implements PostDAO {
 
     public String getAuthor(int id) throws SQLException {
         Statement stmt = connection.createStatement();
-        String sql = "SELECT lastname FROM users LEFT JOIN  posts ON users.id_user = posts.user_id WHERE user_id = " + id;
+        String sql = "SELECT lastname FROM users LEFT JOIN  posts " +
+                "ON users.id_user = posts.user_id WHERE user_id = " + id;
         ResultSet rs = stmt.executeQuery(sql);
 
         rs.next();
@@ -103,7 +105,7 @@ public class PostServ extends Connection implements PostDAO {
     public List<Post> findLike(String like) throws SQLException {
         List<Post> listOfPosts = new LinkedList<>();
         Statement stmt = connection.createStatement();
-        String sql = "SELECT * FROM posts WHERE LOWER(topic) LIKE LOWER('%"+like+"%'); ";
+        String sql = "SELECT * FROM posts WHERE LOWER(topic) LIKE LOWER('%" + like + "%'); ";
 
         ResultSet rs = stmt.executeQuery(sql);
 

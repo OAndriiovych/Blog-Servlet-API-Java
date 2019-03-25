@@ -115,7 +115,9 @@
                                             background-color: #6610f2;"><c:out value="${asd}"/></a></li>
                                         </c:if>
                                         <c:if test="${asd!=page}">
-                                            <li class="page-item"><a class="page-link" href="/?page=<c:out value="${asd}"/>"> <c:out value="${asd}"/></a></li>
+                                            <li class="page-item"><a class="page-link"
+                                                                     href="/?page=<c:out value="${asd}"/>"> <c:out
+                                                    value="${asd}"/></a></li>
                                         </c:if>
                                     </c:if>
                                     <c:if test="${asd==0&&flag}">

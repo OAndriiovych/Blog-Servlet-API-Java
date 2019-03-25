@@ -43,7 +43,7 @@
                             </c:if>
 
                             <label for="email"><b>Email</b></label>
-                           <input type="text" placeholder="Enter Email" name="email" required minlength="8"
+                            <input type="text" placeholder="Enter Email" name="email" required minlength="8"
                                    maxlength="26" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
 
@@ -51,7 +51,8 @@
                             <input type="password" placeholder="Enter Password" name="psw" required minlength="8"
                                    maxlength="26">
                             <label for="cookies"><b>Remember me</b></label>
-                            <input type="checkbox" placeholder="Enter Password" name="cookies" style="transform: scale(1.3);-ms-transform: scale(1.3);/ -webkit-transform: scale(1.3);">
+                            <input type="checkbox" placeholder="Enter Password" name="cookies"
+                                   style="transform: scale(1.3);-ms-transform: scale(1.3);/ -webkit-transform: scale(1.3);">
 
                             <hr>
                             <button type="submit" class="registerbtn">Login</button>
@@ -71,7 +72,7 @@
 
 
     <jsp:include page="_footer.jsp"></jsp:include>
-        <!-- END footer -->
+    <!-- END footer -->
 </div>
 
 <!-- loader -->

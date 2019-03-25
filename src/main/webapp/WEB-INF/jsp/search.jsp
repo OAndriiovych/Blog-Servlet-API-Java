@@ -105,17 +105,17 @@
                                 <c:set var="page" value="${presentpage}"/>
                                 <c:forEach var="asd" items="${requestScope.pages}">
                                     <c:if test="${asd>0}">
-                                        <c:if test="${asd==page}">
-                                            <li class="page-item"><a class="page-link" href="" style="color: #fff;
+                                    <c:if test="${asd==page}">
+                                        <li class="page-item"><a class="page-link" href="" style="color: #fff;
                                             background-color: #6610f2;"><c:out value="${asd}"/></a></li>
-                                        </c:if>
-                                        <c:if test="${asd!=page}">
-                                            <li class="page-item"><a class="page-link"
-                                                                     href="/?page=<c:out value="/></a></li>
+                                    </c:if>
+                                    <c:if test="${asd!=page}">
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="/?page=<c:out value="/></a></li>
                                         </c:if>
                                     </c:if>
                                     <c:if test=" ${asd==0&&flag}">
-                                        <c:set var="flag" value="${false}"/>
+                                                <c:set var="flag" value="${false}"/>
                                         <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
                                     </c:if>
                                 </c:forEach>

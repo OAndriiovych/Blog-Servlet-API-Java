@@ -12,17 +12,16 @@ import java.sql.SQLException;
 public class PostContAll {
 
     public static final PostAllDTO getPostAllLong(Post postInput) throws SQLException {
-        PostAllDTO postOutput= makePostAllDTO(postInput);
+        PostAllDTO postOutput = makePostAllDTO(postInput);
         postOutput.setPost(postInput.getPost());
         return postOutput;
     }
 
     public static final PostAllDTO getPostAllLite(Post postInput) throws SQLException {
-        PostAllDTO postOutput= makePostAllDTO(postInput);
-        if(postInput.getPost().length()>101) {
+        PostAllDTO postOutput = makePostAllDTO(postInput);
+        if (postInput.getPost().length() > 101) {
             postOutput.setPost(postInput.getPost().substring(0, 100) + "...");
-        }
-        else {
+        } else {
             postOutput.setPost(postInput.getPost());
         }
         return postOutput;
@@ -40,7 +39,7 @@ public class PostContAll {
         UserServ userServ = new UserServ();
         userServ.connect();
 
-            user = userServ.getByID(postInput.getUser_id());
+        user = userServ.getByID(postInput.getUser_id());
 
         userServ.closeConnection();
         postOutput.setAuthor(user.getLastname());
@@ -48,7 +47,7 @@ public class PostContAll {
         CommentServ commentServ = new CommentServ();
         commentServ.connect();
 
-            postOutput.setCountComment(commentServ.getCountComment(postInput.getId_post()));
+        postOutput.setCountComment(commentServ.getCountComment(postInput.getId_post()));
 
         commentServ.closeConnection();
         return postOutput;

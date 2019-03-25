@@ -10,7 +10,6 @@ import java.io.IOException;
 @WebServlet("/contact")
 public class Contact extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/jsp/contact.jsp").forward(req, resp);

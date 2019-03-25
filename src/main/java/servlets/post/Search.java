@@ -19,8 +19,8 @@ public class Search extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String like = req.getParameter("search");
-        String message="Sorry we didn't find anything((";
-        if(like.replaceAll("\\s+","").equals("")){
+        String message = "Sorry we didn't find anything((";
+        if (like.replaceAll("\\s+", "").equals("")) {
             req.setAttribute("like", like);
             req.setAttribute("message", message);
             req.getRequestDispatcher("WEB-INF/jsp/search.jsp").forward(req, resp);
@@ -30,14 +30,13 @@ public class Search extends BaseServlet {
         List<PostLessDTO> postLessDTOList = new LinkedList<>();
         try {
             postList = postServ.findLike(like);
-            if(!postList.isEmpty()){
+            if (!postList.isEmpty()) {
                 for (Post post : postList) {
-                    PostLessDTO postLessDTO =PostContLess.getPostLess(post);
+                    PostLessDTO postLessDTO = PostContLess.getPostLess(post);
                     postLessDTO.setWay_to_photo(postLessDTO.getWay_to_photo().replace("\\", "/"));
                     postLessDTOList.add(postLessDTO);
                 }
-            }
-            else {
+            } else {
                 req.setAttribute("message", message);
             }
         } catch (SQLException e) {

@@ -9,17 +9,16 @@ public class CommentDTO {
     private String user_comment;
     private String way_to_author_photo;
 
+    public CommentDTO(Date date_of_coment, String user_comment) {
+        this.date_of_coment = date_of_coment;
+        this.user_comment = user_comment;
+    }
     public String getWay_to_author_photo() {
         return way_to_author_photo;
     }
 
     public void setWay_to_author_photo(String way_to_author_photo) {
         this.way_to_author_photo = way_to_author_photo;
-    }
-
-    public CommentDTO(Date date_of_coment, String user_comment) {
-        this.date_of_coment = date_of_coment;
-        this.user_comment = user_comment;
     }
 
     public String getLastname() {

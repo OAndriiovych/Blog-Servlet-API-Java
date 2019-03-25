@@ -31,13 +31,12 @@ public class MainPage extends BaseServlet {
         List<PostAllDTO> listP = new LinkedList<>();
         List<PostLittleDTO> listP2 = new LinkedList<>();
         List<Post> posts = new LinkedList();
-
-        int count=0;
-        int from=0;
-        int to=12;
-        int postAtPage=12;
+        int count = 0;
+        int from = 0;
+        int to = 12;
+        int postAtPage = 12;
         int lastpage = 0;
-        int presentpage =1;
+        int presentpage = 1;
         int[] pages = new int[7];
 
         try {
@@ -45,44 +44,43 @@ public class MainPage extends BaseServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if(count%postAtPage==0){
-            lastpage=count/postAtPage;
-        }
-        else {
-            lastpage=count/postAtPage+1;
+        if (count % postAtPage == 0) {
+            lastpage = count / postAtPage;
+        } else {
+            lastpage = count / postAtPage + 1;
         }
 
-        if (req.getParameter("page")!=null) {
+        if (req.getParameter("page") != null) {
             try {
                 presentpage = Integer.parseInt(req.getParameter("page"));
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 resp.sendRedirect(req.getContextPath() + "/");
                 return;
             }
-            if(presentpage>(lastpage)){
-                presentpage=1;
+            if (presentpage > (lastpage)) {
+                presentpage = 1;
             }
         }
-        int id=0;
-        for(int i = presentpage-1;i<=presentpage+3;i++) {
+        int id = 0;
+        for (int i = presentpage - 1; i <= presentpage + 3; i++) {
             if (i > 0) {
-                pages[id]=i;
+                pages[id] = i;
                 id++;
             }
-            if(i==lastpage){
+            if (i == lastpage) {
                 break;
             }
         }
-        pages[6]=lastpage;
+        pages[6] = lastpage;
 
         req.setAttribute("pages", pages);
         req.setAttribute("presentpage", presentpage);
         presentpage--;
-        from+=postAtPage*presentpage;
-        to+=postAtPage*presentpage;
+        from += postAtPage * presentpage;
+        to += postAtPage * presentpage;
 
         try {
-            posts = postServ.last(from,to);
+            posts = postServ.last(from, to);
         } catch (SQLException e) {
             e.printStackTrace();
         }

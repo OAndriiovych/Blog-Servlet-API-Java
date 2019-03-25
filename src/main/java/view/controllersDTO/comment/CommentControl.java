@@ -16,7 +16,6 @@ public class CommentControl {
         userServ.closeConnection();
         comment.setLastname(user.getLastname());
         comment.setWay_to_author_photo(user.getWay_to_photo());
-
         return comment;
     }
 }

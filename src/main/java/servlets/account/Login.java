@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class Login extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (!BaseServlet.checkSession(req)&&!BaseServlet.checkCookies(req)) {
+        if (!BaseServlet.checkSession(req) && !BaseServlet.checkCookies(req)) {
             req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             return;
         }

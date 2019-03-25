@@ -13,14 +13,14 @@ public class User {
     private String way_to_photo = "/images/users/deff.jpg";
     private Roles user_role;
 
-
-
-
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
         User users = (User) o;
         return id_user == users.id_user &&
                 Objects.equals(login, users.login) &&
@@ -35,9 +35,8 @@ public class User {
         return Objects.hash(id_user, login, passw, lastname, date_of_reg, user_role);
     }
 
-
-
-    public User(int id_user, String login, String passw, String lastname, Date date_of_reg, String way_to_photo, Roles user_role) {
+    public User(int id_user, String login, String passw, String lastname,
+                Date date_of_reg, String way_to_photo, Roles user_role) {
         this.id_user = id_user;
         this.login = login;
         this.passw = passw;
@@ -47,7 +46,6 @@ public class User {
         this.user_role = user_role;
     }
 
-
     public User(String login, String passw, String lastname, String way_to_photo, Roles user_role) {
         this.login = login;
         this.passw = passw;
@@ -55,18 +53,21 @@ public class User {
         this.way_to_photo = way_to_photo;
         this.user_role = user_role;
     }
+
     public User(String login, String passw, String lastname, String way_to_photo) {
         this.login = login;
         this.passw = passw;
         this.lastname = lastname;
         this.way_to_photo = way_to_photo;
     }
+
     public User(String login, String passw, String lastname, Roles user_role) {
         this.login = login;
         this.passw = passw;
         this.lastname = lastname;
         this.user_role = user_role;
     }
+
     public User(String login, String passw, String lastname) {
         this.login = login;
         this.passw = passw;

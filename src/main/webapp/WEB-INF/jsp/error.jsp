@@ -27,13 +27,13 @@
                 background-size: cover;
                 padding-bottom: 250px;
                 padding-top: 100px;">
-                <div class="col-md-12 col-lg-12 main-content" >
+                <div class="col-md-12 col-lg-12 main-content">
                     <h1 class="mb-4">Something went wrong.</h1>
                     <div class="post-content-body">
                         <h2>We do not know what it was (((</h2>
                         <p>
                             If you see something strange, send us an email
-                            <a class="category mb-5"  href="example@email.com">example@email.com</a>
+                            <a class="category mb-5" href="example@email.com">example@email.com</a>
                         </p>
                     </div>
                 </div>

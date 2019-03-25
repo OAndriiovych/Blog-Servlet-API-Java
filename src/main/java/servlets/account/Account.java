@@ -61,11 +61,9 @@ public class Account extends BaseServlet {
         try {
             List items = upload.parseRequest(request);
             Iterator iter = items.iterator();
-
             while (iter.hasNext()) {
                 FileItem item = (FileItem) iter.next();
                 if (item.isFormField()) {
-                    //если принимаемая часть данных является полем формы
                     if (item.getFieldName().equals("lastname")) {
                         lastname = item.getString();
                     } else if (item.getFieldName().equals("email")) {
@@ -79,10 +77,7 @@ public class Account extends BaseServlet {
                         request.getRequestDispatcher("WEB-INF/jsp/account.jsp").forward(request, response);
                         return;
                     }
-                    //в противном случае рассматриваем как файл
                     path = processUploadedFile(item);
-
-
                 }
             }
         } catch (Exception e) {

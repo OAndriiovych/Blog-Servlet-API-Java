@@ -2,7 +2,7 @@ package view.DTO.post;
 
 import java.util.Date;
 
-public class PostAllDTO extends PostLessDTO{
+public class PostAllDTO extends PostLessDTO {
     protected String category;
     protected String post;
     protected int countComment;

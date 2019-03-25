@@ -33,7 +33,8 @@
                 <div class="col-md-12 col-lg-8 main-content">
                     <img src="<c:out value="${mainPost.way_to_photo}"/>" alt="Image" class="img-fluid mb-5">
                     <div class="post-meta">
-                        <span class="author mr-2"><img src="../../images/person_1.jpg" alt="Colorlib" class="mr-2"> <c:out
+                        <span class="author mr-2"><img src="../../images/person_1.jpg" alt="Colorlib"
+                                                       class="mr-2"> <c:out
                                 value="${mainPost.author}"/></span>&bullet;
                         <span class="mr-2"><c:out value="${mainPost.date_of_post}"/></span> &bullet;
                         <c:if test="${mainPost.countComment>0}">

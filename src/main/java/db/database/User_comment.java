@@ -10,7 +10,8 @@ public class User_comment {
     private String user_comment;
     private Date date_of_coment ;
 
-    public User_comment(int id_comment, int user_id, int post_id, String user_comment, Date date_of_coment) {
+    public User_comment(int id_comment, int user_id, int post_id,
+                        String user_comment, Date date_of_coment) {
         this.id_comment = id_comment;
         this.user_id = user_id;
         this.post_id = post_id;
@@ -26,8 +27,12 @@ public class User_comment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
         User_comment comment = (User_comment) o;
         return id_comment == comment.id_comment &&
                 user_id == comment.user_id &&

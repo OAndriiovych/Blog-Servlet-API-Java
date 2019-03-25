@@ -49,7 +49,8 @@ public class CommentServ extends Connection implements User_commentDAO {
         Statement stmt = connection.createStatement();
         String sql = null;
         if (post_id > 0) {
-            sql = "SELECT * FROM user_comments WHERE post_id = " + post_id + " ORDER BY id_comment DESC limit 150";
+            sql = "SELECT * FROM user_comments WHERE post_id = "
+                    + post_id + " ORDER BY id_comment DESC limit 150";
         } else {
             sql = "SELECT * FROM user_comments ORDER BY id_comment DESC limit 150";
         }

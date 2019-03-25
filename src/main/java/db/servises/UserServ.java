@@ -50,9 +50,9 @@ public class UserServ extends Connection implements UserDAO {
         Statement stmt = connection.createStatement();
         String sql = "select * from users where id_user = " + id;
         ResultSet rs = stmt.executeQuery(sql);
-        User user =null;
+        User user = null;
         while (rs.next()) {
-             user = new User(rs.getInt("id_user"),
+            user = new User(rs.getInt("id_user"),
                     rs.getString("login"),
                     rs.getString("passw"),
                     rs.getString("lastname"),
@@ -67,9 +67,10 @@ public class UserServ extends Connection implements UserDAO {
 
     public User getUser(User user) throws SQLException {
         Statement stmt = connection.createStatement();
-        String sql = "select * from users where login = '" + user.getLogin() + "' and passw='" + HashPassword.hash(user.getPassw()) + "';";
+        String sql = "select * from users where login = '" + user.getLogin()
+                + "' and passw='" + HashPassword.hash(user.getPassw()) + "';";
         ResultSet rs = stmt.executeQuery(sql);
-        user=null;
+        user = null;
         while (rs.next()) {
             user = new User(rs.getInt("id_user"),
                     rs.getString("login"),
@@ -104,10 +105,11 @@ public class UserServ extends Connection implements UserDAO {
         return is(sql);
     }
 
-    public boolean isUser(int id,String passwor) throws SQLException {
-        String sql = "select * from users where id_user = " + id+" and passw = '"+passwor+"'";
+    public boolean isUser(int id, String passwor) throws SQLException {
+        String sql = "select * from users where id_user = " + id + " and passw = '" + passwor + "'";
         return is(sql);
     }
+
     public boolean isUser(int id) throws SQLException {
         String sql = "select * from users where id_user = " + id;
         return is(sql);
@@ -130,7 +132,8 @@ public class UserServ extends Connection implements UserDAO {
         } else if (user.getUser_role() == Roles.MODERATOR) {
             s = "'moderator'";
         }
-        String sql = "UPDATE users set login=?, passw=?,lastname=?,way_to_photo=?,user_role=" + s + " where id_user = " + id;
+        String sql = "UPDATE users set login=?, passw=?, lastname=?, " +
+                "way_to_photo=?,user_role=" + s + " where id_user = " + id;
         PreparedStatement prpStat = connection.prepareStatement(sql);
 
         prpStat.setString(1, user.getLogin());

@@ -40,39 +40,39 @@
                 <button type="submit" class="registerbtn">Cahge</button>
             </form>
 
-                <c:set var="person" value="${requestScope.person}"/>
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <table border="1" style="width: 100%;">
-                            <tr>
-                            <th>login</th>
-                            <th>lastname</th>
-                            <th>date_of_reg</th>
-                            <th>way_to_photo</th>
-                            <th>role</th>
-                            </tr>
-                            <c:forEach var="user" items="${requestScope.userDTOList}">
-                            <tr>
-                                <td>
-                                    <c:out value="${user.login}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${user.lastname}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${user.date_of_reg}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${user.way_to_photo}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${user.role}"/>
-                                </td>
-                            </tr>
-                            </c:forEach>
-                        </table>
-                    </form>
-                </div>
-                <!-- END sidebar -->
+            <c:set var="person" value="${requestScope.person}"/>
+            <form action="" method="post" enctype="multipart/form-data">
+                <table border="1" style="width: 100%;">
+                    <tr>
+                        <th>login</th>
+                        <th>lastname</th>
+                        <th>date_of_reg</th>
+                        <th>way_to_photo</th>
+                        <th>role</th>
+                    </tr>
+                    <c:forEach var="user" items="${requestScope.userDTOList}">
+                        <tr>
+                            <td>
+                                <c:out value="${user.login}"/>
+                            </td>
+                            <td>
+                                <c:out value="${user.lastname}"/>
+                            </td>
+                            <td>
+                                <c:out value="${user.date_of_reg}"/>
+                            </td>
+                            <td>
+                                <c:out value="${user.way_to_photo}"/>
+                            </td>
+                            <td>
+                                <c:out value="${user.role}"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </form>
+        </div>
+        <!-- END sidebar -->
 
 
     </section>

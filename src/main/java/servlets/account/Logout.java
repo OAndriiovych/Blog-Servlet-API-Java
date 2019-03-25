@@ -16,7 +16,6 @@ public class Logout extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.getSession().invalidate();
         Cookie[] cookie = req.getCookies();
         if (cookie == null) {
@@ -27,8 +26,7 @@ public class Logout extends BaseServlet {
             if (c.getName().equals("id")) {
                 c.setMaxAge(0);
                 resp.addCookie(c);
-            }
-            else if (c.getName().equals("password")) {
+            } else if (c.getName().equals("password")) {
                 c.setMaxAge(0);
                 resp.addCookie(c);
             }

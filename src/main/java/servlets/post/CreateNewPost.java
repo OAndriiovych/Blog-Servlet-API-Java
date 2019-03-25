@@ -29,7 +29,6 @@ public class CreateNewPost extends BaseServlet {
             resp.sendRedirect(req.getContextPath() + "/account");
             return;
         }
-
     }
 
     @Override
@@ -44,7 +43,6 @@ public class CreateNewPost extends BaseServlet {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(1024 * 1024);
         File tempDir = (File) getServletContext().getAttribute("javax.servlet.context.tempdir");
@@ -66,7 +64,7 @@ public class CreateNewPost extends BaseServlet {
                     }
                 } else {
                     System.out.println(item.getSize());
-                    if (item.getSize() >  41_943_040) {
+                    if (item.getSize() > 41_943_040) {
                         message = "photo too big";
                         req.setAttribute("message", message);
                         req.getRequestDispatcher("WEB-INF/jsp/createpost.jsp").forward(req, resp);
