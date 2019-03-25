@@ -25,22 +25,20 @@ public class Account extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (!BaseServlet.checkSession(req)&&!BaseServlet.checkCookies(req)) {
+        if (!BaseServlet.checkSession(req) && !BaseServlet.checkCookies(req)) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
         User user = null;
-        HttpSession session = req.getSession();
-        int id =(int)session.getAttribute("id");
         try {
-            user = userServ.getByID(id);
+            user = userServ.getByID(getIdFromSession(req));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         req.setAttribute("person", UserContDTO.convertToUserDTO(user));
 
-        req.getRequestDispatcher("account.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/account.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -75,10 +73,10 @@ public class Account extends BaseServlet {
                     } else if (item.getFieldName().equals("psw")) {
                         password = item.getString();
                     }
-                } else if(item.getSize()>1){
+                } else if (item.getSize() > 1) {
                     if (item.getSize() > 393216000) {
                         request.setAttribute("size", true);
-                        request.getRequestDispatcher("account.jsp").forward(request, response);
+                        request.getRequestDispatcher("WEB-INF/jsp/account.jsp").forward(request, response);
                         return;
                     }
                     //в противном случае рассматриваем как файл
@@ -93,18 +91,10 @@ public class Account extends BaseServlet {
             return;
         }
         User updateUser = null;
-        HttpSession session = request.getSession();
-        Enumeration<String> attributeNames = session.getAttributeNames();
-        while (attributeNames.hasMoreElements()) {
-            String name = attributeNames.nextElement();
-            if (name.equals("id")) {
-                try {
-                    updateUser = userServ.getByID((int) session.getAttribute(name));
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
+        try {
+            updateUser = userServ.getByID(getIdFromSession(request));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         try {
             if (!login.equals("")) {
@@ -116,14 +106,14 @@ public class Account extends BaseServlet {
             if (!lastname.equals("")) {
                 updateUser.setLastname(lastname);
             }
-            if (path!=null) {
+            if (path != null) {
                 updateUser.setWay_to_photo(path);
             }
             userServ.update(updateUser.getId_user(), updateUser);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("account.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/account.jsp").forward(request, response);
     }
 
     private String processUploadedFile(FileItem item) throws Exception {
@@ -131,9 +121,7 @@ public class Account extends BaseServlet {
         String way = null;
         do {
             way = "/images/users/" + random.nextInt() + item.getName();
-            String path = getServletContext().getRealPath(way);
-            System.out.println(path);
-            uploadetFile = new File(path);
+            uploadetFile = new File(getServletContext().getRealPath(way));
         } while (uploadetFile.exists());
         item.write(uploadetFile);
         return way;

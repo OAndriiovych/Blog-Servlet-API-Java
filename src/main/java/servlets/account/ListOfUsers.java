@@ -21,18 +21,16 @@ public class ListOfUsers extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        User user = null;
 
+        User user = null;
         try {
-            user = userServ.getByID((int) session.getAttribute("id"));
+            user = userServ.getByID(getIdFromSession(req));
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
             resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
-
 
         if (user == null || !(user.getUser_role() == Roles.ADMIN)) {
             resp.sendRedirect(req.getContextPath() + "/");
@@ -49,7 +47,7 @@ public class ListOfUsers extends BaseServlet {
             userDTOList.add(UserContDTO.convertToUserDTO(u));
         }
         req.setAttribute("userDTOList", userDTOList);
-        req.getRequestDispatcher("listOfUsers.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/listOfUsers.jsp").forward(req, resp);
     }
 
     @Override

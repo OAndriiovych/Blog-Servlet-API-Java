@@ -76,7 +76,7 @@ public class Poster extends servlets.post.BaseServlet {
         req.setAttribute("postAllLong", postAllLong);
         req.setAttribute("listOfComments", listOfCommentsDTO);
         req.setAttribute("postList", postLittleDTOList);
-        req.getRequestDispatcher("post.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/post.jsp").forward(req, resp);
     }
 
     @Override

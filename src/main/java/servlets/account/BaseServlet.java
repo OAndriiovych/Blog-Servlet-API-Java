@@ -27,10 +27,9 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    public static boolean checkSession(HttpServletRequest req) throws IOException {
-        HttpSession session = req.getSession();
+    public static boolean checkSession(HttpServletRequest req)  {
         try {
-            if (userServ.isUser((Integer) session.getAttribute("id"))) {
+            if (userServ.isUser(getIdFromSession(req))) {
                 return true;
             }
         } catch (SQLException e) {
@@ -39,6 +38,13 @@ public abstract class BaseServlet extends HttpServlet {
             return false;
         }
         return false;
+    }
+    public static int getIdFromSession(HttpServletRequest req) {
+        try {
+            return (int) req.getSession().getAttribute("id");
+        }  catch (NullPointerException e) {
+            return -1;
+        }
     }
 
     public static Roles getRole(HttpServletRequest req) throws IOException {

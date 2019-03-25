@@ -43,7 +43,7 @@ public class Registration extends BaseServlet {
             resp.sendRedirect(req.getContextPath() + "/account");
             return;
         }
-        RequestDispatcher view = req.getRequestDispatcher("registration.jsp");
+        RequestDispatcher view = req.getRequestDispatcher("WEB-INF/jsp/registration.jsp");
         view.forward(req, resp);
     }
 

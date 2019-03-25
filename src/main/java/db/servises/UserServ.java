@@ -137,7 +137,6 @@ public class UserServ extends Connection implements UserDAO {
         prpStat.setString(2, HashPassword.hash(user.getPassw()));
         prpStat.setString(3, user.getLastname());
         prpStat.setString(4, user.getWay_to_photo());
-        System.out.println(prpStat);
         prpStat.executeUpdate();
         prpStat.close();
     }

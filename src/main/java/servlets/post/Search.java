@@ -23,7 +23,7 @@ public class Search extends BaseServlet {
         if(like.replaceAll("\\s+","").equals("")){
             req.setAttribute("like", like);
             req.setAttribute("message", message);
-            req.getRequestDispatcher("search.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/jsp/search.jsp").forward(req, resp);
             return;
         }
         List<Post> postList = null;
@@ -45,6 +45,6 @@ public class Search extends BaseServlet {
         }
         req.setAttribute("postLessDTOList", postLessDTOList);
         req.setAttribute("like", like);
-        req.getRequestDispatcher("search.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/search.jsp").forward(req, resp);
     }
 }

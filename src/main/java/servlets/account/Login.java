@@ -17,7 +17,7 @@ public class Login extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (!BaseServlet.checkSession(req)&&!BaseServlet.checkCookies(req)) {
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             return;
         }
         resp.sendRedirect(req.getContextPath() + "/account");
@@ -29,14 +29,14 @@ public class Login extends BaseServlet {
         String password = req.getParameter("psw");
         if (name == null || password == null) {
             req.setAttribute("login", true);
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             return;
         }
         name.replaceAll("\\s+", "");
         password.replaceAll("\\s+", "");
         if (name.equals("") || password.equals("")) {
             req.setAttribute("login", true);
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             return;
         }
         User user = new User(name, password);
@@ -47,7 +47,7 @@ public class Login extends BaseServlet {
         }
         if (user == null) {
             req.setAttribute("login", true);
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
             return;
         }
         HttpSession session = req.getSession();

@@ -26,7 +26,6 @@ import java.util.List;
 public class MainPage extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         PostContAll pca = new PostContAll();
         PostContLess pcless = new PostContLess();
         List<PostAllDTO> listP = new LinkedList<>();
@@ -111,6 +110,6 @@ public class MainPage extends BaseServlet {
         }
         req.setAttribute("bigPosts", listP);
         req.setAttribute("littlePosts", listP2);
-        req.getRequestDispatcher("main.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(req, resp);
     }
 }

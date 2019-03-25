@@ -12,27 +12,45 @@ public class Connection {
     private static String wayToProperty = "d:/SS/blog/src/main/resources/config_db.properties";
 
     protected static java.sql.Connection getConnection() {
-         java.sql.Connection conn = null;
+        java.sql.Connection conn = null;
 
-            Properties property = new Properties();
+        Properties property = new Properties();
+        try {
             try {
-                try {
-                    property.load(new FileInputStream(wayToProperty));
-                } catch (IOException e) {
-                    System.err.println("ОШИБКА: Файл свойств отсуствует!");
-                }
-                Class.forName(property.getProperty("forname"));
-                conn = DriverManager.getConnection(property.getProperty("host"),
-                        property.getProperty("login"),
-                        property.getProperty("password"));
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
+                property.load(new FileInputStream(wayToProperty));
+            } catch (IOException e) {
+                System.err.println("ОШИБКА: Файл свойств отсуствует!");
             }
+            Class.forName(property.getProperty("forname"));
+            conn = DriverManager.getConnection(property.getProperty("host"),
+                    property.getProperty("login"),
+                    property.getProperty("password"));
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return conn;
     }
+
+//    protected static java.sql.Connection getConnection() {
+//       try {
+//                property.load(new FileInputStream(wayToProperty));
+//            } catch (IOException e) {
+//                System.err.println("ОШИБКА: Файл свойств отсуствует!");
+//            }
+//            Class.forName(property.getProperty("forname"));
+//        try {
+//            return DriverManager.getConnection("jdbc:postgresql://" + property.getProperty("hostheroku"),
+//                                                  property.getProperty("loginheroku"),
+//                                                  property.getProperty("passwordheroku"));
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
 
 }

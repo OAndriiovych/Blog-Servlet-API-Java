@@ -24,7 +24,7 @@ public class CreateNewPost extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (servlets.account.BaseServlet.getRole(req) != Roles.USER) {
-            req.getRequestDispatcher("createpost.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/jsp/createpost.jsp").forward(req, resp);
         } else {
             resp.sendRedirect(req.getContextPath() + "/account");
             return;
@@ -34,7 +34,6 @@ public class CreateNewPost extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //проверяем является ли полученный запрос multipart/form-data
         boolean isMultipart = ServletFileUpload.isMultipartContent(req);
         String topic = null;
         String category = null;
@@ -70,7 +69,7 @@ public class CreateNewPost extends BaseServlet {
                     if (item.getSize() >  41_943_040) {
                         message = "photo too big";
                         req.setAttribute("message", message);
-                        req.getRequestDispatcher("createpost.jsp").forward(req, resp);
+                        req.getRequestDispatcher("WEB-INF/jsp/createpost.jsp").forward(req, resp);
                         return;
                     }
                     path = processUploadedFile(item);
@@ -84,7 +83,7 @@ public class CreateNewPost extends BaseServlet {
         int user_id = 0;
         HttpSession session = req.getSession();
         try {
-            user_id = (int) session.getAttribute("id");
+            user_id = servlets.account.BaseServlet.getIdFromSession(req);
         } catch (NullPointerException e) {
             resp.sendRedirect(req.getContextPath() + "/account");
             return;
@@ -104,7 +103,7 @@ public class CreateNewPost extends BaseServlet {
             message = "Something went wrong category= " + category + "; topic=" + topic + "; post=" + body + "; way to photo=" + path;
         }
         req.setAttribute("message", message);
-        req.getRequestDispatcher("createpost.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/createpost.jsp").forward(req, resp);
     }
 
     private String processUploadedFile(FileItem item) throws Exception {
