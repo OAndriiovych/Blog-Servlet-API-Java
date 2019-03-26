@@ -35,7 +35,7 @@ ALTER TABLE user_comments
   ADD CONSTRAINT cs_cmmnt_u FOREIGN KEY (user_id) REFERENCES users(id_user);
 
 ALTER TABLE user_comments
-  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (user_id) REFERENCES posts(id_post);
+  ADD CONSTRAINT cs_cmmnt_p FOREIGN KEY (post_id) REFERENCES posts(id_post);
 
 ALTER TABLE posts
   ADD CONSTRAINT cs_posts FOREIGN KEY (user_id) REFERENCES users(id_user);

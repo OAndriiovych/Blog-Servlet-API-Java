@@ -34,6 +34,16 @@ public class PostServ extends Connection implements PostDAO {
         return last(-1, 0);
     }
 
+    public boolean is(int id) throws SQLException {
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from posts where id_post = " + id);
+        boolean b = rs.next();
+
+        rs.close();
+        stmt.close();
+        return b;
+    }
+
     public Post getByID(int id) throws SQLException {
         Post post = null;
         Statement stmt = connection.createStatement();

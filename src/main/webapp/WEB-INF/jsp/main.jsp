@@ -15,6 +15,7 @@
 <html lang="en">
 <head>
     <title>Welcome to my blog</title>
+    <link rel="stylesheet" href="../../css/style.css">
 
 </head>
 <body>

@@ -92,6 +92,7 @@ public class MainPage extends BaseServlet {
                 try {
                     postAllDTO = pca.getPostAllLite(p);
                     postAllDTO.setCountComment(commentServ.getCountComment(p.getId_post()));
+                    postAllDTO.setWay_to_photo(postAllDTO.getWay_to_photo().replace("\\", "/"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

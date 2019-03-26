@@ -43,7 +43,26 @@ public class Poster extends servlets.post.BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.valueOf(req.getParameter("post"));
+
+        int id =0;
+        try {
+            id = Integer.valueOf(req.getParameter("post"));
+        } catch ( Exception e){
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
+        }
+        try {
+            if(id<1||id>postServ.count()){
+                resp.sendRedirect(req.getContextPath() + "/");
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(id==0) {
+            id = (Integer) req.getSession().getAttribute("post_id");
+        }
+        req.getSession().setAttribute("post_id",id);
         PostServ postServ = new PostServ();
         postServ.connect();
         List<Post> list = new LinkedList<>();
@@ -127,7 +146,6 @@ public class Poster extends servlets.post.BaseServlet {
                 e.printStackTrace();
             }
         }
-
+        doGet(req,resp);
     }
-
 }
