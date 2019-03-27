@@ -111,10 +111,10 @@
                                     </c:if>
                                     <c:if test="${asd!=page}">
                                         <li class="page-item"><a class="page-link"
-                                                                 href="/?page=<c:out value="/></a></li>
+                                                                 href="/?page=<c:out value=""/></a></li>
                                         </c:if>
                                     </c:if>
-                                    <c:if test=" ${asd==0&&flag}">
+                                    <c:if test="${asd==0&&flag}">
                                                 <c:set var="flag" value="${false}"/>
                                         <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
                                     </c:if>

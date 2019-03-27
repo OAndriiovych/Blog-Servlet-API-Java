@@ -10,16 +10,15 @@ import java.sql.SQLException;
 
 public class FillDatabase {
     public static void main(String[] args) throws SQLException {
-        addUser();
         addPost();
-        addComent();
+        addPost();
     }
     public static void addUser() throws SQLException {
         UserServ userServ = new UserServ();
         userServ.connect();
         for(int i =1;i<7;i++){
             userServ.add(
-                    new User("login"+i, "password", "lastname","\\images\\person_"+i+".jpg", Roles.ADMIN));
+                    new User("login"+i, "password", "lastname","/images/person_"+i+".jpg", Roles.ADMIN));
         }
         userServ.closeConnection();
         System.out.println("added users");
